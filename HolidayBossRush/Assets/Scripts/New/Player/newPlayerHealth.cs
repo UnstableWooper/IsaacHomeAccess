@@ -14,7 +14,6 @@ public class newPlayerHealth : MonoBehaviour
 
     private float iFramesTimer;
     private Vector2 _velocity;
-
     private void Update()
     {
         iFramesTimer -= Time.deltaTime;
@@ -46,7 +45,7 @@ public class newPlayerHealth : MonoBehaviour
         {
             _spriteRenderer.color = Color.black;
             yield return new WaitForSeconds(0.175f);
-            _spriteRenderer.color = Color.grey;
+            _spriteRenderer.color = Color.gray;
             yield return new WaitForSeconds(0.175f);
         }
     }

@@ -7,10 +7,10 @@ public class PumkinController : MonoBehaviour
     [SerializeField] private List<BossAttack> attacks;
     [SerializeField] private float attackCooldown; //8
     [SerializeField] public SpriteRenderer spriteRenderer;
-    public float attackCooldownTimer { set; get; }
-
     private BossHP _bossHealth;
-    public bool secondPhase { private set; get; }
+    private Color _ogColor;
+    public float AttackCooldownTimer { set; get; }
+    public bool SecondPhase { private set; get; }
     //Shoot Attack
     //Roll Attack
     //Shockwave Attack
@@ -20,29 +20,36 @@ public class PumkinController : MonoBehaviour
         gameObject.tag = "Boss";
         _bossHealth = GetComponent<BossHP>();
         StartCoroutine(Attack());
+        _ogColor = Color.Lerp(Color.yellow, Color.red, 0.1f);
     }
     private void Update()
     {
-        attackCooldownTimer -= Time.deltaTime;
-        if (_bossHealth.trueBossHP <= _bossHealth.maxBossHP / 3)//later
+        AttackCooldownTimer -= Time.deltaTime;
+        if (_bossHealth.TrueBossHp <= _bossHealth.maxBossHp / 3)//later
         {
-            secondPhase = true;
+            SecondPhase = true;
             Debug.Log("secondPhase");
         }
     }
     IEnumerator Attack()
     {
-        int randAttack;
-        randAttack = Random.Range(0, attacks.Count);
+        int randAttack = Random.Range(0, attacks.Count);
         attacks[randAttack].StartCoroutine("AttackWarn");
-        yield return new WaitUntil(() => attackCooldownTimer <= 0);
-        attackCooldownTimer = attackCooldown;
+        yield return new WaitUntil(() => AttackCooldownTimer <= 0);
+        AttackCooldownTimer = attackCooldown;
         StartCoroutine(Attack());
     }
     
-    public void DamageIndacatorCaller()
+    public IEnumerator DamageIndacatorCaller()
     {
-        //Show it take damage;
+        for (int i = 1; i < 2; i++)
+        { 
+            spriteRenderer.color = Color.white;
+            yield return new WaitForSeconds(0.175f);
+            spriteRenderer.color = _ogColor;
+            yield return new WaitForSeconds(0.175f);
+        }
+
     }
 }
  

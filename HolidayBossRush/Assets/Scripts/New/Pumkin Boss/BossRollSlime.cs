@@ -42,12 +42,11 @@ public class BossRollSlime : BossAttack
 
     private void Update()
     {
+        Vector2 trueVelocity = _rigidbody.velocity;
         if (transform.position.x > 20 || transform.position.x < -20)
         {
             transform.position = _originPos;
-            Vector2 trueVelocity = _rigidbody.velocity;
             trueVelocity = new Vector2(0 , 0);
-            _rigidbody.velocity = trueVelocity;
             _damage.enabled = false;
             gameObject.tag = "Boss";
         }
@@ -55,14 +54,13 @@ public class BossRollSlime : BossAttack
         {
             _hits = 0;
             transform.position = _originPos;
-            Vector2 trueVelocity = _rigidbody.velocity;
             trueVelocity = new Vector2(0, 0);
-            _rigidbody.velocity = trueVelocity;
-            _pumkinController.attackCooldownTimer += 3;
+            _pumkinController.AttackCooldownTimer += 3;
             _damage.enabled = false;
             gameObject.tag = "Boss";
             //stuneded
         }
+        _rigidbody.velocity = trueVelocity;
     }
 
     public override IEnumerator AttackWarn()
@@ -74,7 +72,7 @@ public class BossRollSlime : BossAttack
         _damage.enabled = true;
         _spriteRenderer.color = Color.yellow;
         yield return new WaitForSeconds(attackWarnLength);
-        _pumkinController.attackCooldownTimer += 5;
+        _pumkinController.AttackCooldownTimer += 5;
         _spriteRenderer.color = Color.Lerp(Color.yellow, Color.red, 0.1f);
         StartAttack();
     }

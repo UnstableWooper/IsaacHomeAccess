@@ -17,7 +17,7 @@ public class BossShoot : BossAttack
     public override void StartAttack()
     {
         int randomPick = Random.Range(0, _spawnPos.Length);
-        if (!_pumkinController.secondPhase)
+        if (!_pumkinController.SecondPhase)
         {
             int randomAttackAmounts = Random.Range(attackAmount, attackAmount + 1);
             for(int i = 0; i < randomAttackAmounts; i++)

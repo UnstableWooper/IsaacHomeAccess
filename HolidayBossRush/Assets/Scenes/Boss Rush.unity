@@ -1435,7 +1435,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attacks:
   - {fileID: 799697989}
-  attackCooldown: 8
+  attackCooldown: 0.2
   spriteRenderer: {fileID: 445276410}
 --- !u!114 &799697986
 MonoBehaviour:
@@ -1449,7 +1449,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8071beef5151d8448587b6a494f6bd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxBossHP: 4
+  maxBossHp: 100
 --- !u!50 &799697987
 Rigidbody2D:
   serializedVersion: 4
@@ -1544,7 +1544,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _attackDamage: 1
   speed: 4
-  rollHP: 20
+  rollHP: 0
   attackWarnLength: 2
 --- !u!114 &799697991
 MonoBehaviour:
@@ -1977,7 +1977,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 7.85
+  orthographic size: 6.65
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -2002,7 +2002,7 @@ Transform:
   m_GameObject: {fileID: 1104235950}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4, z: -10}
+  m_LocalPosition: {x: 0, y: 2.6, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

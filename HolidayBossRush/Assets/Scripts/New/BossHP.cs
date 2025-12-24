@@ -5,16 +5,15 @@ using UnityEngine;
 public class BossHP : MonoBehaviour
 {
 
-    [SerializeField, Range(1, 1000)]public int maxBossHP;
-
-    public int trueBossHP { private set; get; }
+    [SerializeField, Range(1, 1000)]public int maxBossHp;
     private PlayerProjectile _bulletProjectile;
     private PumkinController _brain;
-
+    
+    public int TrueBossHp { private set; get; }
     private void Start()
     {
         _brain = GetComponent<PumkinController>();
-        trueBossHP = maxBossHP;
+        TrueBossHp = maxBossHp;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -22,10 +21,10 @@ public class BossHP : MonoBehaviour
         if (other.CompareTag("Projectile"))
         {
             _bulletProjectile = other.GetComponent<PlayerProjectile>();
-            trueBossHP -= _bulletProjectile.projectileDamage;
+            TrueBossHp -= _bulletProjectile.projectileDamage;
             _bulletProjectile.DestroyBullet();
-            _brain.DamageIndacatorCaller();
-            if (trueBossHP <= 0)
+            _brain.StartCoroutine("DamageIndacatorCaller");
+            if (TrueBossHp <= 0)
             {
                 gameObject.SetActive(false);
             }
