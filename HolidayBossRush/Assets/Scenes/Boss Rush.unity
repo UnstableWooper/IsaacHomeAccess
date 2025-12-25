@@ -219,6 +219,7 @@ GameObject:
   - component: {fileID: 34381500}
   - component: {fileID: 34381499}
   - component: {fileID: 34381498}
+  - component: {fileID: 34381501}
   m_Layer: 6
   m_Name: Ground_p4
   m_TagString: Ground
@@ -257,7 +258,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 6200000, guid: 93a16163079137b48a6b6d5c33217626, type: 2}
+  m_Material: {fileID: 6200000, guid: 97d87f0ede0750c448554ae73b848ed5, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -365,6 +366,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &34381501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 34381496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e84d7cd90d1b084ea95991f16c1b8c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stickyLength: 15
+  stickyPhaseMaterial: {fileID: 6200000, guid: 93a16163079137b48a6b6d5c33217626, type: 2}
 --- !u!1 &77451627
 GameObject:
   m_ObjectHideFlags: 0
@@ -511,6 +526,7 @@ GameObject:
   - component: {fileID: 289278926}
   - component: {fileID: 289278925}
   - component: {fileID: 289278924}
+  - component: {fileID: 289278927}
   m_Layer: 6
   m_Name: Ground_p2
   m_TagString: Ground
@@ -549,7 +565,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 6200000, guid: 93a16163079137b48a6b6d5c33217626, type: 2}
+  m_Material: {fileID: 6200000, guid: 97d87f0ede0750c448554ae73b848ed5, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -657,6 +673,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &289278927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 289278922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e84d7cd90d1b084ea95991f16c1b8c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stickyLength: 15
+  stickyPhaseMaterial: {fileID: 6200000, guid: 93a16163079137b48a6b6d5c33217626, type: 2}
 --- !u!1 &350816042
 GameObject:
   m_ObjectHideFlags: 0
@@ -837,6 +867,7 @@ GameObject:
   - component: {fileID: 571907141}
   - component: {fileID: 571907140}
   - component: {fileID: 571907139}
+  - component: {fileID: 571907142}
   m_Layer: 6
   m_Name: Ground_p3
   m_TagString: Ground
@@ -875,7 +906,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 6200000, guid: 93a16163079137b48a6b6d5c33217626, type: 2}
+  m_Material: {fileID: 6200000, guid: 97d87f0ede0750c448554ae73b848ed5, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -983,6 +1014,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &571907142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 571907137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e84d7cd90d1b084ea95991f16c1b8c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stickyLength: 15
+  stickyPhaseMaterial: {fileID: 6200000, guid: 93a16163079137b48a6b6d5c33217626, type: 2}
 --- !u!1 &578221750
 GameObject:
   m_ObjectHideFlags: 0
@@ -1434,8 +1479,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attacks:
-  - {fileID: 799697989}
-  attackCooldown: 0.2
+  - {fileID: 799697990}
+  attackCooldown: 8
   spriteRenderer: {fileID: 445276410}
 --- !u!114 &799697986
 MonoBehaviour:
@@ -1544,7 +1589,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _attackDamage: 1
   speed: 4
-  rollHP: 0
+  rollHP: 10
   attackWarnLength: 2
 --- !u!114 &799697991
 MonoBehaviour:
@@ -1739,6 +1784,7 @@ GameObject:
   - component: {fileID: 1074046075}
   - component: {fileID: 1074046074}
   - component: {fileID: 1074046073}
+  - component: {fileID: 1074046077}
   m_Layer: 6
   m_Name: Ground_p1
   m_TagString: Ground
@@ -1762,7 +1808,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 6200000, guid: 93a16163079137b48a6b6d5c33217626, type: 2}
+  m_Material: {fileID: 6200000, guid: 97d87f0ede0750c448554ae73b848ed5, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1885,6 +1931,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 207128973}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1074046077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1074046072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e84d7cd90d1b084ea95991f16c1b8c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stickyLength: 15
+  stickyPhaseMaterial: {fileID: 6200000, guid: 93a16163079137b48a6b6d5c33217626, type: 2}
 --- !u!1 &1085604820
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,9 +8,10 @@ public class Damage : MonoBehaviour
 
     private newPlayerHealth _playerHealth;
     
+    public bool CanDamage{set; get;}
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && CanDamage)
         {
             _playerHealth = other.GetComponent<newPlayerHealth>();
             _playerHealth.Damage(damage, transform.position);

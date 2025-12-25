@@ -27,8 +27,8 @@ public class BossShockWave : BossAttack
         _spriteRenderer.color = Color.yellow;
         yield return new WaitForSeconds(attackWarnLength);
         _spriteRenderer.color = Color.Lerp(Color.yellow, Color.red, 0.1f);
-        if (!_pumkinController.secondPhase)
-        {
+        if (!_pumkinController.SecondPhase)
+        {   
             int randomAttackAmounts = Random.Range(attackAmount, attackAmount + 1);
             for (int i = 0; i < randomAttackAmounts; i++)
             {
