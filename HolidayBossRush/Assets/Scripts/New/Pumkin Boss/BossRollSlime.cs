@@ -8,7 +8,9 @@ public class BossRollSlime : BossAttack
 {
     // Also When I am back can I make it so if the boss touches the ground it mkae it turn orange and also makes the ground sticky if possible of course
     [SerializeField] private float speed;
+    [SerializeField] private float secondPhaseSpeedMulti;
     [SerializeField] private int rollHP;
+    [SerializeField] private float stunLength;
 
     [SerializeField] private float attackWarnLength = 1;
 
@@ -28,7 +30,7 @@ public class BossRollSlime : BossAttack
         _damage = GetComponent<Damage>();
         _spriteRenderer = _pumkinController.spriteRenderer;
         _velocity = _rigidbody.velocity;
-        _damage.CanDamage = false;
+        _damage.Damager(false);
     }
 
     public override void StartAttack()
@@ -36,17 +38,17 @@ public class BossRollSlime : BossAttack
         _hits = 0;
         _originPos = new Vector2(0, 4);
         gameObject.tag = "SlimeMode";
-        _damage.enabled = true;
+        _damage.Damager(true);
         int randPos = Random.Range(0, 2);
         if(randPos == 1)
         {
             transform.position = new Vector2(20, -1);
-            _velocity = new Vector2(-speed, 0);
+            _velocity = new Vector2(-speed * (_pumkinController.SecondPhase ? secondPhaseSpeedMulti : 1), 0);
         }
         else if(randPos == 0)
         {
             transform.position = new Vector2(-20, -1);
-            _velocity = new Vector2(speed, 0);
+            _velocity = new Vector2(speed * (_pumkinController.SecondPhase ? secondPhaseSpeedMulti : 1), 0);
         }
         _rigidbody.velocity = _velocity;
     }
@@ -57,7 +59,7 @@ public class BossRollSlime : BossAttack
         {
             transform.position = _originPos;
             _velocity = new Vector2(0 , 0);
-            _damage.CanDamage = false;
+            _damage.Damager(false);
             gameObject.tag = "Boss";
         }
         if (_hits >= rollHP)
@@ -65,8 +67,8 @@ public class BossRollSlime : BossAttack
             _hits = 0;
             transform.position = _originPos;
             _velocity = new Vector2(0, 0);
-            _pumkinController.AttackCooldownTimer += 3;
-            _damage.CanDamage = false;
+            _pumkinController.AttackCooldownTimer += stunLength;
+            _damage.Damager(false);
             gameObject.tag = "Boss";
             //stuneded
         }
@@ -77,7 +79,7 @@ public class BossRollSlime : BossAttack
     {
         _spriteRenderer.color = Color.yellow;
         yield return new WaitForSeconds(attackWarnLength);
-        _pumkinController.AttackCooldownTimer += 5;
+        _pumkinController.AttackCooldownTimer += 3;
         _spriteRenderer.color = Color.Lerp(Color.yellow, Color.red, 0.1f);
         StartAttack();
     }

@@ -8,13 +8,18 @@ public class Damage : MonoBehaviour
 
     private newPlayerHealth _playerHealth;
     
-    public bool CanDamage{set; get;}
+    private bool _canDamage;
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && CanDamage)
+        Debug.Log(_canDamage + ": damage");
+        if (other.CompareTag("Player") && _canDamage)
         {
             _playerHealth = other.GetComponent<newPlayerHealth>();
             _playerHealth.Damage(damage, transform.position);
         }
     }
+
+    public void Damager(bool canDamage) {
+        _canDamage = canDamage;
+    } 
 }
