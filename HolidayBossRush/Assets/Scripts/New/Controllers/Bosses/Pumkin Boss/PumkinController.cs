@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PumkinController : MonoBehaviour
 {
-    [SerializeField] private List<BossAttack> attacks;
+    [SerializeField] private AttackData[] attacks;
+
     [SerializeField] private float attackCooldown; //8
     [SerializeField] public SpriteRenderer spriteRenderer;
     private BossHP _bossHealth;
@@ -33,8 +34,27 @@ public class PumkinController : MonoBehaviour
     }
     IEnumerator Attack()
     {
-        int randAttack = Random.Range(0, attacks.Count);
-        attacks[randAttack].StartCoroutine("AttackWarn");
+        int totalChance = 0;
+        #region
+        foreach (AttackData Attack in attacks)
+        {
+            totalChance += Attack.randomChance;
+        }
+        int randChance = Random.Range(0, totalChance);
+        int cumulativeChance = 0;
+
+        foreach (AttackData Attack in attacks)
+        {
+            cumulativeChance += Attack.randomChance;
+            if (randChance <= cumulativeChance)
+            {
+                Attack.attack.StartCoroutine("AttackWarn");
+                break;
+            }
+        }
+
+        #endregion
+
         yield return new WaitUntil(() => AttackCooldownTimer <= 0);
         AttackCooldownTimer = attackCooldown;
         StartCoroutine(Attack());
@@ -52,4 +72,3 @@ public class PumkinController : MonoBehaviour
 
     }
 }
- 
