@@ -2,31 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PumkinController : MonoBehaviour
+public class BossController : MonoBehaviour
 {
     [SerializeField] private AttackData[] attacks;
 
     [SerializeField] private float attackCooldown; //8
     [SerializeField] public SpriteRenderer spriteRenderer;
     private BossHP _bossHealth;
-    private Color _ogColor;
+    public Color OgColor { private set; get; }
     public float AttackCooldownTimer { set; get; }
     public bool SecondPhase { private set; get; }
     //Shoot Attack
     //Roll Attack
     //Shockwave Attack
 
-    private void Start()
+    private void Awake()
     {
         gameObject.tag = "Boss";
         _bossHealth = GetComponent<BossHP>();
         StartCoroutine(Attack());
-        _ogColor = Color.Lerp(Color.yellow, Color.red, 0.1f);
+        OgColor = spriteRenderer.color;
     }
     private void Update()
     {
         AttackCooldownTimer -= Time.deltaTime;
-        if (_bossHealth.TrueBossHp <= _bossHealth.maxBossHp / 3)//later
+        if (_bossHealth.TrueBossHp <= _bossHealth.maxBossHp / 2)//later
         {
             SecondPhase = true;
             Debug.Log("secondPhase");
@@ -66,7 +66,7 @@ public class PumkinController : MonoBehaviour
         { 
             spriteRenderer.color = Color.white;
             yield return new WaitForSeconds(0.175f);
-            spriteRenderer.color = _ogColor;
+            spriteRenderer.color = OgColor;
             yield return new WaitForSeconds(0.175f);
         }
 

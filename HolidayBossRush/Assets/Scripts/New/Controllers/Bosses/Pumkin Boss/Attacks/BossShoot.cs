@@ -10,10 +10,10 @@ public class BossShoot : BossAttack
     [SerializeField]private GameObject bullet;
     [SerializeField]private Transform []_spawnPos;
 
-    [SerializeField]private float attackWarnLength = 1;
     private SpriteRenderer _spriteRenderer;
 
-    private PumkinController _pumkinController;
+    private BossController _pumkinController;
+    private Color _ogColor;
     public override void StartAttack()
     {
         int randomPick = Random.Range(0, _spawnPos.Length);
@@ -37,11 +37,12 @@ public class BossShoot : BossAttack
     }
     public override IEnumerator AttackWarn()
     {
-        _pumkinController = GetComponent<PumkinController>();
+        _pumkinController = GetComponent<BossController>();
+        _ogColor = _pumkinController.OgColor;
         _spriteRenderer = _pumkinController.spriteRenderer;
         _spriteRenderer.color = Color.yellow;
         yield return new WaitForSeconds(attackWarnLength);
-        _spriteRenderer.color = Color.Lerp(Color.yellow, Color.red, 0.1f);
+        _spriteRenderer.color = _ogColor;
         StartAttack();
     }
 }

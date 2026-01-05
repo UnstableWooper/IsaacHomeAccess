@@ -7,12 +7,12 @@ public class BossHP : MonoBehaviour
 
     [SerializeField, Range(1, 1000)]public int maxBossHp;
     private PlayerProjectile _bulletProjectile;
-    private PumkinController _brain;
+    private BossController _brain;
     
     public int TrueBossHp { private set; get; }
     private void Start()
     {
-        _brain = GetComponent<PumkinController>();
+        _brain = GetComponent<BossController>();
         TrueBossHp = maxBossHp;
     }
 

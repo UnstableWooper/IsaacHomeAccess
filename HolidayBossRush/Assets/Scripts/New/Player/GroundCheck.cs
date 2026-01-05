@@ -34,7 +34,10 @@ public class GroundCheck : MonoBehaviour
     private void Collision(Collision2D other)
     {
         _Material = other.gameObject.GetComponent<Rigidbody2D>().sharedMaterial;
-        Friction = _Material.friction;
+        if(_Material != null)
+        {
+            Friction = _Material.friction;
+        }
     }
 
     private void Update()

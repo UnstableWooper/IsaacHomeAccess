@@ -93,11 +93,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1577927336854895649}
+  - component: {fileID: 6582626299957704484}
   - component: {fileID: 8282398013165523082}
   - component: {fileID: 1186979850332985980}
   - component: {fileID: 393213863677239087}
   - component: {fileID: 4865722688110974308}
-  - component: {fileID: 7380160290056160718}
+  - component: {fileID: 8943850837050227469}
+  - component: {fileID: 2943250936750891850}
   m_Layer: 0
   m_Name: Easter Bunny
   m_TagString: Untagged
@@ -124,6 +126,33 @@ Transform:
   - {fileID: 5106810441215142887}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &6582626299957704484
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6446001551011754798}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!70 &8282398013165523082
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -206,7 +235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8071beef5151d8448587b6a494f6bd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxBossHp: 0
+  maxBossHp: 700
 --- !u!114 &4865722688110974308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,7 +249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
---- !u!114 &7380160290056160718
+--- !u!114 &8943850837050227469
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -229,12 +258,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 6446001551011754798}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bba5b10730ce53049a439badc58c0bfd, type: 3}
+  m_Script: {fileID: 11500000, guid: 0f939d5fcafb87a49902064df3aa78d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attacks: []
-  jumpsBeforeAttack: 4
+  attacks:
+  - attack: {fileID: 2943250936750891850}
+    randomChance: 4
+  attackCooldown: 4
   spriteRenderer: {fileID: 6378061231933972619}
+--- !u!114 &2943250936750891850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6446001551011754798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9ad1c6549834dc439202d1d6b8949d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackWarnLength: 0.5
+  _attackDamage: 1
+  jumpStrength: {x: 2, y: 7}
 --- !u!1 &6746837503595447113
 GameObject:
   m_ObjectHideFlags: 0
@@ -413,7 +459,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4996056144813935483}
   - component: {fileID: 6378061231933972619}
-  - component: {fileID: 924763537731987579}
   - component: {fileID: 8401498285538226445}
   m_Layer: 0
   m_Name: Body
@@ -489,33 +534,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &924763537731987579
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8883858965520573642}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!114 &8401498285538226445
 MonoBehaviour:
   m_ObjectHideFlags: 0

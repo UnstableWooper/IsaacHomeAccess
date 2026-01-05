@@ -1981,6 +1981,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2902752536302000490, guid: af54795c4d4dd354c9d9b24d951dfe8f, type: 3}
+      propertyPath: attacks.Array.data[0].randomChance
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2902752536302000490, guid: af54795c4d4dd354c9d9b24d951dfe8f, type: 3}
+      propertyPath: attacks.Array.data[2].randomChance
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3778198572817592295, guid: af54795c4d4dd354c9d9b24d951dfe8f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
