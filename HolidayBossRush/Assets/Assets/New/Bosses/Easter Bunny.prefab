@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 3311555914201285457}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.38, y: 0.81, z: -0.17}
+  m_LocalPosition: {x: 1.38, y: 0.81, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -100,6 +100,8 @@ GameObject:
   - component: {fileID: 4865722688110974308}
   - component: {fileID: 8943850837050227469}
   - component: {fileID: 2943250936750891850}
+  - component: {fileID: 2356007468357865712}
+  - component: {fileID: 5279885802054186098}
   m_Layer: 0
   m_Name: Easter Bunny
   m_TagString: Untagged
@@ -200,10 +202,10 @@ CapsuleCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 63
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -235,7 +237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8071beef5151d8448587b6a494f6bd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxBossHp: 700
+  maxHP: 500
 --- !u!114 &4865722688110974308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -263,8 +265,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attacks:
   - attack: {fileID: 2943250936750891850}
-    randomChance: 4
-  attackCooldown: 4
+    randomChance: 0
+  - attack: {fileID: 2356007468357865712}
+    randomChance: 2
+  attackCooldown: 3
   spriteRenderer: {fileID: 6378061231933972619}
 --- !u!114 &2943250936750891850
 MonoBehaviour:
@@ -280,7 +284,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackWarnLength: 0.5
   _attackDamage: 1
-  jumpStrength: {x: 2, y: 7}
+  jumpStrength: {x: 2, y: 8}
+--- !u!114 &2356007468357865712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6446001551011754798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 846dc6032b156d34ba5d8884db895460, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackWarnLength: 2
+  _attackDamage: 0
+  Egg: {fileID: 3046928697000974345, guid: 624540c9bc3b9ad4eb159777a91da1b2, type: 3}
+--- !u!114 &5279885802054186098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6446001551011754798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 371dc315ed23439489dc37d0a01dc966, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackWarnLength: 3
+  _attackDamage: 1
+  jumpHight: {x: 0, y: 10}
 --- !u!1 &6746837503595447113
 GameObject:
   m_ObjectHideFlags: 0
@@ -307,7 +341,7 @@ Transform:
   m_GameObject: {fileID: 6746837503595447113}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.43, y: 0.54, z: -0.17}
+  m_LocalPosition: {x: -1.43, y: 0.54, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -391,7 +425,7 @@ Transform:
   m_GameObject: {fileID: 7442131258968417194}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.046, z: -0.09}
+  m_LocalPosition: {x: 0, y: 0.046, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -546,4 +580,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8071beef5151d8448587b6a494f6bd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxBossHp: 0
+  maxHP: 0

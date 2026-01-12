@@ -12,6 +12,8 @@ public class BossController : MonoBehaviour
     public Color OgColor { private set; get; }
     public float AttackCooldownTimer { set; get; }
     public bool SecondPhase { private set; get; }
+
+    public bool Grounded;
     //Shoot Attack
     //Roll Attack
     //Shockwave Attack
@@ -26,7 +28,7 @@ public class BossController : MonoBehaviour
     private void Update()
     {
         AttackCooldownTimer -= Time.deltaTime;
-        if (_bossHealth.TrueBossHp <= _bossHealth.maxBossHp / 2)//later
+        if (_bossHealth.TrueBossHp <= _bossHealth.maxHP / 2)//later
         {
             SecondPhase = true;
             Debug.Log("secondPhase");
@@ -59,16 +61,29 @@ public class BossController : MonoBehaviour
         AttackCooldownTimer = attackCooldown;
         StartCoroutine(Attack());
     }
-    
+
     public IEnumerator DamageIndacatorCaller()
     {
         for (int i = 1; i < 2; i++)
-        { 
+        {
             spriteRenderer.color = Color.white;
             yield return new WaitForSeconds(0.175f);
             spriteRenderer.color = OgColor;
             yield return new WaitForSeconds(0.175f);
         }
 
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.collider.CompareTag("Ground"))
+        {
+            Grounded = true;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        Grounded = false;
     }
 }

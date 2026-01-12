@@ -9,8 +9,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 393213863677239087, guid: 6767bde897342ba4084437b80c66d405, type: 3}
+      propertyPath: maxHP
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 393213863677239087, guid: 6767bde897342ba4084437b80c66d405, type: 3}
       propertyPath: maxBossHp
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1186979850332985980, guid: 6767bde897342ba4084437b80c66d405, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 63
+      objectReference: {fileID: 0}
+    - target: {fileID: 1186979850332985980, guid: 6767bde897342ba4084437b80c66d405, type: 3}
+      propertyPath: m_IncludeLayers.m_Bits
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 1577927336854895649, guid: 6767bde897342ba4084437b80c66d405, type: 3}
       propertyPath: m_LocalScale.x
@@ -62,7 +74,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6446001551011754798, guid: 6767bde897342ba4084437b80c66d405, type: 3}
       propertyPath: m_Name
-      value: Easter Bunny Variant
+      value: Easter Bunny Baby Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8282398013165523082, guid: 6767bde897342ba4084437b80c66d405, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8282398013165523082, guid: 6767bde897342ba4084437b80c66d405, type: 3}
+      propertyPath: m_IncludeLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8282398013165523082, guid: 6767bde897342ba4084437b80c66d405, type: 3}
+      propertyPath: m_CallbackLayers.m_Bits
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 8282398013165523082, guid: 6767bde897342ba4084437b80c66d405, type: 3}
+      propertyPath: m_ContactCaptureLayers.m_Bits
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

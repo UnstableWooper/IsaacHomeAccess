@@ -2,18 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossHP : MonoBehaviour
+public class MiniBossHP : MonoBehaviour
 {
 
-    [SerializeField, Range(1, 1000)]public int maxHP;
+    [SerializeField, Range(1, 100)] public int maxHP;
     private PlayerProjectile _bulletProjectile;
-    private BossController _brain;
-    
-    public int TrueBossHp { private set; get; }
+    private int TrueHP;
     private void Start()
     {
-        _brain = GetComponent<BossController>();
-        TrueBossHp = maxHP;
+        TrueHP = maxHP;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -21,10 +18,9 @@ public class BossHP : MonoBehaviour
         if (other.CompareTag("Projectile"))
         {
             _bulletProjectile = other.GetComponent<PlayerProjectile>();
-            TrueBossHp -= _bulletProjectile.projectileDamage;
+            TrueHP -= _bulletProjectile.projectileDamage;
             _bulletProjectile.DestroyBullet();
-            _brain.StartCoroutine("DamageIndacatorCaller");
-            if (TrueBossHp <= 0)
+            if (TrueHP <= 0)
             {
                 gameObject.SetActive(false);
             }
