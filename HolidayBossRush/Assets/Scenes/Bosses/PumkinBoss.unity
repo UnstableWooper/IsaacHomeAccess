@@ -2033,6 +2033,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pumkin Boss
       objectReference: {fileID: 0}
+    - target: {fileID: 7820425745167808062, guid: af54795c4d4dd354c9d9b24d951dfe8f, type: 3}
+      propertyPath: maxHP
+      value: 500
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

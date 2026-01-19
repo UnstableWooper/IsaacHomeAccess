@@ -14,6 +14,9 @@ public class BossController : MonoBehaviour
     public bool SecondPhase { private set; get; }
 
     public bool Grounded;
+    public bool bounceOffWall;
+
+    private Rigidbody2D _rigidbody;
     //Shoot Attack
     //Roll Attack
     //Shockwave Attack
@@ -22,16 +25,24 @@ public class BossController : MonoBehaviour
     {
         gameObject.tag = "Boss";
         _bossHealth = GetComponent<BossHP>();
-        StartCoroutine(Attack());
         OgColor = spriteRenderer.color;
+        _rigidbody = GetComponent<Rigidbody2D>();
+    }
+
+    private void Start()
+    {
+        StartCoroutine(Attack());
     }
     private void Update()
     {
         AttackCooldownTimer -= Time.deltaTime;
-        if (_bossHealth.TrueBossHp <= _bossHealth.maxHP / 2)//later
+        if (_bossHealth.TrueBossHp <= _bossHealth.maxHP / 2 )
         {
-            SecondPhase = true;
-            Debug.Log("secondPhase");
+            if (gameObject.CompareTag("Boss"))
+            {
+                SecondPhase = true;
+                Debug.Log("secondPhase");
+            }
         }
     }
     IEnumerator Attack()
@@ -51,6 +62,7 @@ public class BossController : MonoBehaviour
             if (randChance <= cumulativeChance)
             {
                 Attack.attack.StartCoroutine("AttackWarn");
+                Debug.Log("Attack: " + Attack.attack);
                 break;
             }
         }
@@ -79,6 +91,14 @@ public class BossController : MonoBehaviour
         if (other.collider.CompareTag("Ground"))
         {
             Grounded = true;
+        }
+
+        if (other.collider.CompareTag("Wall"))
+        {
+            if (bounceOffWall)
+            {
+                _rigidbody.velocity = new Vector2(-_rigidbody.velocity.x, _rigidbody.velocity.y);
+            }
         }
     }
 

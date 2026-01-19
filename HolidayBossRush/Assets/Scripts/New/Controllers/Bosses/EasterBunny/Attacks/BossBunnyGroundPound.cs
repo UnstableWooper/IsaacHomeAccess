@@ -34,20 +34,28 @@ public class BossBunnyGroundPound : BossAttack
     {
         yield return new WaitForSeconds(0.05f);
         yield return new WaitUntil(() => _controller.Grounded);
-        for (int i = 0; i < 9; i++)
+        float Xpos = -9;
+        for (int i = 0; i <= 9; i++)
         {
-            float Xpos = -9;
-            Instantiate(attackWarn, new Vector2(Xpos, 6.5f), Quaternion.identity);
-            Instantiate(fallingEgg, new Vector2(Xpos, 0), Quaternion.identity);
-            Xpos = +2;
+            int randomSpawnPick = Random.Range(0, 2);
+            {
+                if (randomSpawnPick == 1)
+                {
+                    Instantiate(attackWarn, new Vector2(Xpos, 6.5f), Quaternion.identity);
+                    Instantiate(fallingEgg, new Vector2(Xpos, 10), Quaternion.identity);
+                }
+                Xpos += 2;
+            }
         }
     }
 
     public override IEnumerator AttackWarn()
     {
+
         _ogColor = _controller.OgColor;
         _spriteRenderer.color = Color.yellow;
         yield return new WaitForSeconds(attackWarnLength);
+        _controller.AttackCooldownTimer += 3;
         _spriteRenderer.color = _ogColor;
         StartAttack();
     }

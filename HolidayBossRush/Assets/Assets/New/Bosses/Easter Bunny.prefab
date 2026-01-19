@@ -270,6 +270,8 @@ MonoBehaviour:
     randomChance: 2
   attackCooldown: 3
   spriteRenderer: {fileID: 6378061231933972619}
+  Grounded: 0
+  bounceOffWall: 1
 --- !u!114 &2943250936750891850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -314,6 +316,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackWarnLength: 3
   _attackDamage: 1
+  fallingEgg: {fileID: 0}
+  attackWarn: {fileID: 0}
   jumpHight: {x: 0, y: 10}
 --- !u!1 &6746837503595447113
 GameObject:

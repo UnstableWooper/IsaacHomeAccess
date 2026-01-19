@@ -13,7 +13,7 @@ public class BossRollSlime : BossAttack
     [SerializeField] private float stunLength;
 
     private SpriteRenderer _spriteRenderer;
-    private BossController _pumkinController;
+    private BossController _controller;
     private Damage _damage;
     private Vector2 _originPos;
 
@@ -25,12 +25,12 @@ public class BossRollSlime : BossAttack
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
-        _pumkinController = GetComponent<BossController>();
+        _controller = GetComponent<BossController>();
         _damage = GetComponent<Damage>();
-        _spriteRenderer = _pumkinController.spriteRenderer;
+        _spriteRenderer = _controller.spriteRenderer;
         _velocity = _rigidbody.velocity;
         _damage.CantDamage(true);
-        _ogColor = _pumkinController.OgColor;
+        _ogColor = _controller.OgColor;
     }
 
     public override void StartAttack()
@@ -43,12 +43,12 @@ public class BossRollSlime : BossAttack
         if(randPos == 1)
         {
             transform.position = new Vector2(20, -1);
-            _velocity = new Vector2(-speed * (_pumkinController.SecondPhase ? secondPhaseSpeedMulti : 1), 0);
+            _velocity = new Vector2(-speed * (_controller.SecondPhase ? secondPhaseSpeedMulti : 1), 0);
         }
         else if(randPos == 0)
         {
             transform.position = new Vector2(-20, -1);
-            _velocity = new Vector2(speed * (_pumkinController.SecondPhase ? secondPhaseSpeedMulti : 1), 0);
+            _velocity = new Vector2(speed * (_controller.SecondPhase ? secondPhaseSpeedMulti : 1), 0);
         }
         _rigidbody.velocity = _velocity;
     }
@@ -67,7 +67,7 @@ public class BossRollSlime : BossAttack
             _hits = 0;
             transform.position = _originPos;
             _velocity = new Vector2(0, 0);
-            _pumkinController.AttackCooldownTimer += stunLength;
+            _controller.AttackCooldownTimer += stunLength;
             _damage.CantDamage(true);
             gameObject.tag = "Boss";
             //stuneded
@@ -78,8 +78,8 @@ public class BossRollSlime : BossAttack
     public override IEnumerator AttackWarn()
     {
         _spriteRenderer.color = Color.yellow;
+        _controller.AttackCooldownTimer += 3;
         yield return new WaitForSeconds(attackWarnLength);
-        _pumkinController.AttackCooldownTimer += 3;
         _spriteRenderer.color = _ogColor;
         StartAttack();
     }

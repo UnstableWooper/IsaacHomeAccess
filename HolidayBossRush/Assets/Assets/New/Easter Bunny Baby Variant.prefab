@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 393213863677239087, guid: 6767bde897342ba4084437b80c66d405, type: 3}
       propertyPath: maxHP
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 393213863677239087, guid: 6767bde897342ba4084437b80c66d405, type: 3}
       propertyPath: maxBossHp
@@ -72,9 +72,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5185328483095640620, guid: 6767bde897342ba4084437b80c66d405, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5974975100000739382, guid: 6767bde897342ba4084437b80c66d405, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6446001551011754798, guid: 6767bde897342ba4084437b80c66d405, type: 3}
       propertyPath: m_Name
       value: Easter Bunny Baby Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8149670443246889527, guid: 6767bde897342ba4084437b80c66d405, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8282398013165523082, guid: 6767bde897342ba4084437b80c66d405, type: 3}
       propertyPath: m_ExcludeLayers.m_Bits
@@ -92,8 +104,67 @@ PrefabInstance:
       propertyPath: m_ContactCaptureLayers.m_Bits
       value: 4294967295
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8943850837050227469, guid: 6767bde897342ba4084437b80c66d405, type: 3}
+      propertyPath: attacks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8943850837050227469, guid: 6767bde897342ba4084437b80c66d405, type: 3}
+      propertyPath: attacks.Array.data[0].attack
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8943850837050227469, guid: 6767bde897342ba4084437b80c66d405, type: 3}
+      propertyPath: attacks.Array.data[1].attack
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8943850837050227469, guid: 6767bde897342ba4084437b80c66d405, type: 3}
+      propertyPath: attacks.Array.data[0].randomChance
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2356007468357865712, guid: 6767bde897342ba4084437b80c66d405, type: 3}
+    - {fileID: 5279885802054186098, guid: 6767bde897342ba4084437b80c66d405, type: 3}
+    - {fileID: 2943250936750891850, guid: 6767bde897342ba4084437b80c66d405, type: 3}
+    - {fileID: 8943850837050227469, guid: 6767bde897342ba4084437b80c66d405, type: 3}
+    - {fileID: 393213863677239087, guid: 6767bde897342ba4084437b80c66d405, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6446001551011754798, guid: 6767bde897342ba4084437b80c66d405, type: 3}
+      insertIndex: 4
+      addedObject: {fileID: 7858402438772172614}
+    - targetCorrespondingSourceObject: {fileID: 6446001551011754798, guid: 6767bde897342ba4084437b80c66d405, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5958870584796315267}
   m_SourcePrefab: {fileID: 100100000, guid: 6767bde897342ba4084437b80c66d405, type: 3}
+--- !u!1 &4928636450430187600 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6446001551011754798, guid: 6767bde897342ba4084437b80c66d405, type: 3}
+  m_PrefabInstance: {fileID: 2094953376365333374}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7858402438772172614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4928636450430187600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6f8f8fdd7de9db4399b9d4d91f1d72c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHP: 10
+--- !u!114 &5958870584796315267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4928636450430187600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bed4386ffc1fabf449ab510b0abab792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpStrength: {x: 2, y: 9}
+  jumpCooldown: 4

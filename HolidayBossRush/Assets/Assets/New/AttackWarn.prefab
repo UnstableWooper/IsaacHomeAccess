@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 90381731465378951}
   - component: {fileID: 3843660950909691541}
+  - component: {fileID: -1141467044400165391}
   m_Layer: 0
   m_Name: AttackWarn
   m_TagString: Untagged
@@ -84,3 +85,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-1141467044400165391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6975080460707052790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e40f58e611578f44a9dae2250a9bf45b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DespawnTimer: 0.75
