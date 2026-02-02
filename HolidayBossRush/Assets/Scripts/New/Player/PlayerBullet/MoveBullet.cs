@@ -8,7 +8,7 @@ public class MoveBullet : MonoBehaviour
 
     private PlayerGun _playerGun;
 
-    private Vector3 _direction;
+    [SerializeField]private Vector3 _direction;
     private void Start()
     {
         _playerGun = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<PlayerGun>();

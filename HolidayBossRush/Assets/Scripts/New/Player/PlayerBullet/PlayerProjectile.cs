@@ -8,7 +8,7 @@ public class PlayerProjectile : MonoBehaviour
 
     private void Update()
     {
-        if (transform.position.x >= 15 || transform.position.x <= -15)
+        if (transform.position.x >= 15 || transform.position.x <= -15 || transform.position.y >= 25 || transform.position.y <= -25)
         {
             DestroyBullet();
         }

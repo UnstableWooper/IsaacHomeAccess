@@ -62,7 +62,6 @@ public class BossController : MonoBehaviour
             if (randChance <= cumulativeChance)
             {
                 Attack.attack.StartCoroutine("AttackWarn");
-                Debug.Log("Attack: " + Attack.attack);
                 break;
             }
         }
@@ -86,18 +85,20 @@ public class BossController : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.collider.CompareTag("Ground"))
+        Debug.Log(other.tag);
+        if (other.CompareTag("Ground"))
         {
             Grounded = true;
         }
 
-        if (other.collider.CompareTag("Wall"))
+        if (other.CompareTag("Wall"))
         {
             if (bounceOffWall)
             {
-                _rigidbody.velocity = new Vector2(-_rigidbody.velocity.x, _rigidbody.velocity.y);
+                float velocityX = _rigidbody.velocity.x;     
+                _rigidbody.velocity = new Vector2(-velocityX, _rigidbody.velocity.y);
             }
         }
     }

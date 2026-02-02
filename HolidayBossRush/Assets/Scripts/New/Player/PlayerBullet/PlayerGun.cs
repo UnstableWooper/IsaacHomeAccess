@@ -15,16 +15,22 @@ public class PlayerGun : MonoBehaviour
     private void Start()
     {
         _player = GameObject.FindGameObjectWithTag("Player");
+        offset = new Vector3(1, 0, 0);
     }
     void Update()
     {
         _attackCooldown -= Time.deltaTime;
-        offset = _player.transform.localScale.x * new Vector3(1, 0, 0);
-
+        float vertical = Input.GetAxisRaw("Vertical");
+        float horizontal = Input.GetAxisRaw("Move");
+        if (vertical != 0 || horizontal != 0)
+        {
+            offset = new Vector3(horizontal, vertical, 0);
+        }
         if (Input.GetButtonDown("Shoot") & _attackCooldown < 0)
         {
             _attackCooldown = cooldown;
             Instantiate(bullet, transform.position, transform.rotation);
+
         }
     }
 }
