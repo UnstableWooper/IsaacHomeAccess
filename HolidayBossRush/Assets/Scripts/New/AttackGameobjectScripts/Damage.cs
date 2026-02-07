@@ -5,6 +5,7 @@ using UnityEngine;
 public class Damage : MonoBehaviour
 {
     [SerializeField, Range(0, 5)] int damage;
+    [SerializeField] private bool OnCollionDestroy;
 
     private newPlayerHealth _playerHealth;
     
@@ -15,6 +16,14 @@ public class Damage : MonoBehaviour
         {
             _playerHealth = other.GetComponent<newPlayerHealth>();
             _playerHealth.Damage(damage, transform.position);
+            if(OnCollionDestroy == true)
+            {
+                Destroy(gameObject);
+            }
+        }
+        if (other.CompareTag("Ground") && OnCollionDestroy)
+        {
+            Destroy(gameObject);
         }
     }
 

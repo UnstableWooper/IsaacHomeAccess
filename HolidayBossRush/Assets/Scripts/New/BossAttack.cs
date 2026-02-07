@@ -6,8 +6,9 @@ public abstract class BossAttack : MonoBehaviour
 {
     [SerializeField] protected float attackWarnLength;
     [SerializeField, Range(0, 4)] protected int _attackDamage;
-    public abstract IEnumerator AttackWarn();
+
     public abstract void StartAttack();
+    public abstract IEnumerator AttackWarn();
     //Roll attack
     //Stomp
     //Shoot
