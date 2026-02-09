@@ -2,11 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossGoldRain : BossAttack
+public class ShadowCloneAttack : BossAttack
 {
-    [SerializeField] private GameObject gold;
-
-    [SerializeField] private Transform spawnPoint;
 
     private BossController _controller;
     private SpriteRenderer _spriteRenderer;
@@ -25,9 +22,9 @@ public class BossGoldRain : BossAttack
 
     public override void StartAttack()
     {
-        for(int i = Random.Range(10,20); i <= 20; i++)
+        for(int i = 1; i < 3; i++)
         {
-            Instantiate(gold, spawnPoint.position, Quaternion.Euler(Quaternion.identity.x , Quaternion.identity.y, Random.Range(-45,45)));
+
         }
     }
 
