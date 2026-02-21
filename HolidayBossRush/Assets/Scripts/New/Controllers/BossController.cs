@@ -13,7 +13,7 @@ public class BossController : MonoBehaviour
     public float AttackCooldownTimer { set; get; }
     public bool SecondPhase { private set; get; }
 
-    public bool Grounded;
+    public bool grounded;
     public bool bounceOffWall;
 
     private Rigidbody2D _rigidbody;
@@ -23,7 +23,6 @@ public class BossController : MonoBehaviour
 
     private void Awake()
     {
-        gameObject.tag = "Boss";
         _bossHealth = GetComponent<BossHP>();
         OgColor = spriteRenderer.color;
         _rigidbody = GetComponent<Rigidbody2D>();
@@ -35,20 +34,21 @@ public class BossController : MonoBehaviour
     }
     private void Update()
     {
+        print("AttackCooldown: " + AttackCooldownTimer);
+        print("HP: " + _bossHealth.TrueBossHp);
         AttackCooldownTimer -= Time.deltaTime;
         if (_bossHealth.TrueBossHp <= _bossHealth.maxHP / 2 )
         {
             if (gameObject.CompareTag("Boss"))
             {
                 SecondPhase = true;
-                Debug.Log("secondPhase");
             }
         }
     }
     IEnumerator Attack()
     {
         int totalChance = 0;
-        #region
+        #region PickRandomAttack
         foreach (AttackData Attack in attacks)
         {
             totalChance += Attack.randomChance;
@@ -89,7 +89,7 @@ public class BossController : MonoBehaviour
     {
         if (other.CompareTag("Ground"))
         {
-            Grounded = true;
+            grounded = true;
         }
 
         if (other.CompareTag("Wall"))
@@ -104,6 +104,6 @@ public class BossController : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D other)
     {
-        Grounded = false;
+        grounded = false;
     }
 }

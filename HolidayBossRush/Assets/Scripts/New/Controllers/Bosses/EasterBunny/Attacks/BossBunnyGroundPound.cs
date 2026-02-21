@@ -33,7 +33,7 @@ public class BossBunnyGroundPound : BossAttack
     public IEnumerator SpecialAttack()
     {
         yield return new WaitForSeconds(0.05f);
-        yield return new WaitUntil(() => _controller.Grounded);
+        yield return new WaitUntil(() => _controller.grounded);
         float Xpos = -9;
         for (int i = 0; i <= 9; i++)
         {

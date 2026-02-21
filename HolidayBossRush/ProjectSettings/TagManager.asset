@@ -21,6 +21,8 @@ TagManager:
   - Projectile
   - SlimeMode
   - Boss
+  - Real
+  - MiniBoss
   layers:
   - Default
   - TransparentFX

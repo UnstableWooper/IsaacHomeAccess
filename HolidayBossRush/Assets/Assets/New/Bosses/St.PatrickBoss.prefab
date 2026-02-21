@@ -243,9 +243,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 0.81829476, b: 0.6367924, a: 1}
+  m_Color: {r: 1, g: 0.75968754, b: 0.514151, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -314,14 +314,15 @@ GameObject:
   - component: {fileID: 746654793449458588}
   - component: {fileID: 8647604344637114788}
   - component: {fileID: 5746367936244557937}
+  - component: {fileID: 2363878834238154399}
   - component: {fileID: 3447028789719156572}
-  - component: {fileID: 8886098418447065813}
   - component: {fileID: 5407164532943900388}
-  - component: {fileID: 8757714292803766097}
   - component: {fileID: 6039413959020384239}
+  - component: {fileID: 2867648504411925385}
+  - component: {fileID: 4131379115905150938}
   m_Layer: 0
   m_Name: St.PatrickBoss
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -336,7 +337,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -3.44, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3158114317955346073}
@@ -406,6 +407,19 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 4.7}
   m_Size: {x: 6, y: 10}
   m_Direction: 0
+--- !u!114 &2363878834238154399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6062183090467887795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8071beef5151d8448587b6a494f6bd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHP: 500
 --- !u!114 &3447028789719156572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -420,19 +434,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   OnCollionDestroy: 0
---- !u!114 &8886098418447065813
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6062183090467887795}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8071beef5151d8448587b6a494f6bd0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHP: 500
 --- !u!114 &5407164532943900388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -447,27 +448,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attacks:
   - attack: {fileID: 6039413959020384239}
+    randomChance: 0
+  - attack: {fileID: 6039413959020384239}
+    randomChance: 0
+  - attack: {fileID: 4131379115905150938}
     randomChance: 10
   attackCooldown: 10
   spriteRenderer: {fileID: 5073718461555865051}
-  Grounded: 0
+  grounded: 0
   bounceOffWall: 0
---- !u!114 &8757714292803766097
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6062183090467887795}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2c3c5f6aaa44fd47a04be3007cd83a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackWarnLength: 1
-  _attackDamage: 1
-  gold: {fileID: 6348534815899520248, guid: 5cf5da1ee5d416b4facd80174a37fb73, type: 3}
-  spawnPoint: {fileID: 0}
 --- !u!114 &6039413959020384239
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -486,6 +475,42 @@ MonoBehaviour:
   attackTimeDif: 1
   attackLength: 5
   lazerAimScript: {fileID: 1627789207076834298}
+--- !u!114 &2867648504411925385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6062183090467887795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2c3c5f6aaa44fd47a04be3007cd83a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackWarnLength: 1
+  _attackDamage: 0
+  gold: {fileID: 6348534815899520248, guid: 5cf5da1ee5d416b4facd80174a37fb73, type: 3}
+  offset: 7
+--- !u!114 &4131379115905150938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6062183090467887795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b2d52f28f1d1ee45ad9a782929f093a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackWarnLength: 1.5
+  _attackDamage: 0
+  realStPatrick: {fileID: 479245658510764563, guid: 94d5d66c76888ea40b0a93d33edfeb2b, type: 3}
+  fakeStPatrick: {fileID: 4614787401565368698, guid: 7fd464d93f88009459269c7f3cea11af, type: 3}
+  spawnPositions:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &7673009335652817531
 GameObject:
   m_ObjectHideFlags: 0
@@ -512,7 +537,7 @@ Transform:
   m_GameObject: {fileID: 7673009335652817531}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.021, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.3, y: 0.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -598,8 +623,8 @@ Transform:
   m_GameObject: {fileID: 8575099972529847016}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10, y: 0, z: 0}
-  m_LocalScale: {x: 20, y: 1, z: 1}
+  m_LocalPosition: {x: 30, y: 0, z: 0}
+  m_LocalScale: {x: 60, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6566168866741569072}
@@ -787,7 +812,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0.5943396, g: 0.5943396, b: 0.5943396, a: 1}
   m_FlipX: 0

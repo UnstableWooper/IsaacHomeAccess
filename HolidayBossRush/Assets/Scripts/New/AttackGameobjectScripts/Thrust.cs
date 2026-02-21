@@ -11,7 +11,6 @@ public class Thrust : MonoBehaviour
     void Start()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
-        Debug.Log(_rigidbody2D);
-        _rigidbody2D.AddForce(transform.up * thrust * Time.deltaTime);
+        _rigidbody2D.AddForce(transform.up * thrust * Time.deltaTime * 10000);
     }
 }

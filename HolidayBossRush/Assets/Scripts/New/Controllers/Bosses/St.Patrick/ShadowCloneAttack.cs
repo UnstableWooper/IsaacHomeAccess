@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class ShadowCloneAttack : BossAttack
 {
+    [SerializeField] private GameObject realStPatrick;
+    [SerializeField] private GameObject fakeStPatrick;
+    [SerializeField] private Transform[] spawnPositions;
 
     private BossController _controller;
     private SpriteRenderer _spriteRenderer;
@@ -22,10 +25,12 @@ public class ShadowCloneAttack : BossAttack
 
     public override void StartAttack()
     {
-        for(int i = 1; i < 3; i++)
+        int RandomRealStPatrick = Random.Range(0, 3);
+        for(int i = 0; i < 3; i++)
         {
-
-        }
+            Instantiate(RandomRealStPatrick == i ? realStPatrick : fakeStPatrick, spawnPositions[i].position, Quaternion.identity);
+        }   
+        this.gameObject.SetActive(false);
     }
 
     public override IEnumerator AttackWarn()
