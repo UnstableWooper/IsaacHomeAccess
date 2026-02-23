@@ -1,12 +1,18 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BossGoldRain : BossAttack
 {
-    [SerializeField] private GameObject gold;
+    [SerializeField] Vector2 rangeOfGold;
+    [SerializeField] int rangeOfAngle;
 
-    [SerializeField] private float offset;
+    [Header("Other")]
+
+    [SerializeField] private GameObject gold;
+    [SerializeField] private int offset;
 
     private BossController _controller;
     private SpriteRenderer _spriteRenderer;
@@ -25,9 +31,11 @@ public class BossGoldRain : BossAttack
 
     public override void StartAttack()
     {
-        for(int i = Random.Range(10,20); i <= 20; i++)
+        for(int i = 1; i <= UnityEngine.Random.Range(Mathf.RoundToInt(rangeOfGold.x), Mathf.RoundToInt(rangeOfGold.y)); i++)
         {
-            Instantiate(gold,new Vector2(transform.position.x , transform.position.y + offset), Quaternion.Euler(Quaternion.identity.x , Quaternion.identity.y, Random.Range(-45,45)));
+            Instantiate(gold,new Vector2(transform.position.x ,
+                transform.position.y + offset), Quaternion.Euler(Quaternion.identity.x ,
+                Quaternion.identity.y, UnityEngine.Random.Range(rangeOfAngle, -rangeOfAngle)));
         }
     }
 

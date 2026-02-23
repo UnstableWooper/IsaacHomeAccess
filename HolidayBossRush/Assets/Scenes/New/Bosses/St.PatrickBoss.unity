@@ -465,7 +465,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 41.526295, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -495,7 +495,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -445, y: 260}
+  m_AnchoredPosition: {x: -418, y: 260}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &398777085
@@ -1706,6 +1706,18 @@ PrefabInstance:
       propertyPath: maxHP
       value: 200
       objectReference: {fileID: 0}
+    - target: {fileID: 2867648504411925385, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
+      propertyPath: rangeOfAngle
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 2867648504411925385, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
+      propertyPath: rangeOfGold.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2867648504411925385, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
+      propertyPath: rangeOfGold.y
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4131379115905150938, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
       propertyPath: spawnPositions.Array.data[0]
       value: 
@@ -1724,15 +1736,15 @@ PrefabInstance:
       objectReference: {fileID: 1214498743}
     - target: {fileID: 5407164532943900388, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
       propertyPath: attacks.Array.data[0].randomChance
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5407164532943900388, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
       propertyPath: attacks.Array.data[1].randomChance
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5407164532943900388, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
       propertyPath: attacks.Array.data[2].randomChance
-      value: 3
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 6062183090467887795, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
       propertyPath: m_Name
@@ -1777,6 +1789,11 @@ Transform:
   - {fileID: 494421239}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1697364068 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8575099972529847016, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
+  m_PrefabInstance: {fileID: 1380553219}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1700737702
 GameObject:
   m_ObjectHideFlags: 0
@@ -2530,6 +2547,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StPatrickBoss: {fileID: 1214498741}
+  lazerBeam: {fileID: 1697364068}
+  rangeOfGold: {x: 20, y: 20}
+  rangeOfAngle: 45
+  gold: {fileID: 6348534815899520248, guid: 5cf5da1ee5d416b4facd80174a37fb73, type: 3}
 --- !u!1 &1870936918
 GameObject:
   m_ObjectHideFlags: 0
@@ -2577,6 +2598,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2568484648326176543, guid: e860aa28ef48709438d25c1b1b0c0ed2, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3845956349073026155, guid: e860aa28ef48709438d25c1b1b0c0ed2, type: 3}
       propertyPath: healthText
       value: 

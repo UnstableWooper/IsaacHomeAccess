@@ -19,6 +19,7 @@ public class newPlayerMovement : MonoBehaviour
     private float _friction;
 
     private bool _onGround;
+    private bool _locked;
 
     // Start is called before the first frame update
     void Start()
@@ -32,7 +33,19 @@ public class newPlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _direction = _controller.input.Move();
+        if (Input.GetButton(buttonName: "lock")) {
+            _locked = true;
+        }
+        else{
+            _locked = false;
+        }
+            
+        if (!_locked){
+            _direction = _controller.input.Move();
+        }
+        else{
+            _direction = 0;
+        }
         _disiredPos.x = (maxSpeed - _friction) * _direction;
         _friction = _groundCheck.Friction;
         int direction = Mathf.RoundToInt(_direction);

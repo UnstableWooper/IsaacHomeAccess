@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BossController : MonoBehaviour
@@ -34,8 +33,6 @@ public class BossController : MonoBehaviour
     }
     private void Update()
     {
-        print("AttackCooldown: " + AttackCooldownTimer);
-        print("HP: " + _bossHealth.TrueBossHp);
         AttackCooldownTimer -= Time.deltaTime;
         if (_bossHealth.TrueBossHp <= _bossHealth.maxHP / 2 )
         {
@@ -44,6 +41,11 @@ public class BossController : MonoBehaviour
                 SecondPhase = true;
             }
         }
+    }
+
+    private void OnEnable()
+    {
+        StartCoroutine(Attack());
     }
     IEnumerator Attack()
     {

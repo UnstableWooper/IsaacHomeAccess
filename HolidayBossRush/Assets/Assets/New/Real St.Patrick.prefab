@@ -69,6 +69,18 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2867648504411925385, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
+      propertyPath: rangeOfAngle
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 2867648504411925385, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
+      propertyPath: rangeOfGold.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2867648504411925385, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
+      propertyPath: rangeOfGold.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2867648504411925385, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
       propertyPath: attackWarnLength
       value: 1
       objectReference: {fileID: 0}
