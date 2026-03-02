@@ -23,6 +23,7 @@ TagManager:
   - Boss
   - Real
   - MiniBoss
+  - GameManager
   layers:
   - Default
   - TransparentFX

@@ -6,9 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Spawn.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/New/MainMenu.unity
+    guid: 00a64458d58eae042a1678b01cba7a85
   - enabled: 1
-    path: Assets/Scenes/GrubHome.unity
-    guid: df79f3de2a78973469d47e849a1cf54d
+    path: Assets/Scenes/New/Bosses/EasterBunnyBoss.unity
+    guid: 94c3e73665dfa4148b420cee329a5c56
+  - enabled: 1
+    path: Assets/Scenes/New/Bosses/PumkinBoss.unity
+    guid: 844fc7b7ea64f3144807a3a5c6c61542
+  - enabled: 1
+    path: Assets/Scenes/New/Bosses/St.PatrickBoss.unity
+    guid: 66896b72bfd21454b897fb733089a936
   m_configObjects: {}

@@ -10,7 +10,6 @@ public class StPatrickCloneManager : MonoBehaviour
     [SerializeField] Vector2 rangeOfGold;
     [SerializeField] int rangeOfAngle;
     [SerializeField] private GameObject gold;
-
     private GameObject _realStPatrick;
     public List<GameObject> _fakeStPatricks = new List<GameObject>();
     private void Update()
@@ -31,33 +30,47 @@ public class StPatrickCloneManager : MonoBehaviour
                 {
                     Destroy(MiniStPatrick);
                     lazerBeam.SetActive(false);
-                    foreach (GameObject fakeStPatricks in _fakeStPatricks)
-                    {
-                        _fakeStPatricks.Remove(fakeStPatricks);
-                    }
                 }
             }
 
-            if (_fakeStPatricks.Count <= 1)
+            if(_fakeStPatricks.Count <= 0)
             {
-                _fakeStPatricks.Add(GameObject.FindGameObjectWithTag("MiniBoss"));
+                GameObject[] fakeStPatricks = GameObject.FindGameObjectsWithTag("MiniBoss");
+                foreach (GameObject fakeStPatrick in fakeStPatricks)
+                {
+                    fakeStPatrick.AddComponent<StPatrickExplosion>();
+                }
             }
+
             else
             {
                 foreach (GameObject MiniStPatrick in _fakeStPatricks)
                 {
                     if (MiniStPatrick.activeSelf == false)
                     {
-                        Destroy(MiniStPatrick.gameObject);
                         for (int i = 1; i <= UnityEngine.Random.Range(Mathf.RoundToInt(rangeOfGold.x), Mathf.RoundToInt(rangeOfGold.y)); i++)
                         {
                             Instantiate(gold, new Vector2(MiniStPatrick.transform.position.x,
                                 MiniStPatrick.transform.position.y), Quaternion.Euler(Quaternion.identity.x,
                                 Quaternion.identity.y, UnityEngine.Random.Range(rangeOfAngle, -rangeOfAngle)));
                         }
+                        RemoveGameObject(MiniStPatrick.gameObject);
+                      
+                      
                     }
                 }
             }
         }
+    }
+
+    public void AddGameObject(GameObject FakeClone)
+    {
+        _fakeStPatricks.Add(FakeClone);
+    }
+
+    public void RemoveGameObject(GameObject FakeClone)
+    {
+        _fakeStPatricks.Remove(FakeClone);
+        Destroy(FakeClone);
     }
 }

@@ -1,22 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class newPlayerHealth : MonoBehaviour
 {
     [SerializeField] private TMPro.TextMeshProUGUI healthText;
     [SerializeField] private Vector2 knokbackForce;
     [SerializeField] private float iFrames;
-    [SerializeField] private int health;
+    [SerializeField] private float health;
 
     private SpriteRenderer _spriteRenderer;
     private Rigidbody2D _rigidbody;
 
     private float iFramesTimer;
     private Vector2 _velocity;
+
+    public Image healthBar;
     private void Update()
     {
         iFramesTimer -= Time.deltaTime;
+
+        healthBar.fillAmount = health / 5;
+        healthBar.color = new Color(1 - (health / 5), 0 + (health / 5), 0);
     }
     private void Start()
     {

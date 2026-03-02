@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BossHP : MonoBehaviour
 {
@@ -27,7 +28,17 @@ public class BossHP : MonoBehaviour
             if (TrueBossHp <= 0)
             {
                 gameObject.SetActive(false);
+                Invoke(nameof(BossDefeated), 3);
             }
+        }
+    }
+
+
+    private void BossDefeated()
+    {
+        if (gameObject.CompareTag("Boss"))
+        {
+            SceneManager.LoadScene(1 - 1);
         }
     }
 }
