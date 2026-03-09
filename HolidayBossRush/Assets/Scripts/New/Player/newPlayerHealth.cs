@@ -5,7 +5,10 @@ using UnityEngine.UI;
 
 public class newPlayerHealth : MonoBehaviour
 {
-    [SerializeField] private TMPro.TextMeshProUGUI healthText;
+
+    [SerializeField] private Image healthBar;
+    [SerializeField] private GameObject loseSprite;
+    [SerializeField] private GameObject winSprite;
     [SerializeField] private Vector2 knokbackForce;
     [SerializeField] private float iFrames;
     [SerializeField] private float health;
@@ -16,7 +19,6 @@ public class newPlayerHealth : MonoBehaviour
     private float iFramesTimer;
     private Vector2 _velocity;
 
-    public Image healthBar;
     private void Update()
     {
         iFramesTimer -= Time.deltaTime;
@@ -26,7 +28,8 @@ public class newPlayerHealth : MonoBehaviour
     }
     private void Start()
     {
-        healthText.text = health.ToString() + "hp";
+        winSprite.SetActive(false);
+        loseSprite.SetActive(false);
         _rigidbody = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
@@ -40,8 +43,14 @@ public class newPlayerHealth : MonoBehaviour
             if (otherPos.x < transform.position.x) _velocity = new Vector2(knokbackForce.x, knokbackForce.y);
             else _velocity = new Vector2(-knokbackForce.x, knokbackForce.y);
             _rigidbody.velocity = _velocity;
-            StartCoroutine(DamageDisplay());
-            healthText.text = health.ToString() + "hp";
+            if (health > 0)
+            {
+                StartCoroutine(DamageDisplay());
+            }
+            else
+            {
+                lose();
+            }
         }
     }
 
@@ -54,5 +63,17 @@ public class newPlayerHealth : MonoBehaviour
             _spriteRenderer.color = Color.gray;
             yield return new WaitForSeconds(0.175f);
         }
+    }
+
+    private void lose()
+    {
+        loseSprite.SetActive(true);
+        Destroy(gameObject);
+    }
+
+    public void win()
+    {
+        winSprite.SetActive(true);
+        Destroy(gameObject);
     }
 }

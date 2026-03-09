@@ -38,7 +38,9 @@ public class BossHP : MonoBehaviour
     {
         if (gameObject.CompareTag("Boss"))
         {
-            SceneManager.LoadScene(1 - 1);
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            newPlayerHealth playerHPScript = player.GetComponent<newPlayerHealth>();
+            playerHPScript.win();
         }
     }
 }
