@@ -1,5 +1,8 @@
 using System.Collections;
+using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BossController : MonoBehaviour
 {
@@ -7,6 +10,7 @@ public class BossController : MonoBehaviour
 
     [SerializeField] private float attackCooldown; //8
     [SerializeField] public SpriteRenderer spriteRenderer;
+
     private BossHP _bossHealth;
     public Color OgColor { private set; get; }
     public float AttackCooldownTimer { set; get; }
@@ -20,32 +24,65 @@ public class BossController : MonoBehaviour
     //Roll Attack
     //Shockwave Attack
 
+    [Header("Dialogue stuff?")]
+
+    [SerializeField] private DialogueScript[] Dialogue;
+
+    public Image DialogueImage;
+    public TextMeshProUGUI dialogueTxt;
+    private int dialogueCounter;    
+    private bool inDialogue;
     private void Awake()
     {
         _bossHealth = GetComponent<BossHP>();
         OgColor = spriteRenderer.color;
         _rigidbody = GetComponent<Rigidbody2D>();
+        inDialogue = true;
     }
 
     private void Start()
     {
-        StartCoroutine(Attack());
+        dialogueCounter = -1;
+        DialogueImage.gameObject.SetActive(true);
+
     }
     private void Update()
     {
-        AttackCooldownTimer -= Time.deltaTime;
-        if (_bossHealth.TrueBossHp <= _bossHealth.maxHP / 2 )
+        if (inDialogue && Input.GetKeyDown(KeyCode.Space))
         {
-            if (gameObject.CompareTag("Boss"))
+            NextDialogue();
+        }
+        else
+        {
+            AttackCooldownTimer -= Time.deltaTime;
+            if (_bossHealth.TrueBossHp <= _bossHealth.maxHP / 2)
             {
-                SecondPhase = true;
+                if (gameObject.CompareTag("Boss"))
+                {
+                    SecondPhase = true;
+                }
             }
         }
+
+
+    }
+
+    public void NextDialogue()
+    {
+        dialogueCounter++;
+        if (dialogueCounter >= Dialogue.Length)
+        {
+            DialogueImage.gameObject.SetActive(false);
+            inDialogue = false;
+            StartCoroutine(Attack());
+        }
+        dialogueTxt.text = Dialogue[dialogueCounter].dialogue;
     }
 
     private void OnEnable()
     {
-        StartCoroutine(Attack());
+        if(!inDialogue)
+            StartCoroutine(Attack());
     }
     IEnumerator Attack()
     {
