@@ -1,15 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class BossController : MonoBehaviour
 {
+    
     [SerializeField] private AttackData[] attacks;
 
     [SerializeField] private float attackCooldown; //8
     [SerializeField] public SpriteRenderer spriteRenderer;
+
+    private GameObject _player;
 
     private BossHP _bossHealth;
     public Color OgColor { private set; get; }
@@ -24,33 +29,48 @@ public class BossController : MonoBehaviour
     //Roll Attack
     //Shockwave Attack
 
-    [Header("Dialogue stuff?")]
+    [Header("DialogueStruct stuff?")]
 
-    [SerializeField] private DialogueScript[] Dialogue;
+    [SerializeField]private string[] Dialogue;
+    [SerializeField]private float dialogueTypingSpeed;
 
-    public Image DialogueImage;
+    public GameObject DialogueImage;
     public TextMeshProUGUI dialogueTxt;
-    private int dialogueCounter;    
-    private bool inDialogue;
+
+    public float trueDialogueTypingSpeed;
+    private int dialogueCounter;
+    private bool stillTyping;
+    public bool inDialogue;
     private void Awake()
     {
+        _player = FindAnyObjectByType<newPlayerMovement>().gameObject;
         _bossHealth = GetComponent<BossHP>();
         OgColor = spriteRenderer.color;
         _rigidbody = GetComponent<Rigidbody2D>();
+        dialogueCounter = -1;
         inDialogue = true;
     }
 
     private void Start()
     {
-        dialogueCounter = -1;
         DialogueImage.gameObject.SetActive(true);
+        StartDialogue();
 
     }
     private void Update()
     {
+        if (Input.GetKey(KeyCode.Space))
+        {
+            trueDialogueTypingSpeed = dialogueTypingSpeed / 2;
+        }
+        else
+        {
+            trueDialogueTypingSpeed = dialogueTypingSpeed;
+        }
+
         if (inDialogue && Input.GetKeyDown(KeyCode.Space))
         {
-            NextDialogue();
+            StartDialogue();
         }
         else
         {
@@ -67,16 +87,40 @@ public class BossController : MonoBehaviour
 
     }
 
-    public void NextDialogue()
+    public void StartDialogue()
     {
-        dialogueCounter++;
+        if (!stillTyping)
+        {
+            dialogueCounter++;
+            StartCoroutine(NextDialogue());
+        }
+    }
+
+    public IEnumerator NextDialogue()
+    {
+        #region
+        newPlayerMovement playerMovement = _player.GetComponent<newPlayerMovement>();
+        playerMovement.enabled = false;
+        PlayerGun playerGun = _player.GetComponent<PlayerGun>();
+        playerGun.enabled = false;
+        #endregion Player
+        dialogueTxt.text = "";
+        stillTyping = true;
+        foreach (char DialogueCharacters in Dialogue[dialogueCounter])
+        {
+            yield return new WaitForSeconds(trueDialogueTypingSpeed);
+            dialogueTxt.text += DialogueCharacters.ToString();
+        }
+        stillTyping = false;
+
         if (dialogueCounter >= Dialogue.Length)
         {
+            playerMovement.enabled = true;
+            playerGun.enabled = true;
             DialogueImage.gameObject.SetActive(false);
             inDialogue = false;
             StartCoroutine(Attack());
         }
-        dialogueTxt.text = Dialogue[dialogueCounter].dialogue;
     }
 
     private void OnEnable()
