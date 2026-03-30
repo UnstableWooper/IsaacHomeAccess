@@ -30,17 +30,25 @@ public class BossController : MonoBehaviour
     //Shockwave Attack
 
     [Header("DialogueStruct stuff?")]
-
+    [TextArea(3, 10)]
     [SerializeField]private string[] Dialogue;
+    [TextArea (3, 10)]
+    [SerializeField]private string[] RepeatDialogue;
     [SerializeField]private float dialogueTypingSpeed;
-
+    
     public GameObject DialogueImage;
     public TextMeshProUGUI dialogueTxt;
 
     public float trueDialogueTypingSpeed;
     private int dialogueCounter;
     private bool stillTyping;
-    public bool inDialogue;
+    private bool inDialogue;
+
+    private string repeat_dialogue;
+    private static int _how_many_times_fought;
+    private bool _fighting_again;
+    private bool _end_fighting_again_dialogue;
+
     private void Awake()
     {
         _player = FindAnyObjectByType<newPlayerMovement>().gameObject;
@@ -55,7 +63,6 @@ public class BossController : MonoBehaviour
     {
         DialogueImage.gameObject.SetActive(true);
         StartDialogue();
-
     }
     private void Update()
     {
@@ -93,33 +100,76 @@ public class BossController : MonoBehaviour
         {
             dialogueCounter++;
             StartCoroutine(NextDialogue());
+            if (_fighting_again)
+            {
+                _end_fighting_again_dialogue = true;
+            }
         }
     }
 
     public IEnumerator NextDialogue()
     {
-        #region
+        #region data for dialogue
         newPlayerMovement playerMovement = _player.GetComponent<newPlayerMovement>();
         playerMovement.enabled = false;
         PlayerGun playerGun = _player.GetComponent<PlayerGun>();
         playerGun.enabled = false;
-        #endregion Player
-        dialogueTxt.text = "";
-        stillTyping = true;
-        foreach (char DialogueCharacters in Dialogue[dialogueCounter])
-        {
-            yield return new WaitForSeconds(trueDialogueTypingSpeed);
-            dialogueTxt.text += DialogueCharacters.ToString();
-        }
-        stillTyping = false;
+        #endregion
 
-        if (dialogueCounter >= Dialogue.Length)
+        if (_how_many_times_fought >= 1)
         {
-            playerMovement.enabled = true;
-            playerGun.enabled = true;
-            DialogueImage.gameObject.SetActive(false);
-            inDialogue = false;
-            StartCoroutine(Attack());
+            _fighting_again = true;
+            dialogueTxt.text = "";
+            stillTyping = true;
+            int rand = Random.Range(0, RepeatDialogue.Length);
+            repeat_dialogue = RepeatDialogue[rand];
+            repeat_dialogue = repeat_dialogue.Replace("(attempt_count)", _how_many_times_fought.ToString());
+
+            if (_end_fighting_again_dialogue)
+            {
+                playerMovement.enabled = true;
+                playerGun.enabled = true;
+                DialogueImage.gameObject.SetActive(false);
+                inDialogue = false;
+                _how_many_times_fought++;
+                StartCoroutine(Attack());
+                _end_fighting_again_dialogue = false;
+            }
+            else
+            {
+                foreach (char DialogueCharacters in repeat_dialogue)
+                {
+                    yield return new WaitForSeconds(trueDialogueTypingSpeed);
+                    dialogueTxt.text += DialogueCharacters.ToString();
+                }
+            }
+            stillTyping = false;
+        }
+        else
+        {
+            #region dialogue
+            dialogueTxt.text = "";
+            stillTyping = true;
+
+            if (dialogueCounter >= Dialogue.Length)
+            {
+                playerMovement.enabled = true;
+                playerGun.enabled = true;
+                DialogueImage.gameObject.SetActive(false);
+                inDialogue = false;
+                _how_many_times_fought++;
+                StartCoroutine(Attack());
+            }
+            else
+            {
+                foreach (char DialogueCharacters in Dialogue[dialogueCounter])
+                {
+                    yield return new WaitForSeconds(trueDialogueTypingSpeed);
+                    dialogueTxt.text += DialogueCharacters.ToString();
+                }
+            }
+            stillTyping = false;
+            #endregion
         }
     }
 
@@ -154,6 +204,11 @@ public class BossController : MonoBehaviour
         yield return new WaitUntil(() => AttackCooldownTimer <= 0);
         AttackCooldownTimer = attackCooldown;
         StartCoroutine(Attack());
+    }
+
+    public void ResetAttemptCounter()
+    {
+        _how_many_times_fought = 0;
     }
 
     public IEnumerator DamageIndacatorCaller()

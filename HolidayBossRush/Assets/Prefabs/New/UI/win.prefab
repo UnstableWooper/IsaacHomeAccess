@@ -261,7 +261,7 @@ GameObject:
   - component: {fileID: 2263556843710000847}
   - component: {fileID: 6944238207345823061}
   - component: {fileID: 5842356001997070447}
-  - component: {fileID: 8196365788513701253}
+  - component: {fileID: 4191599324108504007}
   m_Layer: 5
   m_Name: win  button
   m_TagString: Untagged
@@ -371,19 +371,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8196365788513701253}
-        m_TargetAssemblyTypeName: Restart, Assembly-CSharp
-        m_MethodName: RestartGame
-        m_Mode: 1
+      - m_Target: {fileID: 4191599324108504007}
+        m_TargetAssemblyTypeName: SceneController, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &8196365788513701253
+--- !u!114 &4191599324108504007
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -392,7 +392,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6916213001896082490}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33380c2cbe501f441ade7b3c585337d3, type: 3}
+  m_Script: {fileID: 11500000, guid: b4a50003605ea244a801137d3143afed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &7944716549155657243

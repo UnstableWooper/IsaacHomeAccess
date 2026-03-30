@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 233196154362438780}
   - component: {fileID: 5527376536420742413}
   - component: {fileID: 5847397076197281716}
-  - component: {fileID: 1605557713440411234}
+  - component: {fileID: 8221001208123602780}
   m_Layer: 5
   m_Name: lose button
   m_TagString: Untagged
@@ -122,19 +122,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1605557713440411234}
-        m_TargetAssemblyTypeName: Restart, Assembly-CSharp
-        m_MethodName: RestartGame
-        m_Mode: 1
+      - m_Target: {fileID: 8221001208123602780}
+        m_TargetAssemblyTypeName: SceneController, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1605557713440411234
+--- !u!114 &8221001208123602780
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,7 +143,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 913648257696775205}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33380c2cbe501f441ade7b3c585337d3, type: 3}
+  m_Script: {fileID: 11500000, guid: b4a50003605ea244a801137d3143afed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1909044082711999061

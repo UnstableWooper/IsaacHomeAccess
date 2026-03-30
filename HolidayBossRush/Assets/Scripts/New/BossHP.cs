@@ -28,6 +28,7 @@ public class BossHP : MonoBehaviour
             if (TrueBossHp <= 0)
             {
                 gameObject.SetActive(false);
+                _brain.ResetAttemptCounter();
                 Invoke(nameof(BossDefeated), 3);
             }
         }
