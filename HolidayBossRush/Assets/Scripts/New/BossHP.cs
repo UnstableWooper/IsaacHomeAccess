@@ -19,7 +19,7 @@ public class BossHP : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Projectile"))
+        if (other.CompareTag("Projectile") && gameObject.activeSelf)
         {
             _bulletProjectile = other.GetComponent<PlayerProjectile>();
             TrueBossHp -= _bulletProjectile.projectileDamage;

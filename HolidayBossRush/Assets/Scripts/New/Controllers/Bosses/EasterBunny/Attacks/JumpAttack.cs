@@ -33,10 +33,13 @@ public class JumpAttack : BossAttack
     
     public override IEnumerator AttackWarn()
     {
-        _ogColor = _controller.OgColor;
-        _spriteRenderer.color = Color.yellow;
-        yield return new WaitForSeconds(attackWarnLength);
-        _spriteRenderer.color = _ogColor;
-        StartAttack();
+        if (_controller.grounded) 
+        {
+            _ogColor = _controller.OgColor;
+            _spriteRenderer.color = Color.yellow;
+            yield return new WaitForSeconds(attackWarnLength);
+            _spriteRenderer.color = _ogColor;
+            StartAttack();
+        }
     }
 }

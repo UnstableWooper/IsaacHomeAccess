@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class FallingEgg : MonoBehaviour
 {
+    [SerializeField] private SpriteRenderer sp;
+    [SerializeField] private Sprite[] sprites;
+
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Ground"))
@@ -13,5 +16,12 @@ public class FallingEgg : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }   
+
+    private void Start()
+    {
+        sp = GetComponent<SpriteRenderer>();
+        sp.sprite = sprites[Random.Range(0 ,sprites.Length)];
+
     }
 }

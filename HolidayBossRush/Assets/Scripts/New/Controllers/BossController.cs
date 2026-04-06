@@ -23,6 +23,7 @@ public class BossController : MonoBehaviour
 
     public bool grounded;
     public bool bounceOffWall;
+    public bool faceTowardPlayer;
 
     private Rigidbody2D _rigidbody;
     //Shoot Attack
@@ -91,7 +92,17 @@ public class BossController : MonoBehaviour
             }
         }
 
-
+        if (faceTowardPlayer)
+        {
+            if (transform.position.x < _player.transform.position.x)
+            {
+                spriteRenderer.flipX = true;
+            }
+            else
+            {
+                spriteRenderer.flipX = false;
+            }
+        }
     }
 
     public void StartDialogue()
@@ -213,14 +224,16 @@ public class BossController : MonoBehaviour
 
     public IEnumerator DamageIndacatorCaller()
     {
-        for (int i = 1; i < 2; i++)
+        if(spriteRenderer.color != Color.yellow)
         {
-            spriteRenderer.color = Color.white;
-            yield return new WaitForSeconds(0.175f);
-            spriteRenderer.color = OgColor;
-            yield return new WaitForSeconds(0.175f);
+            for (int i = 1; i < 2; i++)
+            {
+                spriteRenderer.color = Color.gray;
+                yield return new WaitForSeconds(0.175f);
+                spriteRenderer.color = OgColor;
+                yield return new WaitForSeconds(0.175f);
+            }
         }
-
     }
 
     private void OnTriggerEnter2D(Collider2D other)

@@ -7,12 +7,17 @@ public class SpawnMiniBunny : MonoBehaviour
     [SerializeField] public float TimeBeforeHatch;
 
     [SerializeField] public GameObject miniBunny;
+
+    [SerializeField] private SpriteRenderer sp;
+    [SerializeField] private Sprite[] sprites;
     void Start()
     {
         StartCoroutine("SpawnBunny");
+        sp = GetComponent<SpriteRenderer>();
+        sp.sprite = sprites[Random.Range(0, sprites.Length)];
     }
 
-    IEnumerator SpawnBunny()
+IEnumerator SpawnBunny()
     {
         yield return new WaitForSeconds(TimeBeforeHatch);
         Instantiate(miniBunny, transform.position , Quaternion.identity);
