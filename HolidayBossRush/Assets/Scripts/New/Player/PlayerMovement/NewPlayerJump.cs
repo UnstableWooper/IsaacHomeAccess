@@ -7,6 +7,8 @@ public class NewPlayerJump : MonoBehaviour
     [SerializeField] public float jumpHight;
     [SerializeField] public int jumpPhases;
 
+    [SerializeField] private Animator playerAnimatior; 
+
     private Rigidbody2D _rigidbody;
     private Controller _controller;
     private GroundCheck _groundCheck;
@@ -41,6 +43,9 @@ public class NewPlayerJump : MonoBehaviour
         {
             _jumpsDone = 0;
         }
+
+        playerAnimatior.SetFloat("VelocityY", _rigidbody.velocity.y);
+        playerAnimatior.SetBool("OnGround", _onGround);
     }
 
     private void Jump()

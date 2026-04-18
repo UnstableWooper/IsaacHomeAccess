@@ -6,6 +6,7 @@ public class newPlayerMovement : MonoBehaviour
 {
     [SerializeField] public float maxSpeed;
     [SerializeField] public float acceleration;
+    [SerializeField] private Animator playerAnimatior;
 
     private Controller _controller;
     private Rigidbody2D _rigidbody;
@@ -50,6 +51,8 @@ public class newPlayerMovement : MonoBehaviour
         _friction = _groundCheck.Friction;
         int direction = Mathf.RoundToInt(_direction);
         if(direction != 0)transform.localScale = new Vector2( direction == 1 ? 1 : -1, 1);
+
+        playerAnimatior.SetFloat("VelocityX", _velocity.x);
     }
     private void FixedUpdate()
     {

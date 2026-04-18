@@ -58,9 +58,9 @@ public class newPlayerHealth : MonoBehaviour
     {
         while(iFramesTimer >= 0)
         {
-            _spriteRenderer.color = Color.black;
-            yield return new WaitForSeconds(0.175f);
             _spriteRenderer.color = Color.gray;
+            yield return new WaitForSeconds(0.175f);
+            _spriteRenderer.color = Color.white;
             yield return new WaitForSeconds(0.175f);
         }
     }

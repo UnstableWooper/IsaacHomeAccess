@@ -7,10 +7,14 @@ public class PlayerGun : MonoBehaviour
     [SerializeField] private GameObject bullet;
     [SerializeField] private float cooldown;
 
+    [SerializeField] private Animator playerAnimator;
+
     public Vector3 offset { get; set; }
 
     private GameObject _player;
     private float _attackCooldown;
+
+    private bool attacked;
 
     private void Start()
     {
@@ -28,6 +32,7 @@ public class PlayerGun : MonoBehaviour
         }
         if (Input.GetButtonDown("Shoot") & _attackCooldown < 0)
         {
+            playerAnimator.SetTrigger("Attacked");
             _attackCooldown = cooldown;
             Instantiate(bullet, transform.position, transform.rotation);
 
