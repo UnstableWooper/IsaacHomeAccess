@@ -50,9 +50,9 @@ public class newPlayerMovement : MonoBehaviour
         _disiredPos.x = (maxSpeed - _friction) * _direction;
         _friction = _groundCheck.Friction;
         int direction = Mathf.RoundToInt(_direction);
-        if(direction != 0)transform.localScale = new Vector2( direction == 1 ? 1 : -1, 1);
+        if(direction != 0)transform.localScale = new Vector2( direction == 1 ? 1.33f : -1.33f, 1.33f);
 
-        playerAnimatior.SetFloat("VelocityX", _velocity.x);
+        playerAnimatior.SetFloat("VelocityX", _disiredPos.x);
     }
     private void FixedUpdate()
     {

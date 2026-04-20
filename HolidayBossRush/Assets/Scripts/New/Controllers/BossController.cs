@@ -14,7 +14,7 @@ public class BossController : MonoBehaviour
     [SerializeField] private float attackCooldown; //8
     [SerializeField] public SpriteRenderer spriteRenderer;
 
-    private GameObject _player;
+    public GameObject _player;
 
     private BossHP _bossHealth;
     public Color OgColor { private set; get; }
@@ -50,6 +50,8 @@ public class BossController : MonoBehaviour
     private bool _fighting_again;
     private bool _end_fighting_again_dialogue;
 
+    public bool DontDoDialouge;
+
     private void Awake()
     {
         _player = FindAnyObjectByType<newPlayerMovement>().gameObject;
@@ -57,13 +59,19 @@ public class BossController : MonoBehaviour
         OgColor = spriteRenderer.color;
         _rigidbody = GetComponent<Rigidbody2D>();
         dialogueCounter = -1;
-        inDialogue = true;
+
+        if(!DontDoDialouge) inDialogue = true;
+
     }
 
     private void Start()
     {
-        DialogueImage.gameObject.SetActive(true);
-        StartDialogue();
+        if (!DontDoDialouge)
+        {
+            DialogueImage.gameObject.SetActive(true);
+            StartDialogue();
+
+        }
     }
     private void Update()
     {
@@ -75,6 +83,12 @@ public class BossController : MonoBehaviour
         {
             trueDialogueTypingSpeed = dialogueTypingSpeed;
         }
+
+        if (Input.GetKey(KeyCode.RightShift))
+        {
+            dialogueCounter = Dialogue.Length;
+        }
+
 
         if (inDialogue && Input.GetKeyDown(KeyCode.Space))
         {

@@ -419,7 +419,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8071beef5151d8448587b6a494f6bd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 500
+  maxHP: 200
+  TrueBossHp: 0
 --- !u!114 &3447028789719156572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -448,15 +449,47 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attacks:
   - attack: {fileID: 6039413959020384239}
-    randomChance: 0
-  - attack: {fileID: 6039413959020384239}
-    randomChance: 0
+    randomChance: 4
+  - attack: {fileID: 2867648504411925385}
+    randomChance: 5
   - attack: {fileID: 4131379115905150938}
-    randomChance: 10
+    randomChance: 3
   attackCooldown: 10
   spriteRenderer: {fileID: 5073718461555865051}
+  _player: {fileID: 0}
   grounded: 0
   bounceOffWall: 0
+  faceTowardPlayer: 0
+  Dialogue:
+  - "Well now, look who\u2019s wandered into me clover patch. A tall, quiet human
+    with that \u201CI want gold\u201D look in their eyes. Typical."
+  - "Not a word out of you, eh? Fine. I\u2019ll do the talking. Someone has to."
+  - "Let me guess \u2014 you\u2019re here for me pot o\u2019 gold. Everyone always
+    is. Never \u201CHow are you, Leprechaun?\u201D or \u201CWould you like a snack?\u201D
+    No. Straight to the treasure."
+  - "Still staring. Wonderful. You\u2019ve the social energy of a mossy rock."
+  - "If you\u2019re thinking of grabbing me gold, I should warn you \u2014 I bite.
+    And I run fast. Faster than you, I\u2019d wager."
+  - "Oh, don\u2019t give me that look. I\u2019ve seen it before. \u201COoooh, shiny
+    coins!\u201D Yes, yes, very impressive. They\u2019re mine. All mine. Generations
+    of hoarding. You can\u2019t have even one."
+  - "\u2026You\u2019re still not talking. Are you enchanted? Cursed? Or just rude?"
+  - "Fine. Take a shamrock. Not the gold \u2014 just the shamrock. And be off with
+    you before I start throwing tiny shoes."
+  - "And don\u2019t come back unless you bring snacks. Preferably something with
+    sugar."
+  RepeatDialogue:
+  - Back again to challenge the lucky St. Patrick once more? you already lost (attempt_count)
+    times
+  - 'I see your back again, do you want a reminder to never fight the lucky St. Patrick.I
+    will make your attempts:  (attempt_count) turn to infinity.'
+  - I'm getting board killing you can we just end this fast, like all other fights.
+    You have already lost around (attempt_count) times. Lets just end this fast.
+  dialogueTypingSpeed: 0.02
+  DialogueImage: {fileID: 0}
+  dialogueTxt: {fileID: 0}
+  trueDialogueTypingSpeed: 0
+  DontDoDialouge: 0
 --- !u!114 &6039413959020384239
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -489,6 +522,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackWarnLength: 1
   _attackDamage: 0
+  rangeOfGold: {x: 10, y: 20}
+  rangeOfAngle: 60
+  goldPositions:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   gold: {fileID: 6348534815899520248, guid: 5cf5da1ee5d416b4facd80174a37fb73, type: 3}
   offset: 7
 --- !u!114 &4131379115905150938
@@ -511,6 +550,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  damage_After_Use: 30
+  hp: {fileID: 2363878834238154399}
 --- !u!1 &7673009335652817531
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,6 +8,9 @@ public class ShadowCloneAttack : BossAttack
     [SerializeField] private GameObject fakeStPatrick;
     [SerializeField] private Transform[] spawnPositions;
 
+    [SerializeField] private int damage_After_Use;
+    [SerializeField] private BossHP hp;
+
     private BossController _controller;
     private SpriteRenderer _spriteRenderer;
     private Rigidbody2D _rigidbody;
@@ -31,6 +34,8 @@ public class ShadowCloneAttack : BossAttack
             Instantiate(RandomRealStPatrick == i ? realStPatrick : fakeStPatrick, spawnPositions[i].position, Quaternion.identity);
         }   
         this.gameObject.SetActive(false);
+
+        hp.TrueBossHp -= damage_After_Use;
     }
 
     public override IEnumerator AttackWarn()

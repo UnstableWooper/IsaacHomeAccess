@@ -9,6 +9,8 @@ public class BossGoldRain : BossAttack
     [SerializeField] Vector2 rangeOfGold;
     [SerializeField] int rangeOfAngle;
 
+    [SerializeField] Transform[] goldPositions;
+
     [Header("Other")]
 
     [SerializeField] private GameObject gold;
@@ -31,10 +33,20 @@ public class BossGoldRain : BossAttack
 
     public override void StartAttack()
     {
-        for(int i = 1; i <= UnityEngine.Random.Range(Mathf.RoundToInt(rangeOfGold.x), Mathf.RoundToInt(rangeOfGold.y)); i++)
+        int goldPos = 0;
+
+        for (int i = 0; i < goldPositions.Length; i++)
         {
-            Instantiate(gold,new Vector2(transform.position.x ,
-                transform.position.y + offset), Quaternion.Euler(Quaternion.identity.x ,
+            if (goldPositions[i].position.x < _controller._player.transform.position.x)
+            {
+                goldPos = i;
+            }
+        }
+
+        for (int i = 1; i <= UnityEngine.Random.Range(Mathf.RoundToInt(rangeOfGold.x), Mathf.RoundToInt(rangeOfGold.y)); i++)
+        {
+            Instantiate(gold,new Vector2(goldPositions[goldPos].position.x,
+                goldPositions[goldPos].position.y + offset), Quaternion.Euler(Quaternion.identity.x ,
                 Quaternion.identity.y, UnityEngine.Random.Range(rangeOfAngle, -rangeOfAngle)));
         }
     }

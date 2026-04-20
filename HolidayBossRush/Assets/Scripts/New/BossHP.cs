@@ -9,8 +9,8 @@ public class BossHP : MonoBehaviour
     [SerializeField, Range(1, 1000)]public int maxHP;
     private PlayerProjectile _bulletProjectile;
     private BossController _brain;
-    
-    public int TrueBossHp { private set; get; }
+
+    public int TrueBossHp;
     private void Start()
     {
         _brain = GetComponent<BossController>();
