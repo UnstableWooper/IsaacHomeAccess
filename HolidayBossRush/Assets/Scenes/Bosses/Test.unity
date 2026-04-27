@@ -535,10 +535,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5407164532943900388, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
-      propertyPath: DontDoDialouge
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6062183090467887795, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
       propertyPath: m_Name
       value: St.PatrickBoss
@@ -2225,10 +2221,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2902752536302000490, guid: af54795c4d4dd354c9d9b24d951dfe8f, type: 3}
-      propertyPath: DontDoDialouge
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3778198572817592295, guid: af54795c4d4dd354c9d9b24d951dfe8f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2268,6 +2260,14 @@ PrefabInstance:
     - target: {fileID: 3778198572817592295, guid: af54795c4d4dd354c9d9b24d951dfe8f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3893332793553860028, guid: af54795c4d4dd354c9d9b24d951dfe8f, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3893332793553860028, guid: af54795c4d4dd354c9d9b24d951dfe8f, type: 3}
+      propertyPath: m_Offset.y
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 5117482772788637760, guid: af54795c4d4dd354c9d9b24d951dfe8f, type: 3}
       propertyPath: m_Name

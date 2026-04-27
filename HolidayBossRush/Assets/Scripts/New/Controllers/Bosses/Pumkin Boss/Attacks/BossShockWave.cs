@@ -10,10 +10,10 @@ public class BossShockWave : BossAttack
     [SerializeField, Range(1, 5)] private float shockWaveCooldown;
 
     [SerializeField] private GameObject shockwave;
-    private SpriteRenderer _spriteRenderer;
+
+    [SerializeField] private Animator animatior;
 
     private BossController _pumkinController;
-    private Color _ogColor;
     public override void StartAttack()
     {
         Instantiate(shockwave, new Vector2(0.01f, -2.8f), Quaternion.identity);
@@ -23,11 +23,8 @@ public class BossShockWave : BossAttack
     public override IEnumerator AttackWarn()
     {
         _pumkinController = GetComponent<BossController>();
-        _ogColor = _pumkinController.OgColor;
-        _spriteRenderer = _pumkinController.spriteRenderer;
-        _spriteRenderer.color = Color.yellow;
+        animatior.SetTrigger("Slam");
         yield return new WaitForSeconds(attackWarnLength);
-        _spriteRenderer.color = _ogColor;
         if (!_pumkinController.SecondPhase)
         {   
             int randomAttackAmounts = Random.Range(attackAmount, attackAmount + 1);
