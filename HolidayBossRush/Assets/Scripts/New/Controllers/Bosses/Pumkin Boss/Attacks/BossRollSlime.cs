@@ -12,19 +12,21 @@ public class BossRollSlime : BossAttack
     [SerializeField] private float stunLength;
 
     [SerializeField] private Animator animator;
+    [SerializeField] private GameObject StunnedIndicator;
 
-    private BossController _controller;
+    private BossController _pumkinController;
     private Damage _damage;
     private Vector2 _originPos;
 
     private Rigidbody2D _rigidbody;
     private Vector2 _velocity;
-    private int _hits;
+    public int _hits;
+
 
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
-        _controller = GetComponent<BossController>();
+        _pumkinController = GetComponent<BossController>();
         _damage = GetComponent<Damage>();
         _velocity = _rigidbody.velocity;
         _damage.CantDamage(true);
@@ -37,20 +39,23 @@ public class BossRollSlime : BossAttack
         gameObject.tag = "SlimeMode";
         _damage.CantDamage(false);
         int randPos = Random.Range(0, 2);
+
         if (randPos == 0)
         {
-            animator.SetTrigger("Roll_1");
+            transform.position = new Vector2(20, -1);
+            _velocity = new Vector2(-speed * (_pumkinController.SecondPhase ? secondPhaseSpeedMulti : 1), 0);
         }
         else
         {
-            animator.SetTrigger("Roll_2");
+            transform.position = new Vector2(-20, -1);
+            _velocity = new Vector2(speed * (_pumkinController.SecondPhase ? secondPhaseSpeedMulti : 1), 0);
         }
         _rigidbody.velocity = _velocity;
     }
 
     private void Update()
     {
-        if (transform.position.x > 20 || transform.position.x < -20)
+        if (transform.position.x > 21 || transform.position.x < -21)
         {
             transform.position = _originPos;
             _velocity = new Vector2(0 , 0);
@@ -62,10 +67,11 @@ public class BossRollSlime : BossAttack
             _hits = 0;
             transform.position = _originPos;
             _velocity = new Vector2(0, 0);
-            _controller.AttackCooldownTimer += stunLength;
+            _pumkinController.AttackCooldownTimer += stunLength;
             _damage.CantDamage(true);
-            
-            animator.Play("Pumpkin_Idle");
+
+
+            StartCoroutine(Stunned());
 
             gameObject.tag = "Boss";
             //stuneded
@@ -75,8 +81,13 @@ public class BossRollSlime : BossAttack
 
     public override IEnumerator AttackWarn()
     {
-        _controller.AttackCooldownTimer += 3;
+        _pumkinController.AttackWarn(Color.red);
+
+        _pumkinController.AttackCooldownTimer += 3;
         yield return new WaitForSeconds(attackWarnLength);
+
+        _pumkinController.AttackWarn(Color.white);
+
         StartAttack();
     }
 
@@ -86,5 +97,14 @@ public class BossRollSlime : BossAttack
         {
             _hits++;
         }
+    }
+
+
+
+    private IEnumerator Stunned()
+    {
+        StunnedIndicator.SetActive(true);
+        yield return new WaitForSeconds(stunLength);
+        StunnedIndicator.SetActive(false);
     }
 }

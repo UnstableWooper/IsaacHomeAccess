@@ -56,12 +56,12 @@ public class BossController : MonoBehaviour
     {
         _player = FindAnyObjectByType<newPlayerMovement>().gameObject;
         _bossHealth = GetComponent<BossHP>();
-        OgColor = spriteRenderer.color;
         _rigidbody = GetComponent<Rigidbody2D>();
         dialogueCounter = -1;
 
         if(!DontDoDialouge) inDialogue = true;
 
+        OgColor = Color.white;
     }
 
     private void Start()
@@ -270,5 +270,12 @@ public class BossController : MonoBehaviour
     private void OnCollisionExit2D(Collision2D other)
     {
         grounded = false;
+    }
+
+
+    public void AttackWarn(Color color)
+    {
+        spriteRenderer.color = color;
+        OgColor = color;
     }
 }

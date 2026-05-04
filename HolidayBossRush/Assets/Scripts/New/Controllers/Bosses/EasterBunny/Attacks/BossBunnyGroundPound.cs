@@ -10,17 +10,14 @@ public class BossBunnyGroundPound : BossAttack
     [SerializeField] private Vector2 jumpHight;
 
     private BossController _controller;
-    private SpriteRenderer _spriteRenderer;
     private Rigidbody2D _rigidbody;
     private Damage _damage;
-    private Color _ogColor;
 
     public void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _damage = GetComponent<Damage>();
         _controller = GetComponent<BossController>();
-        _spriteRenderer = _controller.spriteRenderer;
         _damage.CantDamage(false);
     }
 
@@ -51,12 +48,10 @@ public class BossBunnyGroundPound : BossAttack
 
     public override IEnumerator AttackWarn()
     {
-
-        _ogColor = _controller.OgColor;
-        _spriteRenderer.color = Color.yellow;
+        _controller.AttackWarn(Color.red);
         yield return new WaitForSeconds(attackWarnLength);
+        _controller.AttackWarn(Color.white);
         _controller.AttackCooldownTimer += 3;
-        _spriteRenderer.color = _ogColor;
         StartAttack();
     }
 }

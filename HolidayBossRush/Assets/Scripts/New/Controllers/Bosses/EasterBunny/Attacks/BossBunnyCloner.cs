@@ -7,17 +7,14 @@ public class BossBunnyCloner : BossAttack
     [SerializeField] private GameObject Egg;
 
     private BossController _controller;
-    private SpriteRenderer _spriteRenderer;
     private Rigidbody2D _rigidbody;
     private Damage _damage;
-    private Color _ogColor;
 
     public void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _damage = GetComponent<Damage>();
         _controller = GetComponent<BossController>();
-        _spriteRenderer = _controller.spriteRenderer;
         _damage.CantDamage(false);
     }
     public override void StartAttack()
@@ -34,10 +31,9 @@ public class BossBunnyCloner : BossAttack
     }
     public override IEnumerator AttackWarn()
     {
-        _ogColor = _controller.OgColor;
-        _spriteRenderer.color = Color.yellow;
+        _controller.AttackWarn(Color.red);
         yield return new WaitForSeconds(attackWarnLength);
-        _spriteRenderer.color = _ogColor;
+        _controller.AttackWarn(Color.white);
         StartAttack();
     }
 

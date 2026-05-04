@@ -7,10 +7,8 @@ public class JumpAttack : BossAttack
     [SerializeField]private Vector2 jumpStrength;
 
     private BossController _controller;
-    private SpriteRenderer _spriteRenderer;
     private Rigidbody2D _rigidbody;
     private Damage _damage;
-    private Color _ogColor;
 
     private GameObject _player;
 
@@ -20,7 +18,6 @@ public class JumpAttack : BossAttack
         _rigidbody = GetComponent<Rigidbody2D>();
         _damage = GetComponent<Damage>();
         _controller = GetComponent<BossController>();
-        _spriteRenderer = _controller.spriteRenderer;
         _damage.CantDamage(false);
     }
 
@@ -35,10 +32,9 @@ public class JumpAttack : BossAttack
     {
         if (_controller.grounded) 
         {
-            _ogColor = _controller.OgColor;
-            _spriteRenderer.color = Color.yellow;
+            _controller.AttackWarn(Color.red);
             yield return new WaitForSeconds(attackWarnLength);
-            _spriteRenderer.color = _ogColor;
+            _controller.AttackWarn(Color.white);
             StartAttack();
         }
     }
