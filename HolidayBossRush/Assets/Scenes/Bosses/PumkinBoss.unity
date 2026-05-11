@@ -2780,6 +2780,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pumkin Boss
       objectReference: {fileID: 0}
+    - target: {fileID: 6103436427838045687, guid: af54795c4d4dd354c9d9b24d951dfe8f, type: 3}
+      propertyPath: shockWaveCooldown
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
