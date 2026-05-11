@@ -108,11 +108,11 @@ public class BossController : MonoBehaviour
 
         if (faceTowardPlayer)
         {
-            if (transform.position.x < _player.transform.position.x)
+            if (transform.position.x < _player.transform.position.x & grounded)
             {
                 spriteRenderer.flipX = true;
             }
-            else
+            else if (grounded)
             {
                 spriteRenderer.flipX = false;
             }

@@ -22,6 +22,8 @@ public class BossGoldRain : BossAttack
     private Damage _damage;
     private Color _ogColor;
 
+    private GameObject player;
+
     public void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
@@ -29,24 +31,35 @@ public class BossGoldRain : BossAttack
         _controller = GetComponent<BossController>();
         _spriteRenderer = _controller.spriteRenderer;
         _damage.CantDamage(true);
+
+        
     }
 
     public override void StartAttack()
     {
-        int goldPos = 0;
 
-        for (int i = 0; i < goldPositions.Length; i++)
+        Transform playerPos = player.transform;
+        Transform bestTarget = null;
+        float closestDistanceSqr = Mathf.Infinity;
+        Vector3 currentPosition = playerPos.position;
+
+        foreach (Transform potentialTarget in goldPositions)
         {
-            if (goldPositions[i].position.x < _controller._player.transform.position.x)
-            {
-                goldPos = i;
-            }
-        }
+            Vector3 directionToTarget = potentialTarget.position - currentPosition;
+            float dSqrToTarget = directionToTarget.sqrMagnitude;
 
+            if (dSqrToTarget < closestDistanceSqr)
+            {
+                closestDistanceSqr = dSqrToTarget;
+                bestTarget = potentialTarget;
+            }
+
+        }
+        
         for (int i = 1; i <= UnityEngine.Random.Range(Mathf.RoundToInt(rangeOfGold.x), Mathf.RoundToInt(rangeOfGold.y)); i++)
         {
-            Instantiate(gold,new Vector2(goldPositions[goldPos].position.x,
-                goldPositions[goldPos].position.y + offset), Quaternion.Euler(Quaternion.identity.x ,
+            Instantiate(gold,new Vector2(bestTarget.position.x,
+                bestTarget.position.y + offset), Quaternion.Euler(Quaternion.identity.x ,
                 Quaternion.identity.y, UnityEngine.Random.Range(rangeOfAngle, -rangeOfAngle)));
         }
     }
@@ -57,6 +70,7 @@ public class BossGoldRain : BossAttack
         _spriteRenderer.color = Color.yellow;
         yield return new WaitForSeconds(attackWarnLength);
         _spriteRenderer.color = _ogColor;
+        player = _controller._player.gameObject;
         StartAttack();
     }
 }

@@ -1302,9 +1302,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2943250936750891850, guid: 6767bde897342ba4084437b80c66d405, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1290014665}
     - target: {fileID: 6446001551011754798, guid: 6767bde897342ba4084437b80c66d405, type: 3}
       propertyPath: m_Name
       value: Easter Bunny
+      objectReference: {fileID: 0}
+    - target: {fileID: 8623653438608513853, guid: 6767bde897342ba4084437b80c66d405, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8943850837050227469, guid: 6767bde897342ba4084437b80c66d405, type: 3}
       propertyPath: dialogueTxt
@@ -1437,6 +1445,11 @@ GameObject:
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4101024827003185197, guid: 0ece129b217f938489d217396155ed00, type: 3}
   m_PrefabInstance: {fileID: 8825632420390140889}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1290014665 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8623653438608513853, guid: 6767bde897342ba4084437b80c66d405, type: 3}
+  m_PrefabInstance: {fileID: 983196732}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1309713906
 GameObject:
@@ -1823,7 +1836,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6469999124453021646, guid: e860aa28ef48709438d25c1b1b0c0ed2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.72
+      value: -0.13
       objectReference: {fileID: 0}
     - target: {fileID: 6469999124453021646, guid: e860aa28ef48709438d25c1b1b0c0ed2, type: 3}
       propertyPath: m_LocalPosition.z

@@ -244,8 +244,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bd36c6d845792c408c309f526eceda7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 42
-  acceleration: 180
+  maxSpeed: 7
+  acceleration: 35
   playerAnimatior: {fileID: 5637355382930311819}
 --- !u!114 &4354407064992016420
 MonoBehaviour:
@@ -308,7 +308,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: f20fbfd8f2bbac1448ad8e1a94ffb5d7, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 

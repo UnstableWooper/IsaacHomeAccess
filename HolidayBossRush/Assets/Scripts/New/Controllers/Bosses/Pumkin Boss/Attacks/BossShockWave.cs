@@ -16,6 +16,8 @@ public class BossShockWave : BossAttack
     private BossController _pumkinController;
     private Damage _damage;
 
+    private int _counter;
+
     public override void StartAttack()
     {
         Instantiate(shockwave, new Vector2(0.01f, -2.8f), Quaternion.identity);
@@ -30,7 +32,7 @@ public class BossShockWave : BossAttack
         _pumkinController.AttackWarn(Color.red);
         yield return new WaitForSeconds(attackWarnLength);
         _damage.CantDamage(false);
-        animatior.SetTrigger("Slam");
+        SlamAnimation();
         yield return new WaitForSeconds(1);
         _pumkinController.AttackWarn(Color.white);
         if (!_pumkinController.SecondPhase)
@@ -38,8 +40,7 @@ public class BossShockWave : BossAttack
             int randomAttackAmounts = Random.Range(attackAmount, attackAmount + 1);
             for (int i = 0; i < randomAttackAmounts; i++)
             {
-                StartAttack();
-                yield return new WaitForSeconds(shockWaveCooldown);
+                Invoke("StartAttack", shockWaveCooldown);
             }
         }
         else
@@ -47,10 +48,15 @@ public class BossShockWave : BossAttack
             int randomAttackAmountsSecondPhase = Random.Range(attackAmountSecondPhase, attackAmountSecondPhase + 1);
             for (int i = 0; i < randomAttackAmountsSecondPhase; i++)
             {
-                StartAttack();
-                yield return new WaitForSeconds(shockWaveCooldown);
+                Invoke("StartAttack", shockWaveCooldown);
             }
         }
 
+    }
+
+    private void SlamAnimation()
+    {
+        animatior.SetTrigger("Slam");
+        
     }
 }

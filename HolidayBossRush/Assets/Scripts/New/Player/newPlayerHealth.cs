@@ -33,6 +33,7 @@ public class newPlayerHealth : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
+
     public void Damage(int Damage, Vector3 otherPos)
     {
         if(iFramesTimer <= 0)

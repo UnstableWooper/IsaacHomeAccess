@@ -1835,6 +1835,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2867648504411925385, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
+      propertyPath: rangeOfGold.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2867648504411925385, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
+      propertyPath: rangeOfGold.y
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5407164532943900388, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
       propertyPath: dialogueTxt
       value: 
@@ -1843,6 +1851,10 @@ PrefabInstance:
       propertyPath: DialogueImage
       value: 
       objectReference: {fileID: 1399011928}
+    - target: {fileID: 5407164532943900388, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
+      propertyPath: DontDoDialouge
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6062183090467887795, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
       propertyPath: m_Name
       value: St.PatrickBoss
@@ -1867,6 +1879,10 @@ PrefabInstance:
     - target: {fileID: 3323514215908616840, guid: 0ece129b217f938489d217396155ed00, type: 3}
       propertyPath: m_Name
       value: Dialogue
+      objectReference: {fileID: 0}
+    - target: {fileID: 3323514215908616840, guid: 0ece129b217f938489d217396155ed00, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4101024827003185197, guid: 0ece129b217f938489d217396155ed00, type: 3}
       propertyPath: m_Pivot.x

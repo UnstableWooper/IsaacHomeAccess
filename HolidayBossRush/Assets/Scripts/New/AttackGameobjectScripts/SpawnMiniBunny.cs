@@ -20,7 +20,7 @@ public class SpawnMiniBunny : MonoBehaviour
 IEnumerator SpawnBunny()
     {
         yield return new WaitForSeconds(TimeBeforeHatch);
-        Instantiate(miniBunny, transform.position , Quaternion.identity);
+        Instantiate(miniBunny, new Vector2(transform.position.x, transform.position.y + .5f) , Quaternion.identity);
         Destroy(gameObject);
     }
 }
