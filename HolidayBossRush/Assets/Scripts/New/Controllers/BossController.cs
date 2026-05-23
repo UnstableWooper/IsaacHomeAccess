@@ -14,12 +14,14 @@ public class BossController : MonoBehaviour
     [SerializeField] private float attackCooldown; //8
     [SerializeField] public SpriteRenderer spriteRenderer;
 
+    public bool SecondPhase;
+
     public GameObject _player;
 
     private BossHP _bossHealth;
     public Color OgColor { private set; get; }
     public float AttackCooldownTimer { set; get; }
-    public bool SecondPhase { private set; get; }
+    
 
     public bool grounded;
     public bool bounceOffWall;
@@ -66,6 +68,7 @@ public class BossController : MonoBehaviour
 
     private void Start()
     {
+
         if (!DontDoDialouge)
         {
             DialogueImage.gameObject.SetActive(true);
@@ -75,6 +78,7 @@ public class BossController : MonoBehaviour
     }
     private void Update()
     {
+
         if (Input.GetKey(KeyCode.Space))
         {
             trueDialogueTypingSpeed = dialogueTypingSpeed / 2;

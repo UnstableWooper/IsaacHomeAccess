@@ -13,6 +13,9 @@ public class newPlayerHealth : MonoBehaviour
     [SerializeField] private float iFrames;
     [SerializeField] private float health;
 
+
+    [SerializeField] bool Imortal;
+
     private SpriteRenderer _spriteRenderer;
     private Rigidbody2D _rigidbody;
 
@@ -48,7 +51,7 @@ public class newPlayerHealth : MonoBehaviour
             {
                 StartCoroutine(DamageDisplay());
             }
-            else
+            else if(!Imortal)
             {
                 lose();
             }
