@@ -161,6 +161,7 @@ public class BossController : MonoBehaviour
                 DialogueImage.gameObject.SetActive(false);
                 inDialogue = false;
                 _how_many_times_fought++;
+                yield return new WaitForSeconds(5f);
                 StartCoroutine(Attack());
                 _end_fighting_again_dialogue = false;
             }
@@ -282,4 +283,9 @@ public class BossController : MonoBehaviour
         spriteRenderer.color = color;
         OgColor = color;
     }
+    
+    public void AttackCooldownAddTimer(float cooldown)
+    {
+        AttackCooldownTimer += cooldown;
+    }   
 }

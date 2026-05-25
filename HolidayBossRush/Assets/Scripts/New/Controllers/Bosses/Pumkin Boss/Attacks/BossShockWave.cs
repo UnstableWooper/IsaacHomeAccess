@@ -79,6 +79,7 @@ public class BossShockWave : BossAttack
         _damage.CantDamage(false);
         animatior.SetTrigger("Slam");
         yield return new WaitForSeconds(1);
+        _pumkinController.AttackCooldownAddTimer(2);
         _pumkinController.AttackWarn(Color.white);
         StartAttack();
     }

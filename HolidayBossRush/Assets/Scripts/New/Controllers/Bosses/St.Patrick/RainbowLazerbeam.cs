@@ -39,11 +39,10 @@ public class RainbowLazerbeam : BossAttack
     {
         TrueAttackWarnLength = attackWarnLength;
         ShootPos = _player.transform.position;
-        _ogColor = _controller.OgColor;
-        _spriteRenderer.color = Color.yellow;
+        _controller.AttackWarn(Color.red);
         lazerAimScript.Attack();
         yield return new WaitForSeconds(TrueAttackWarnLength);
-        _spriteRenderer.color = _ogColor;
+        _controller.AttackWarn(Color.white);
         StartAttack();
     }
 }
