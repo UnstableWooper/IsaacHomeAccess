@@ -40,10 +40,9 @@ public class ShadowCloneAttack : BossAttack
 
     public override IEnumerator AttackWarn()
     {
-        _ogColor = _controller.OgColor;
-        _spriteRenderer.color = Color.yellow;
+        _controller.AttackWarn(Color.red);
         yield return new WaitForSeconds(attackWarnLength);
-        _spriteRenderer.color = _ogColor;
+        _controller.AttackWarn(Color.white);
         StartAttack();
     }
 }
