@@ -9,8 +9,8 @@ public class ShadowCloneAttack : BossAttack
     [SerializeField] private Transform[] spawnPositions;
 
     [SerializeField] private int damage_After_Use;
-    [SerializeField] private BossHP hp;
 
+    private BossHP _hp;
     private BossController _controller;
     private SpriteRenderer _spriteRenderer;
     private Rigidbody2D _rigidbody;
@@ -23,6 +23,7 @@ public class ShadowCloneAttack : BossAttack
         _damage = GetComponent<Damage>();
         _controller = GetComponent<BossController>();
         _spriteRenderer = _controller.spriteRenderer;
+        _hp = GetComponent<BossHP>();
         _damage.CantDamage(true);
     }
 
@@ -32,10 +33,11 @@ public class ShadowCloneAttack : BossAttack
         for(int i = 0; i < 3; i++)
         {
             Instantiate(RandomRealStPatrick == i ? realStPatrick : fakeStPatrick, spawnPositions[i].position, Quaternion.identity);
-        }   
-        this.gameObject.SetActive(false);
+        }
 
-        hp.TrueBossHp -= damage_After_Use;
+        _hp.TrueBossHp -= damage_After_Use;
+
+        Hide();
     }
 
     public override IEnumerator AttackWarn()
@@ -44,5 +46,10 @@ public class ShadowCloneAttack : BossAttack
         yield return new WaitForSeconds(attackWarnLength);
         _controller.AttackWarn(Color.white);
         StartAttack();
+    }
+
+    private void Hide()
+    {
+        gameObject.SetActive(false);
     }
 }

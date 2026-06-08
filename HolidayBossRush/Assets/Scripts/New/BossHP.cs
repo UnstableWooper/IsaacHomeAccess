@@ -19,7 +19,7 @@ public class BossHP : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Projectile") && gameObject.activeSelf)
+        if (other.CompareTag("Projectile"))
         {
             _bulletProjectile = other.GetComponent<PlayerProjectile>();
             TrueBossHp -= _bulletProjectile.projectileDamage;
@@ -27,7 +27,7 @@ public class BossHP : MonoBehaviour
             _brain.StartCoroutine("DamageIndacatorCaller");
             if (TrueBossHp <= 0)
             {
-                gameObject.SetActive(false);
+               gameObject.SetActive(false);
                 _brain.ResetAttemptCounter();
                 Invoke(nameof(BossDefeated), 3);
             }

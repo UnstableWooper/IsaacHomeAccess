@@ -37,6 +37,8 @@ public class RainbowLazerbeam : BossAttack
 
     public override IEnumerator AttackWarn()
     {
+        _controller = GetComponent<BossController>();
+        _player = GameObject.FindGameObjectWithTag("Player");
         TrueAttackWarnLength = attackWarnLength;
         ShootPos = _player.transform.position;
         _controller.AttackWarn(Color.red);

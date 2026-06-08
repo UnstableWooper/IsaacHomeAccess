@@ -66,6 +66,7 @@ public class BossGoldRain : BossAttack
 
     public override IEnumerator AttackWarn()
     {
+        _controller = GetComponent<BossController>();
         _controller.AttackWarn(Color.red);
         yield return new WaitForSeconds(attackWarnLength);
         _controller.AttackWarn(Color.white);

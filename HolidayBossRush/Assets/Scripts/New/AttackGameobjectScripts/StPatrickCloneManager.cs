@@ -23,44 +23,47 @@ public class StPatrickCloneManager : MonoBehaviour
             BossHP RealStPatrickHP = _realStPatrick.GetComponent<BossHP>();
             if (RealStPatrickHP.TrueBossHp <= 0)
             {
-                StPatrickBoss.SetActive(true);
-                Destroy(_realStPatrick.gameObject);
                 GameObject[] MiniStPatricks = GameObject.FindGameObjectsWithTag("MiniBoss");
                 foreach (GameObject MiniStPatrick in MiniStPatricks)
                 {
                     Destroy(MiniStPatrick);
-                    lazerBeam.SetActive(false);
                 }
+                Destroy(_realStPatrick.gameObject);
+                lazerBeam.SetActive(false);
+                StPatrickBoss.SetActive(true);
             }
-
-            if(_fakeStPatricks.Count <= 0)
+        }
+        if(_fakeStPatricks.Count <= 0)
+        {
+            GameObject[] fakeStPatricks = GameObject.FindGameObjectsWithTag("MiniBoss");
+            foreach (GameObject fakeStPatrick in fakeStPatricks)
             {
-                GameObject[] fakeStPatricks = GameObject.FindGameObjectsWithTag("MiniBoss");
-                foreach (GameObject fakeStPatrick in fakeStPatricks)
-                {
-                    fakeStPatrick.AddComponent<StPatrickExplosion>();
-                }
+                fakeStPatrick.AddComponent<StPatrickExplosion>();
             }
-
-            else
+        }
+        else
+        {
+            for (int i = _fakeStPatricks.Count - 1; i >= 0; i--)
             {
-                foreach (GameObject MiniStPatrick in _fakeStPatricks)
+                GameObject MiniStPatrick = _fakeStPatricks[i];
+
+                if (MiniStPatrick.activeSelf == false)
                 {
-                    if (MiniStPatrick.activeSelf == false)
+                    int spawnCount = UnityEngine.Random.Range(Mathf.RoundToInt(rangeOfGold.x), Mathf.RoundToInt(rangeOfGold.y));
+
+                    for (int j = 1; j <= spawnCount; j++)
                     {
-                        for (int i = 1; i <= UnityEngine.Random.Range(Mathf.RoundToInt(rangeOfGold.x), Mathf.RoundToInt(rangeOfGold.y)); i++)
-                        {
-                            Instantiate(gold, new Vector2(MiniStPatrick.transform.position.x,
-                                MiniStPatrick.transform.position.y), Quaternion.Euler(Quaternion.identity.x,
-                                Quaternion.identity.y, UnityEngine.Random.Range(rangeOfAngle, -rangeOfAngle)));
-                        }
-                        RemoveGameObject(MiniStPatrick.gameObject);
-                      
-                      
+                        Instantiate(gold,
+                            new Vector2(MiniStPatrick.transform.position.x, MiniStPatrick.transform.position.y),
+                            Quaternion.Euler(Quaternion.identity.x, Quaternion.identity.y, UnityEngine.Random.Range(rangeOfAngle, -rangeOfAngle))
+                        );
                     }
+
+                    RemoveGameObject(MiniStPatrick);
                 }
             }
         }
+            
     }
 
     public void AddGameObject(GameObject FakeClone)
