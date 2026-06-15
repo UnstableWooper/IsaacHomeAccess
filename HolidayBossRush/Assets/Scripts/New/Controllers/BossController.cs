@@ -243,7 +243,7 @@ public class BossController : MonoBehaviour
 
     public IEnumerator DamageIndicatorCaller()
     {
-        if(spriteRenderer.color != Color.yellow)
+        if(spriteRenderer.color != Color.yellow && gameObject.activeSelf == true)
         {
             for (int i = 1; i < 2; i++)
             {

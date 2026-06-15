@@ -11,14 +11,9 @@ public class BossHP : MonoBehaviour
     private BossController _brain;
 
     public int TrueBossHp;
-
-    private void Awake()
-    {
-        _brain = GetComponent<BossController>();
-    }
-    
     private void Start()
     {
+        _brain = GetComponent<BossController>();
         TrueBossHp = maxHP;
     }
 
@@ -29,7 +24,7 @@ public class BossHP : MonoBehaviour
             _bulletProjectile = other.GetComponent<PlayerProjectile>();
             TrueBossHp -= _bulletProjectile.projectileDamage;
             _bulletProjectile.DestroyBullet();
-            _brain.StartCoroutine(nameof(BossController.DamageIndicatorCaller));
+            _brain.StartCoroutine("DamageIndacatorCaller");
             if (TrueBossHp <= 0)
             {
                gameObject.SetActive(false);
