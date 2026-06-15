@@ -21,10 +21,11 @@ public class BossHP : MonoBehaviour
     {
         if (other.CompareTag("Projectile"))
         {
+            _brain = GetComponent<BossController>();
             _bulletProjectile = other.GetComponent<PlayerProjectile>();
             TrueBossHp -= _bulletProjectile.projectileDamage;
-            _bulletProjectile.DestroyBullet();
             _brain.StartCoroutine("DamageIndacatorCaller");
+            _bulletProjectile.DestroyBullet();
             if (TrueBossHp <= 0)
             {
                gameObject.SetActive(false);

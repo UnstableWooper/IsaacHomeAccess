@@ -58,7 +58,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2363878834238154399, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
       propertyPath: maxHP
-      value: 25
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3327651131334276982, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
       propertyPath: m_LocalScale.x
