@@ -9,6 +9,7 @@ public class RainbowLazerbeam : BossAttack
     public float attackLength;
     [Header("Other")]
     [SerializeField] private LazerAim lazerAimScript;
+    
 
     private BossController _controller;
     private SpriteRenderer _spriteRenderer;
@@ -34,17 +35,16 @@ public class RainbowLazerbeam : BossAttack
     {
         return;
     }
-
     public override IEnumerator AttackWarn()
     {
         _controller = GetComponent<BossController>();
         _player = GameObject.FindGameObjectWithTag("Player");
         TrueAttackWarnLength = attackWarnLength;
         ShootPos = _player.transform.position;
-        _controller.AttackWarn(Color.red);
+        //_controller.AttackWarn(Color.red);
         lazerAimScript.Attack();
         yield return new WaitForSeconds(TrueAttackWarnLength);
-        _controller.AttackWarn(Color.white);
+        //_controller.AttackWarn(Color.white);
         StartAttack();
     }
 }

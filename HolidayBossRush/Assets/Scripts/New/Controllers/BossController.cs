@@ -241,7 +241,7 @@ public class BossController : MonoBehaviour
         _how_many_times_fought = 0;
     }
 
-    public IEnumerator DamageIndacatorCaller()
+    public IEnumerator DamageIndicatorCaller()
     {
         if(spriteRenderer.color != Color.yellow)
         {

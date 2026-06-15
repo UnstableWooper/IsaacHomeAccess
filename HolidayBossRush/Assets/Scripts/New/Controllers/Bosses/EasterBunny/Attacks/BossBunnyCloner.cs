@@ -31,9 +31,7 @@ public class BossBunnyCloner : BossAttack
     }
     public override IEnumerator AttackWarn()
     {
-        _controller.AttackWarn(Color.red);
         yield return new WaitForSeconds(attackWarnLength);
-        _controller.AttackWarn(Color.white);
         StartAttack();
     }
 

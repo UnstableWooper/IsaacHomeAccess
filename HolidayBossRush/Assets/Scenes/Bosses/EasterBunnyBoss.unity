@@ -1222,6 +1222,14 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 1290014665}
+    - target: {fileID: 2943250936750891850, guid: 6767bde897342ba4084437b80c66d405, type: 3}
+      propertyPath: chargeJumpAnimation
+      value: 
+      objectReference: {fileID: 1840566136, guid: e6e23c7c741e18a409b033f19878ddb5, type: 3}
+    - target: {fileID: 5279885802054186098, guid: 6767bde897342ba4084437b80c66d405, type: 3}
+      propertyPath: chargeSuperJumpAnimation
+      value: 
+      objectReference: {fileID: 1840566136, guid: e6e23c7c741e18a409b033f19878ddb5, type: 3}
     - target: {fileID: 6446001551011754798, guid: 6767bde897342ba4084437b80c66d405, type: 3}
       propertyPath: m_Name
       value: Easter Bunny

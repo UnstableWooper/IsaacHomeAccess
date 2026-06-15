@@ -6,8 +6,11 @@ public class JumpAttack : BossAttack
 {
     [SerializeField]private Vector2 jumpStrength;
     [SerializeField]private Animator animator;
+    
+    [SerializeField] private Sprite chargeJumpAnimation;
 
     private BossController _controller;
+    private SpriteRenderer _spriteRenderer;
     private Rigidbody2D _rigidbody;
     private Damage _damage;
     private bool _grounded;
@@ -20,12 +23,12 @@ public class JumpAttack : BossAttack
         _rigidbody = GetComponent<Rigidbody2D>();
         _damage = GetComponent<Damage>();
         _controller = GetComponent<BossController>();
+        _spriteRenderer = _controller.spriteRenderer;
         _damage.CantDamage(false);
     }
 
     public override void StartAttack()
     {
-        animator.SetTrigger("Jump");
         _rigidbody.AddForce(new Vector2(
             _player.transform.position.x > transform.position.x ? jumpStrength.x * 1 * Random.Range(1.2f, 0.8f) : jumpStrength.x * -1 * Random.Range(1.2f, 0.8f)
             , jumpStrength.y), ForceMode2D.Impulse);
@@ -34,17 +37,17 @@ public class JumpAttack : BossAttack
     private void Update()
     {
         _grounded = _controller.grounded;
-        animator.SetFloat("VelocityY", _rigidbody.velocity.y);
-        if(_grounded) animator.SetTrigger("Grounded");
+        animator.SetFloat("yVelocity", _rigidbody.velocity.y);
+        animator.SetBool("isGrounded", _grounded);
     }   
 
     public override IEnumerator AttackWarn()
     {
         if (_controller.grounded) 
         {
-            _controller.AttackWarn(Color.red);
+            _spriteRenderer.sprite = chargeJumpAnimation;
             yield return new WaitForSeconds(attackWarnLength);
-            _controller.AttackWarn(Color.white);
+            
             StartAttack();
         }
     }

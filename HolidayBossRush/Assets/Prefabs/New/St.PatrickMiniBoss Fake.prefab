@@ -56,6 +56,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1627789207076834298, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
+      propertyPath: idleAnimation
+      value: 
+      objectReference: {fileID: -1539747405, guid: 3649776ad72f62b4a814b9ee0d1eae8c, type: 3}
+    - target: {fileID: 1627789207076834298, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
+      propertyPath: spriteRenderer
+      value: 
+      objectReference: {fileID: 6030638708108859110}
+    - target: {fileID: 1627789207076834298, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
+      propertyPath: attackAnimation
+      value: 
+      objectReference: {fileID: 278822826, guid: 3649776ad72f62b4a814b9ee0d1eae8c, type: 3}
     - target: {fileID: 2363878834238154399, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
       propertyPath: maxHP
       value: 25
@@ -98,12 +110,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7001180856553086688, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
       propertyPath: m_Color.a
-      value: 0.7490196
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7001180856553086688, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7001180856553086688, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7001180856553086688, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2867648504411925385, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
     - {fileID: 4131379115905150938, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7924539247431277000, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
+--- !u!212 &6030638708108859110 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 7001180856553086688, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
+  m_PrefabInstance: {fileID: 3645682663715506182}
+  m_PrefabAsset: {fileID: 0}

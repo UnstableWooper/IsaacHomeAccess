@@ -29,10 +29,10 @@ public class ShadowCloneAttack : BossAttack
 
     public override void StartAttack()
     {
-        int RandomRealStPatrick = Random.Range(0, 3);
+        int randomRealStPatrick = Random.Range(0, 3);
         for(int i = 0; i < 3; i++)
         {
-            Instantiate(RandomRealStPatrick == i ? realStPatrick : fakeStPatrick, spawnPositions[i].position, Quaternion.identity);
+            Instantiate(randomRealStPatrick == i ? realStPatrick : fakeStPatrick, spawnPositions[i].position, Quaternion.identity);
         }
 
         _hp.TrueBossHp -= damage_After_Use;
@@ -42,9 +42,9 @@ public class ShadowCloneAttack : BossAttack
 
     public override IEnumerator AttackWarn()
     {
-        _controller.AttackWarn(Color.red);
+        //_controller.AttackWarn(Color.red);
         yield return new WaitForSeconds(attackWarnLength);
-        _controller.AttackWarn(Color.white);
+        //_controller.AttackWarn(Color.white);
         StartAttack();
     }
 

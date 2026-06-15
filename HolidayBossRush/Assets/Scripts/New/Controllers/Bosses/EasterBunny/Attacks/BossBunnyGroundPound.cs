@@ -9,6 +9,8 @@ public class BossBunnyGroundPound : BossAttack
 
     [SerializeField] private Vector2 jumpHight;
 
+    [SerializeField] private Sprite chargeSuperJumpAnimation;
+
     private BossController _controller;
     private Rigidbody2D _rigidbody;
     private Damage _damage;

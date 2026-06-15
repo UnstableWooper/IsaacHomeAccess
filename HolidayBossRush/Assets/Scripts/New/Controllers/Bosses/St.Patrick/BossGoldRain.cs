@@ -15,6 +15,12 @@ public class BossGoldRain : BossAttack
 
     [SerializeField] private GameObject gold;
     [SerializeField] private int offset;
+    
+    [Header("Animation")]
+    
+    [SerializeField] private Sprite idleAnimation;
+    [SerializeField] private Sprite attackingAnimation;
+    
 
     private BossController _controller;
     private SpriteRenderer _spriteRenderer;
@@ -62,15 +68,24 @@ public class BossGoldRain : BossAttack
                 bestTarget.position.y + offset), Quaternion.Euler(Quaternion.identity.x ,
                 Quaternion.identity.y, UnityEngine.Random.Range(rangeOfAngle, -rangeOfAngle)));
         }
+
+        StartCoroutine(IdleAnimation());
     }
 
     public override IEnumerator AttackWarn()
     {
+        _spriteRenderer.sprite = attackingAnimation;
         _controller = GetComponent<BossController>();
-        _controller.AttackWarn(Color.red);
+        //_controller.AttackWarn(Color.red);
         yield return new WaitForSeconds(attackWarnLength);
-        _controller.AttackWarn(Color.white);
+        //_controller.AttackWarn(Color.white);
         player = _controller._player.gameObject;
         StartAttack();
+    }
+
+    public IEnumerator IdleAnimation()
+    {
+        yield return new WaitForSeconds(2);
+        _spriteRenderer.sprite = idleAnimation;
     }
 }
