@@ -28,9 +28,6 @@ public class BossController : MonoBehaviour
     public bool faceTowardPlayer;
 
     private Rigidbody2D _rigidbody;
-    //Shoot Attack
-    //Roll Attack
-    //Shockwave Attack
 
     [Header("DialogueStruct stuff?")]
     [TextArea(3, 10)]
