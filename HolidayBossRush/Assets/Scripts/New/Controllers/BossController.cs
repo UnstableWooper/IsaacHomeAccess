@@ -240,15 +240,12 @@ public class BossController : MonoBehaviour
 
     public IEnumerator DamageIndicatorCaller()
     {
-        if(spriteRenderer.color != Color.yellow && gameObject.activeSelf == true)
+        for (int i = 1; i < 2; i++)
         {
-            for (int i = 1; i < 2; i++)
-            {
-                spriteRenderer.color = Color.gray;
-                yield return new WaitForSeconds(0.175f);
-                spriteRenderer.color = OgColor;
-                yield return new WaitForSeconds(0.175f);
-            }
+            spriteRenderer.color = Color.gray;
+            yield return new WaitForSeconds(0.175f);
+            spriteRenderer.color = OgColor;
+            yield return new WaitForSeconds(0.175f);
         }
     }
 

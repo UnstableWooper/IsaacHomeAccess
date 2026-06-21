@@ -29,7 +29,6 @@ public class LazerAim : MonoBehaviour
     {
         Vector3 direction = rainbowLazerBeamScript.ShootPos - transform.position;
         spriteRenderer.sprite = attackAnimation;
-        Debug.Log("Attack sprite set");
         //_controller.AttackWarn(Color.red);
         yield return new WaitForSeconds(rainbowLazerBeamScript.TrueAttackWarnLength);
         lazerBeam.SetActive(true);
@@ -39,7 +38,6 @@ public class LazerAim : MonoBehaviour
         yield return new WaitForSeconds(rainbowLazerBeamScript.attackLength);
         lazerBeam.SetActive(false);
         spriteRenderer.sprite = idleAnimation;
-        Debug.Log("Idle sprite set");
         //_controller.AttackWarn(Color.white);
     }
 }

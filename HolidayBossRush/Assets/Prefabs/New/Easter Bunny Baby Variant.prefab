@@ -169,3 +169,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpStrength: {x: 2, y: 9}
   jumpCooldown: 4
+  animator: {fileID: 7692038091205562435}
+  chargeJumpAnimation: {fileID: 1840566136, guid: e6e23c7c741e18a409b033f19878ddb5, type: 3}
+--- !u!95 &7692038091205562435 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8623653438608513853, guid: 6767bde897342ba4084437b80c66d405, type: 3}
+  m_PrefabInstance: {fileID: 2094953376365333374}
+  m_PrefabAsset: {fileID: 0}

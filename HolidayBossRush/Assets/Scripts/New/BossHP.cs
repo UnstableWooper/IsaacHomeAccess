@@ -7,7 +7,7 @@ public class BossHP : MonoBehaviour
 {
 
     [SerializeField, Range(1, 1000)]public int maxHP;
-    private PlayerProjectile _bulletProjectile;
+    private BulletProjectile _projectile;
     private BossController _brain;
 
     public int TrueBossHp;
@@ -21,10 +21,11 @@ public class BossHP : MonoBehaviour
     {
         if (other.CompareTag("Projectile"))
         {
-            _bulletProjectile = other.GetComponent<PlayerProjectile>();
-            TrueBossHp -= _bulletProjectile.projectileDamage;
-            _bulletProjectile.DestroyBullet();
-            _brain.StartCoroutine("DamageIndacatorCaller");
+            _brain = GetComponent<BossController>();
+            _projectile = other.GetComponent<BulletProjectile>();
+            TrueBossHp -= _projectile.projectileDamage;
+            _projectile.DestroyBullet();
+            _brain.StartCoroutine("DamageIndicatorCaller");
             if (TrueBossHp <= 0)
             {
                gameObject.SetActive(false);

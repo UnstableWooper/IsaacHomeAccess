@@ -113,10 +113,10 @@ TextureImporter:
       name: Easter Bunny_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 93
         y: 1080
-        width: 320
-        height: 270
+        width: 150
+        height: 152
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,10 +134,10 @@ TextureImporter:
       name: Easter Bunny_1
       rect:
         serializedVersion: 2
-        x: 320
+        x: 409
         y: 1080
-        width: 320
-        height: 270
+        width: 154
+        height: 145
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -155,10 +155,10 @@ TextureImporter:
       name: Easter Bunny_2
       rect:
         serializedVersion: 2
-        x: 640
+        x: 730
         y: 1080
-        width: 320
-        height: 270
+        width: 153
+        height: 144
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -176,10 +176,10 @@ TextureImporter:
       name: Easter Bunny_3
       rect:
         serializedVersion: 2
-        x: 960
-        y: 1080
-        width: 320
-        height: 270
+        x: 1047
+        y: 1082
+        width: 156
+        height: 156
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -197,10 +197,10 @@ TextureImporter:
       name: Easter Bunny_4
       rect:
         serializedVersion: 2
-        x: 1280
-        y: 1080
-        width: 320
-        height: 270
+        x: 1358
+        y: 1083
+        width: 165
+        height: 149
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -218,10 +218,10 @@ TextureImporter:
       name: Easter Bunny_5
       rect:
         serializedVersion: 2
-        x: 0
+        x: 78
         y: 810
-        width: 320
-        height: 270
+        width: 165
+        height: 164
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -239,10 +239,10 @@ TextureImporter:
       name: Easter Bunny_6
       rect:
         serializedVersion: 2
-        x: 320
-        y: 810
-        width: 320
-        height: 270
+        x: 389
+        y: 812
+        width: 171
+        height: 204
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -260,10 +260,10 @@ TextureImporter:
       name: Easter Bunny_7
       rect:
         serializedVersion: 2
-        x: 640
-        y: 810
-        width: 320
-        height: 270
+        x: 702
+        y: 856
+        width: 178
+        height: 208
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -281,10 +281,10 @@ TextureImporter:
       name: Easter Bunny_8
       rect:
         serializedVersion: 2
-        x: 960
-        y: 810
-        width: 320
-        height: 270
+        x: 1018
+        y: 869
+        width: 182
+        height: 205
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -302,10 +302,10 @@ TextureImporter:
       name: Easter Bunny_9
       rect:
         serializedVersion: 2
-        x: 1280
-        y: 810
-        width: 320
-        height: 270
+        x: 1322
+        y: 888
+        width: 189
+        height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -323,10 +323,10 @@ TextureImporter:
       name: Easter Bunny_10
       rect:
         serializedVersion: 2
-        x: 0
-        y: 540
-        width: 320
-        height: 270
+        x: 31
+        y: 635
+        width: 203
+        height: 173
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -344,10 +344,10 @@ TextureImporter:
       name: Easter Bunny_11
       rect:
         serializedVersion: 2
-        x: 320
-        y: 540
-        width: 320
-        height: 270
+        x: 348
+        y: 659
+        width: 219
+        height: 141
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -365,10 +365,10 @@ TextureImporter:
       name: Easter Bunny_12
       rect:
         serializedVersion: 2
-        x: 640
-        y: 540
-        width: 320
-        height: 270
+        x: 672
+        y: 674
+        width: 240
+        height: 116
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -386,10 +386,10 @@ TextureImporter:
       name: Easter Bunny_13
       rect:
         serializedVersion: 2
-        x: 960
-        y: 540
-        width: 320
-        height: 270
+        x: 996
+        y: 613
+        width: 229
+        height: 147
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -407,10 +407,10 @@ TextureImporter:
       name: Easter Bunny_14
       rect:
         serializedVersion: 2
-        x: 1280
-        y: 540
-        width: 320
-        height: 270
+        x: 1325
+        y: 547
+        width: 208
+        height: 181
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -428,10 +428,10 @@ TextureImporter:
       name: Easter Bunny_15
       rect:
         serializedVersion: 2
-        x: 0
+        x: 48
         y: 270
-        width: 320
-        height: 270
+        width: 149
+        height: 164
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -449,10 +449,10 @@ TextureImporter:
       name: Easter Bunny_16
       rect:
         serializedVersion: 2
-        x: 320
+        x: 363
         y: 270
-        width: 320
-        height: 270
+        width: 146
+        height: 143
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -470,10 +470,10 @@ TextureImporter:
       name: Easter Bunny_17
       rect:
         serializedVersion: 2
-        x: 640
+        x: 679
         y: 270
-        width: 320
-        height: 270
+        width: 154
+        height: 88
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -491,10 +491,10 @@ TextureImporter:
       name: Easter Bunny_18
       rect:
         serializedVersion: 2
-        x: 960
+        x: 1001
         y: 270
-        width: 320
-        height: 270
+        width: 152
+        height: 89
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -512,10 +512,10 @@ TextureImporter:
       name: Easter Bunny_19
       rect:
         serializedVersion: 2
-        x: 1280
+        x: 1341
         y: 270
-        width: 320
-        height: 270
+        width: 128
+        height: 133
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -533,10 +533,10 @@ TextureImporter:
       name: Easter Bunny_20
       rect:
         serializedVersion: 2
-        x: 0
+        x: 60
         y: 0
-        width: 320
-        height: 270
+        width: 129
+        height: 148
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -554,10 +554,10 @@ TextureImporter:
       name: Easter Bunny_21
       rect:
         serializedVersion: 2
-        x: 320
+        x: 379
         y: 0
-        width: 320
-        height: 270
+        width: 130
+        height: 150
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -575,10 +575,10 @@ TextureImporter:
       name: Easter Bunny_22
       rect:
         serializedVersion: 2
-        x: 640
+        x: 698
         y: 0
-        width: 320
-        height: 270
+        width: 131
+        height: 151
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

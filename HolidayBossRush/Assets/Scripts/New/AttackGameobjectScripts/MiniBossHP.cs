@@ -6,7 +6,7 @@ public class MiniBossHP : MonoBehaviour
 {
 
     [SerializeField, Range(1, 100)] public int maxHP;
-    private PlayerProjectile _bulletProjectile;
+    private BulletProjectile _projectile;
     private int TrueHP;
     private void Start()
     {
@@ -17,9 +17,9 @@ public class MiniBossHP : MonoBehaviour
     {
         if (other.CompareTag("Projectile"))
         {
-            _bulletProjectile = other.GetComponent<PlayerProjectile>();
-            TrueHP -= _bulletProjectile.projectileDamage;
-            _bulletProjectile.DestroyBullet();
+            _projectile = other.GetComponent<BulletProjectile>();
+            TrueHP -= _projectile.projectileDamage;
+            _projectile.DestroyBullet();
             if (TrueHP <= 0)
             {
                 gameObject.SetActive(false);

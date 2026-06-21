@@ -385,6 +385,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6062183090467887795, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
   m_PrefabInstance: {fileID: 982295023}
   m_PrefabAsset: {fileID: 0}
+--- !u!212 &244943397 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 7001180856553086688, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
+  m_PrefabInstance: {fileID: 982295023}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &332338965 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3405970471412915262, guid: e0c9c40db8a3ddf47b35fc74c5fc6e40, type: 3}
@@ -1408,6 +1413,18 @@ PrefabInstance:
       propertyPath: m_ApplyRootMotion
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1627789207076834298, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
+      propertyPath: idleAnimation
+      value: 
+      objectReference: {fileID: -1539747405, guid: 3649776ad72f62b4a814b9ee0d1eae8c, type: 3}
+    - target: {fileID: 1627789207076834298, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
+      propertyPath: spriteRenderer
+      value: 
+      objectReference: {fileID: 244943397}
+    - target: {fileID: 1627789207076834298, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
+      propertyPath: attackAnimation
+      value: 
+      objectReference: {fileID: 278822826, guid: 3649776ad72f62b4a814b9ee0d1eae8c, type: 3}
     - target: {fileID: 5407164532943900388, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
       propertyPath: _player
       value: 
@@ -1422,11 +1439,11 @@ PrefabInstance:
       objectReference: {fileID: 1399011928}
     - target: {fileID: 5407164532943900388, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
       propertyPath: DontDoDialouge
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5407164532943900388, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
       propertyPath: attacks.Array.data[2].randomChance
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6062183090467887795, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
       propertyPath: m_Name
@@ -1923,12 +1940,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 0.52
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -3437,10 +3454,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3845956349073026155, guid: e860aa28ef48709438d25c1b1b0c0ed2, type: 3}
-      propertyPath: Imortal
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3845956349073026155, guid: e860aa28ef48709438d25c1b1b0c0ed2, type: 3}
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1033488880}
@@ -3452,18 +3465,6 @@ PrefabInstance:
       propertyPath: loseSprite
       value: 
       objectReference: {fileID: 332338965}
-    - target: {fileID: 5637355382930311819, guid: e860aa28ef48709438d25c1b1b0c0ed2, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: f20fbfd8f2bbac1448ad8e1a94ffb5d7, type: 2}
-    - target: {fileID: 6469999124453021646, guid: e860aa28ef48709438d25c1b1b0c0ed2, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.33
-      objectReference: {fileID: 0}
-    - target: {fileID: 6469999124453021646, guid: e860aa28ef48709438d25c1b1b0c0ed2, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.33
-      objectReference: {fileID: 0}
     - target: {fileID: 6469999124453021646, guid: e860aa28ef48709438d25c1b1b0c0ed2, type: 3}
       propertyPath: m_LocalPosition.x
       value: -9.11
@@ -3507,10 +3508,6 @@ PrefabInstance:
     - target: {fileID: 7852922047877824184, guid: e860aa28ef48709438d25c1b1b0c0ed2, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 7852922047877824184, guid: e860aa28ef48709438d25c1b1b0c0ed2, type: 3}
-      propertyPath: m_Layer
-      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -45,7 +45,6 @@ public class BossShockWave : BossAttack
     public override IEnumerator AttackWarn()
     {
         AnimatorStateInfo stateInfo = animatior.GetCurrentAnimatorStateInfo(0);
-        Debug.Log(stateInfo);
 
 
         _damage = GetComponent<Damage>();
@@ -59,7 +58,6 @@ public class BossShockWave : BossAttack
             {
                 StartCoroutine(Slam());
                 yield return new WaitUntil(() => _doneAttack);
-                Debug.Log("working?");
             }
         }
         else
@@ -68,7 +66,6 @@ public class BossShockWave : BossAttack
             {
                 StartCoroutine(Slam());
                 yield return new WaitUntil(() => _doneAttack);
-                Debug.Log("working?");
             }
         }
     }
