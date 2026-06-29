@@ -116,6 +116,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Real
       objectReference: {fileID: 0}
+    - target: {fileID: 6217024337234780958, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6566168866741569072, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.5
@@ -139,6 +143,10 @@ PrefabInstance:
     - target: {fileID: 7001180856553086688, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
       propertyPath: m_Color.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8575099972529847016, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4131379115905150938, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}

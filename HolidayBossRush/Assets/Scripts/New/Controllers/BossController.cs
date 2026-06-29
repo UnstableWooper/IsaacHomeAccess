@@ -14,6 +14,8 @@ public class BossController : MonoBehaviour
     [SerializeField] private float attackCooldown; //8
     [SerializeField] public SpriteRenderer spriteRenderer;
 
+    [SerializeField] private bool miniBoss;
+
     public bool SecondPhase;
 
     public GameObject _player;
@@ -30,6 +32,7 @@ public class BossController : MonoBehaviour
     private Rigidbody2D _rigidbody;
 
     [Header("DialogueStruct stuff?")]
+
     [TextArea(3, 10)]
     [SerializeField]private string[] Dialogue;
     [TextArea (3, 10)]
@@ -70,8 +73,9 @@ public class BossController : MonoBehaviour
         {
             DialogueImage.gameObject.SetActive(true);
             StartDialogue();
-
         }
+
+        AttackCooldownTimer = 8;
     }
     private void Update()
     {
@@ -98,11 +102,15 @@ public class BossController : MonoBehaviour
         else
         {
             AttackCooldownTimer -= Time.deltaTime;
-            if (_bossHealth.TrueBossHp <= _bossHealth.maxHP / 2)
+
+            if (!miniBoss)
             {
-                if (gameObject.CompareTag("Boss"))
+                if (_bossHealth.TrueBossHp <= _bossHealth.maxHP / 2)
                 {
-                    SecondPhase = true;
+                    if (gameObject.CompareTag("Boss"))
+                    {
+                        SecondPhase = true;
+                    }
                 }
             }
         }
@@ -117,7 +125,7 @@ public class BossController : MonoBehaviour
             {
                 spriteRenderer.flipX = false;
             }
-        }
+        }   
     }
 
     public void StartDialogue()
@@ -204,6 +212,8 @@ public class BossController : MonoBehaviour
     {
         if(!inDialogue)
             StartCoroutine(Attack());
+
+        AttackCooldownTimer = 5;
     }
     IEnumerator Attack()
     {

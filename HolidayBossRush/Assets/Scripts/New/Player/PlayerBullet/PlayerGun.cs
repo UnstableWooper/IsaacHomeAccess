@@ -42,7 +42,7 @@ public class PlayerGun : MonoBehaviour
 
         Vector2 shootPosition = (Vector2)(worldMousePos - shootPoint.position);
 
-        GameObject Bullet = Instantiate(bullet, shootPosition, Quaternion.identity);
+        GameObject Bullet = Instantiate(bullet, shootPoint.position, Quaternion.identity);
         BulletProjectile Projectile = Bullet.GetComponent<BulletProjectile>();
 
         if (Projectile != null)
