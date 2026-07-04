@@ -67,7 +67,7 @@ public class BossRollSlime : BossAttack
             _hits = 0;
             transform.position = _originPos;
             _velocity = new Vector2(0, 0);
-            _pumkinController.AttackCooldownTimer += stunLength;
+            _pumkinController.attackCooldownTimer += stunLength;
             _damage.CantDamage(true);
 
 
@@ -83,7 +83,7 @@ public class BossRollSlime : BossAttack
     {
         _pumkinController.AttackWarn(Color.red);
 
-        _pumkinController.AttackCooldownTimer += 3;
+        _pumkinController.attackCooldownTimer += 3;
         yield return new WaitForSeconds(attackWarnLength);
 
         _pumkinController.AttackWarn(Color.white);

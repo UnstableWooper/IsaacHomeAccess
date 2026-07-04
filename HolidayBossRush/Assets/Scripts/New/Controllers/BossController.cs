@@ -20,9 +20,11 @@ public class BossController : MonoBehaviour
 
     public GameObject _player;
 
+    private Animator _animator;
+
     private BossHP _bossHealth;
     public Color OgColor { private set; get; }
-    public float AttackCooldownTimer { set; get; }
+    public float attackCooldownTimer;
     
 
     public bool grounded;
@@ -30,6 +32,8 @@ public class BossController : MonoBehaviour
     public bool faceTowardPlayer;
 
     private Rigidbody2D _rigidbody;
+
+    [SerializeField] public bool hardMode;
 
     [Header("DialogueStruct stuff?")]
 
@@ -64,6 +68,8 @@ public class BossController : MonoBehaviour
         if(!DontDoDialouge) inDialogue = true;
 
         OgColor = Color.white;
+
+        _animator = gameObject.GetComponent<Animator>();
     }
 
     private void Start()
@@ -75,7 +81,15 @@ public class BossController : MonoBehaviour
             StartDialogue();
         }
 
-        AttackCooldownTimer = 8;
+        if (hardMode)
+        {
+            _bossHealth.TrueBossHp = Mathf.RoundToInt(_bossHealth.TrueBossHp * 1.5f);
+            attackCooldown = attackCooldown * 0.5f;
+            if(_animator != null)
+                _animator.speed = 1.5f;
+        }
+
+        attackCooldownTimer =  hardMode ? 4 : 8;
     }
     private void Update()
     {
@@ -101,7 +115,7 @@ public class BossController : MonoBehaviour
         }
         else
         {
-            AttackCooldownTimer -= Time.deltaTime;
+            attackCooldownTimer -= Time.deltaTime;
 
             if (!miniBoss)
             {
@@ -213,7 +227,7 @@ public class BossController : MonoBehaviour
         if(!inDialogue)
             StartCoroutine(Attack());
 
-        AttackCooldownTimer = 5;
+        attackCooldownTimer = 5;
     }
     IEnumerator Attack()
     {
@@ -238,8 +252,8 @@ public class BossController : MonoBehaviour
 
         #endregion
 
-        yield return new WaitUntil(() => AttackCooldownTimer <= 0);
-        AttackCooldownTimer = attackCooldown;
+        yield return new WaitUntil(() => attackCooldownTimer <= 0);
+        attackCooldownTimer = attackCooldown;
         StartCoroutine(Attack());
     }
 
@@ -290,6 +304,6 @@ public class BossController : MonoBehaviour
     
     public void AttackCooldownAddTimer(float cooldown)
     {
-        AttackCooldownTimer += cooldown;
+        attackCooldownTimer += cooldown;
     }   
 }

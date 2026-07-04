@@ -7,8 +7,10 @@ public class BossShoot : BossAttack
     [SerializeField] private int attackAmount;
     [SerializeField] private int attackAmountSecondPhase;
 
-    [SerializeField]private GameObject bullet;
+    [SerializeField] private GameObject bullet;
     [SerializeField] private Transform[] _spawnPos;
+
+    [SerializeField] private float setAttackTime = 1;
 
     private BossController _pumkinController;
     public override void StartAttack()
@@ -30,6 +32,8 @@ public class BossShoot : BossAttack
                 Instantiate(bullet, _spawnPos[randomPick].position, Quaternion.identity);
             }
         }
+
+        _pumkinController.attackCooldownTimer = setAttackTime;
 
     }
     public override IEnumerator AttackWarn()

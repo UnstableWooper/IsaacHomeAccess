@@ -7,6 +7,7 @@ public class BossHP : MonoBehaviour
 {
 
     [SerializeField, Range(1, 1000)]public int maxHP;
+
     private BulletProjectile _projectile;
     private BossController _brain;
 
@@ -28,9 +29,10 @@ public class BossHP : MonoBehaviour
             _brain.StartCoroutine("DamageIndicatorCaller");
             if (TrueBossHp <= 0)
             {
-               gameObject.SetActive(false);
+                Destroy(gameObject);
+
                 _brain.ResetAttemptCounter();
-                Invoke(nameof(BossDefeated), 3);
+                Invoke(nameof(BossDefeated), 3); //3);
             }
         }
     }

@@ -1417,6 +1417,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5279885802054186098, guid: 6767bde897342ba4084437b80c66d405, type: 3}
+      propertyPath: jumpHight.x
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6446001551011754798, guid: 6767bde897342ba4084437b80c66d405, type: 3}
       propertyPath: m_Name
       value: Easter Bunny
@@ -1434,6 +1438,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1913446826}
     - target: {fileID: 8943850837050227469, guid: 6767bde897342ba4084437b80c66d405, type: 3}
+      propertyPath: hardMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8943850837050227469, guid: 6767bde897342ba4084437b80c66d405, type: 3}
       propertyPath: dialogueTxt
       value: 
       objectReference: {fileID: 583626537}
@@ -1441,6 +1449,14 @@ PrefabInstance:
       propertyPath: DialogueImage
       value: 
       objectReference: {fileID: 1125602188}
+    - target: {fileID: 8943850837050227469, guid: 6767bde897342ba4084437b80c66d405, type: 3}
+      propertyPath: attacks.Array.data[0].randomChance
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8943850837050227469, guid: 6767bde897342ba4084437b80c66d405, type: 3}
+      propertyPath: attacks.Array.data[1].randomChance
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

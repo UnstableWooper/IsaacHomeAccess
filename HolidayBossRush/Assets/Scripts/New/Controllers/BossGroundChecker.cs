@@ -20,16 +20,16 @@ public class BossGroundChecker : MonoBehaviour
     {
         RaycastHit2D hit = Physics2D.Linecast(pos1.position, pos2.position, LayerMask);
 
-        Debug.DrawLine(pos1.position, pos2.position, UnityEngine.Color.red, 10000);
+        //Debug.DrawLine(pos1.position, pos2.position, UnityEngine.Color.red, 10000);
 
         if (!hit)
         {
-            return;
+            _bossController.grounded = false;
         }
-        else if(hit.collider.gameObject.CompareTag("Ground"))
+        else if (hit)//(hit.collider.gameObject.CompareTag("Ground"))
         {
-            //_bossController.grounded = true;
-            Debug.Log("On ground");
+            _bossController.grounded = true;
+            Debug.Log(_bossController.grounded);
         }
     }
 

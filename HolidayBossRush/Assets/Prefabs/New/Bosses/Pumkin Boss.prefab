@@ -239,8 +239,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.5, y: -1}
-  m_Size: {x: 9, y: 8}
+  m_Offset: {x: -0.5, y: -1.75}
+  m_Size: {x: 9.25, y: 6.5}
   m_Direction: 1
 --- !u!212 &6922465816638021755
 SpriteRenderer:
@@ -308,14 +308,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attacks:
   - attack: {fileID: 1456114652092405297}
-    randomChance: 3
+    randomChance: 7
   - attack: {fileID: 6103436427838045687}
-    randomChance: 3
+    randomChance: 8
   - attack: {fileID: 4880498908657979838}
-    randomChance: 100
-  attackCooldown: 8
+    randomChance: 4
+  attackCooldown: 10
   spriteRenderer: {fileID: 6922465816638021755}
+  miniBoss: 0
+  SecondPhase: 0
   _player: {fileID: 0}
+  attackCooldownTimer: 0
   grounded: 0
   bounceOffWall: 0
   faceTowardPlayer: 0
@@ -412,7 +415,7 @@ MonoBehaviour:
   _attackDamage: 1
   attackAmount: 2
   attackAmountSecondPhase: 3
-  shockWaveCooldown: 1.5
+  shockWaveCooldown: 1
   shockwave: {fileID: 5813369607757089197, guid: 1a98571128e16d44bb359aecc20dc79e, type: 3}
   animatior: {fileID: 4278729056747220878}
 --- !u!114 &4880498908657979838
@@ -431,10 +434,11 @@ MonoBehaviour:
   _attackDamage: 1
   speed: 4
   secondPhaseSpeedMulti: 1.25
-  rollHP: 1
-  stunLength: 2
+  rollHP: 10
+  stunLength: 5
   animator: {fileID: 4278729056747220878}
   StunnedIndicator: {fileID: 181832802120932999}
+  _hits: 0
 --- !u!95 &4278729056747220878
 Animator:
   serializedVersion: 5
@@ -448,7 +452,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 33bacd31779f3ce4c98dc369ade616a4, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 

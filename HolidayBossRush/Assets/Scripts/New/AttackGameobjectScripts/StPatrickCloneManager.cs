@@ -23,6 +23,7 @@ public class StPatrickCloneManager : MonoBehaviour
             BossHP RealStPatrickHP = _realStPatrick.GetComponent<BossHP>();
             if (RealStPatrickHP.TrueBossHp <= 0)
             {
+                //StPatrickBoss.GetComponent<BossController>().attackCooldownTimer = 4;
                 GameObject[] MiniStPatricks = GameObject.FindGameObjectsWithTag("MiniBoss");
                 foreach (GameObject MiniStPatrick in MiniStPatricks)
                 {

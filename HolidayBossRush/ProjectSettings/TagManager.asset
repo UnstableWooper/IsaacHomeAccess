@@ -24,6 +24,7 @@ TagManager:
   - Real
   - MiniBoss
   - GameManager
+  - KillZone
   layers:
   - Default
   - TransparentFX

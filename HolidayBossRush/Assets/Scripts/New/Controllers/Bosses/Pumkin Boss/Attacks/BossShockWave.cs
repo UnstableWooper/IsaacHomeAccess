@@ -7,7 +7,7 @@ public class BossShockWave : BossAttack
 
     [SerializeField] private int attackAmount;
     [SerializeField] private int attackAmountSecondPhase;
-    [SerializeField, Range(1, 5)] private float shockWaveCooldown;
+    [SerializeField, Range(0, 5)] private float shockWaveCooldown;
 
     [SerializeField] private GameObject shockwave;
 

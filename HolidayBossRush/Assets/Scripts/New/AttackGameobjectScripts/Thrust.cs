@@ -13,5 +13,13 @@ public class Thrust : MonoBehaviour
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _rigidbody2D.AddForce(transform.up * thrust * Time.deltaTime * 100);
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("KillZone"))
+        {
+            Destroy(gameObject);
+        }
+    }
 }
     

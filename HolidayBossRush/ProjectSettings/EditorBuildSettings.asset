@@ -9,12 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 00a64458d58eae042a1678b01cba7a85
   - enabled: 1
+    path: Assets/Scenes/Bosses/PumkinBoss.unity
+    guid: 844fc7b7ea64f3144807a3a5c6c61542
+  - enabled: 1
     path: Assets/Scenes/Bosses/EasterBunnyBoss.unity
     guid: 94c3e73665dfa4148b420cee329a5c56
   - enabled: 1
     path: Assets/Scenes/Bosses/St.PatrickBoss.unity
     guid: 66896b72bfd21454b897fb733089a936
-  - enabled: 1
-    path: Assets/Scenes/Bosses/PumkinBoss.unity
-    guid: 844fc7b7ea64f3144807a3a5c6c61542
   m_configObjects: {}

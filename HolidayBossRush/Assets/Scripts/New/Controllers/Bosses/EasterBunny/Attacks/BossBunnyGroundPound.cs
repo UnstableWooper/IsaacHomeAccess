@@ -40,7 +40,7 @@ public class BossBunnyGroundPound : BossAttack
             {
                 if (randomSpawnPick == 1)
                 {
-                    Instantiate(attackWarn, new Vector2(Xpos, 6.5f), Quaternion.identity);
+                    Instantiate(attackWarn, new Vector2(Xpos, -1.25f), Quaternion.identity);
                     Instantiate(fallingEgg, new Vector2(Xpos, 10), Quaternion.identity);
                 }
                 Xpos += 2;
@@ -53,7 +53,7 @@ public class BossBunnyGroundPound : BossAttack
         _controller.AttackWarn(Color.red);
         yield return new WaitForSeconds(attackWarnLength);
         _controller.AttackWarn(Color.white);
-        _controller.AttackCooldownTimer += 3;
+        _controller.attackCooldownTimer += 3;
         StartAttack();
     }
 }
