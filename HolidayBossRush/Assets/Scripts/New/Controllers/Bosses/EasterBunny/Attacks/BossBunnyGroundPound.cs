@@ -25,6 +25,11 @@ public class BossBunnyGroundPound : BossAttack
 
     public override void StartAttack()
     {
+        if (_controller._player.transform.position.x > gameObject.transform.position.x)
+            jumpHight.x = Mathf.Abs(jumpHight.x);
+        else
+            jumpHight.x = -Mathf.Abs(jumpHight.x);
+
         _rigidbody.AddForce(jumpHight, ForceMode2D.Impulse);
         StartCoroutine("SpecialAttack");
     }

@@ -6,6 +6,8 @@ public class Thrust : MonoBehaviour
 {
     [SerializeField] private float thrust;
 
+    [SerializeField] 
+
     private Rigidbody2D _rigidbody2D;
 
     void Start()
@@ -14,12 +16,10 @@ public class Thrust : MonoBehaviour
         _rigidbody2D.AddForce(transform.up * thrust * Time.deltaTime * 100);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void Update()
     {
-        if (collision.CompareTag("KillZone"))
-        {
+        if (transform.position.y < -10)
             Destroy(gameObject);
-        }
     }
 }
     

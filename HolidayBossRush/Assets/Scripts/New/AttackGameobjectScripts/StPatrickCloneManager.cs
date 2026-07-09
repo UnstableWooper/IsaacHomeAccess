@@ -39,7 +39,7 @@ public class StPatrickCloneManager : MonoBehaviour
             GameObject[] fakeStPatricks = GameObject.FindGameObjectsWithTag("MiniBoss");
             foreach (GameObject fakeStPatrick in fakeStPatricks)
             {
-                fakeStPatrick.AddComponent<StPatrickExplosion>();
+                //fakeStPatrick.AddComponent<StPatrickExplosion>();
             }
         }
         else
@@ -74,7 +74,9 @@ public class StPatrickCloneManager : MonoBehaviour
 
     public void RemoveGameObject(GameObject FakeClone)
     {
+        Debug.Log("Fake StPatrick is dead");    
         _fakeStPatricks.Remove(FakeClone);
-        Destroy(FakeClone);
+        FakeClone.SetActive(false);
+        //Destroy(FakeClone);
     }
 }

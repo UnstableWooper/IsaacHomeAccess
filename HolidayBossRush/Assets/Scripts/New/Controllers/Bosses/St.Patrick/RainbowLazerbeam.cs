@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RainbowLazerbeam : BossAttack
 {
-    [SerializeField, Range(1, 5)] private int lazers;
+    //[SerializeField, Range(1, 5)] private int lazers;
     [SerializeField] private float attackTimeDif;
     public float attackLength;
     [Header("Other")]
