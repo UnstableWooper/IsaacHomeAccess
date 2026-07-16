@@ -74,7 +74,6 @@ public class BossGoldRain : BossAttack
 
     public override IEnumerator AttackWarn()
     {
-        _spriteRenderer = _controller.spriteRenderer;
         _spriteRenderer.sprite = attackingAnimation;
         _controller = GetComponent<BossController>();
         //_controller.AttackWarn(Color.red);

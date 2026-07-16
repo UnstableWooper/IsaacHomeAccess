@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/StartMenu.unity
+    path: Assets/Scenes/MainMenu.unity
     guid: 00a64458d58eae042a1678b01cba7a85
   - enabled: 1
     path: Assets/Scenes/Bosses/PumkinBoss.unity

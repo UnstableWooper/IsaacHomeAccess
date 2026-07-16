@@ -25,7 +25,6 @@ TagManager:
   - MiniBoss
   - GameManager
   - KillZone
-  - UIManager
   layers:
   - Default
   - TransparentFX
