@@ -280,10 +280,11 @@ public class BossController : MonoBehaviour
             grounded = true;
         }
 
-        if (other.CompareTag("Wall"))
+        if (other.CompareTag("Wall"))   
         {
             if (bounceOffWall)
             {
+                spriteRenderer.flipX = spriteRenderer.flipX ? false : true;
                 float velocityX = _rigidbody.velocity.x;     
                 _rigidbody.velocity = new Vector2(-velocityX, _rigidbody.velocity.y);
             }

@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class BulletProjectile : MonoBehaviour
 {
+    [SerializeField] private GameObject effect;
+    [SerializeField] private GameObject bullet;
+    
     public int projectileDamage = 1;
 
     private Rigidbody2D _rigidbody2D;
@@ -14,6 +17,9 @@ public class BulletProjectile : MonoBehaviour
     private void Awake()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
+        
+        effect.SetActive(false);
+        bullet.SetActive(true);
     }
 
     public void ShootProjectile(Vector2 direction, float speed)
@@ -28,6 +34,9 @@ public class BulletProjectile : MonoBehaviour
 
     public void DestroyBullet()
     {
-        Destroy(gameObject);
+        _rigidbody2D.constraints = RigidbodyConstraints2D.FreezePosition;
+        effect.SetActive(true);
+        bullet.SetActive(false);
+        Destroy(gameObject, 1);
     }
 }
