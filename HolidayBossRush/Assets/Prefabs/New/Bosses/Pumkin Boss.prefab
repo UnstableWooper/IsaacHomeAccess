@@ -156,6 +156,7 @@ GameObject:
   - component: {fileID: 6103436427838045687}
   - component: {fileID: 4880498908657979838}
   - component: {fileID: 4278729056747220878}
+  - component: {fileID: 7283889284500750149}
   m_Layer: 0
   m_Name: Pumkin Boss
   m_TagString: Boss
@@ -195,7 +196,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 5
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -322,6 +323,7 @@ MonoBehaviour:
   grounded: 0
   bounceOffWall: 0
   faceTowardPlayer: 0
+  hardMode: 0
   Dialogue:
   - "Oh great. A human. Staring at me like I\u2019m a decorative vegetable. I knew
     this night was going to be terrible."
@@ -363,6 +365,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHP: 300
+  DontDestroy: 0
   TrueBossHp: 0
 --- !u!114 &585006555129047676
 MonoBehaviour:
@@ -390,7 +393,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d3960e825f401d4fab5250c71e94968, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackWarnLength: 1.5
+  attackWarnLength: 0
   _attackDamage: 1
   attackAmount: 2
   attackAmountSecondPhase: 3
@@ -399,6 +402,7 @@ MonoBehaviour:
   - {fileID: 6823446672771137788}
   - {fileID: 5789848329915881782}
   - {fileID: 9014945742039989279}
+  setAttackTime: 1
 --- !u!114 &6103436427838045687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -460,6 +464,27 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7283889284500750149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5117482772788637760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21e76286489d2de4b9cdd8c4d276f456, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  addForce: 6
+  deathSprite: {fileID: 21300000, guid: f0303530d21279e42b59fb42c750543d, type: 3}
+  components:
+  - {fileID: 4278729056747220878}
+  - {fileID: 4880498908657979838}
+  - {fileID: 6103436427838045687}
+  - {fileID: 1456114652092405297}
+  - {fileID: 2902752536302000490}
+  - {fileID: 3893332793553860028}
 --- !u!1 &8197720867191134702
 GameObject:
   m_ObjectHideFlags: 0

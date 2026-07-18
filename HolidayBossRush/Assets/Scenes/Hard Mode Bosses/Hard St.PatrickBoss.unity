@@ -1239,34 +1239,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2363878834238154399, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
-      propertyPath: DontDestroy
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2867648504411925385, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
-      propertyPath: rangeOfGold.x
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2867648504411925385, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
-      propertyPath: rangeOfGold.y
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 2867648504411925385, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
-      propertyPath: attackWarnLength
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4131379115905150938, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
-      propertyPath: attackWarnLength
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 5407164532943900388, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
       propertyPath: _player
       value: 
       objectReference: {fileID: 1115097162}
-    - target: {fileID: 5407164532943900388, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
-      propertyPath: hardMode
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5407164532943900388, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
       propertyPath: dialogueTxt
       value: 
@@ -1275,37 +1251,9 @@ PrefabInstance:
       propertyPath: DialogueImage
       value: 
       objectReference: {fileID: 1399011928}
-    - target: {fileID: 5407164532943900388, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
-      propertyPath: attackCooldownTimer
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5407164532943900388, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
-      propertyPath: attacks.Array.data[2].randomChance
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6039413959020384239, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
-      propertyPath: lazers
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6039413959020384239, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
-      propertyPath: _attackDamage
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6039413959020384239, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
-      propertyPath: attackWarnLength
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6062183090467887795, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
       propertyPath: m_Name
       value: St.PatrickBoss
-      objectReference: {fileID: 0}
-    - target: {fileID: 6217024337234780958, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8575099972529847016, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

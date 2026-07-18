@@ -1244,6 +1244,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1115097162}
     - target: {fileID: 5407164532943900388, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
+      propertyPath: hardMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5407164532943900388, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
       propertyPath: dialogueTxt
       value: 
       objectReference: {fileID: 1399011927}
@@ -1251,6 +1255,10 @@ PrefabInstance:
       propertyPath: DialogueImage
       value: 
       objectReference: {fileID: 1399011928}
+    - target: {fileID: 5407164532943900388, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
+      propertyPath: attacks.Array.data[0].randomChance
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5407164532943900388, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
       propertyPath: attacks.Array.data[2].randomChance
       value: 4

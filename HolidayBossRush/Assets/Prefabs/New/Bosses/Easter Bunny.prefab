@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 2581579783711978565}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.5, z: 0}
+  m_LocalPosition: {x: 0, y: -2.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -84,6 +84,7 @@ GameObject:
   - component: {fileID: 7674041989374045793}
   - component: {fileID: 6553880338239735372}
   - component: {fileID: 8623653438608513853}
+  - component: {fileID: 441272383659440107}
   m_Layer: 0
   m_Name: Easter Bunny
   m_TagString: Boss
@@ -154,7 +155,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 3.2, y: 2.7}
+  m_Size: {x: 4.285714, y: 4.3428574}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -270,6 +271,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHP: 200
+  DontDestroy: 0
   TrueBossHp: 0
 --- !u!114 &4865722688110974308
 MonoBehaviour:
@@ -306,11 +308,14 @@ MonoBehaviour:
     randomChance: 2
   attackCooldown: 3
   spriteRenderer: {fileID: 1226900822997898304}
+  miniBoss: 0
   SecondPhase: 0
   _player: {fileID: 0}
+  attackCooldownTimer: 0
   grounded: 0
   bounceOffWall: 1
   faceTowardPlayer: 1
+  hardMode: 0
   Dialogue:
   - "\u2026Oh. You\u2019re just standing there. Staring. That\u2019s\u2026 comforting."
   - "Listen, if you\u2019re here for eggs, they\u2019re over there. If you\u2019re
@@ -400,6 +405,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHP: 200
+  DontDestroy: 0
   TrueBossHp: 0
 --- !u!114 &6553880338239735372
 MonoBehaviour:
@@ -415,6 +421,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pos1: {fileID: 404055538110584966}
   pos2: {fileID: 8200085648547557540}
+  LayerMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!95 &8623653438608513853
 Animator:
   serializedVersion: 5
@@ -436,3 +445,24 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &441272383659440107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6446001551011754798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21e76286489d2de4b9cdd8c4d276f456, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  addForce: 8
+  deathSprite: {fileID: 21300000, guid: 0a1eb7543398c0742aaff0d3d7a764dd, type: 3}
+  components:
+  - {fileID: 8623653438608513853}
+  - {fileID: 8282398013165523082}
+  - {fileID: 8943850837050227469}
+  - {fileID: 2943250936750891850}
+  - {fileID: 5279885802054186098}
+  - {fileID: 5279885802054186098}
