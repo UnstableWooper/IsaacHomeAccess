@@ -43,6 +43,8 @@ public class JumpAttack : BossAttack
 
     public override IEnumerator AttackWarn()
     {
+        _controller = GetComponent<BossController>();
+        _spriteRenderer = _controller.spriteRenderer;
         if (_controller.grounded) 
         {
             _spriteRenderer.sprite = chargeJumpAnimation;

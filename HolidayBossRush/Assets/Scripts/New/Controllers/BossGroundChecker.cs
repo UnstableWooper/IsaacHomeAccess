@@ -29,7 +29,6 @@ public class BossGroundChecker : MonoBehaviour
         else if (hit)//(hit.collider.gameObject.CompareTag("Ground"))
         {
             _bossController.grounded = true;
-            Debug.Log(_bossController.grounded);
         }
     }
 

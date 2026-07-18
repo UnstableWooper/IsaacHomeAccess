@@ -31,13 +31,17 @@ public class BossHP : MonoBehaviour
             _brain.StartCoroutine("DamageIndicatorCaller");
             if (TrueBossHp <= 0)
             {
-                if (!DontDestroy)
+                if (!DontDestroy && !gameObject.CompareTag("Boss"))
                     Destroy(gameObject);
-                else
+                else if(!gameObject.CompareTag("Boss"))
                     gameObject.SetActive(false);
-
-                _brain.ResetAttemptCounter();
-                Invoke(nameof(BossDefeated), 3); //3);
+                else
+                {                
+                    DeathAnimation deathAnimation = GetComponent<DeathAnimation>();
+                    deathAnimation.Death();
+                    Invoke(nameof(BossDefeated), 3);
+                    _brain.ResetAttemptCounter();
+                }
             }
         }
     }
@@ -45,11 +49,9 @@ public class BossHP : MonoBehaviour
 
     private void BossDefeated()
     {
-        if (gameObject.CompareTag("Boss"))
-        {
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
-            newPlayerHealth playerHPScript = player.GetComponent<newPlayerHealth>();
-            playerHPScript.win();
-        }
+        Debug.Log("WORKING");
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        newPlayerHealth playerHPScript = player.GetComponent<newPlayerHealth>();
+        playerHPScript.win();
     }
 }

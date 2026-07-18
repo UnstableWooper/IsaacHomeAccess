@@ -9,22 +9,22 @@ public class newPlayerHealth : MonoBehaviour
     [SerializeField] private Image healthBar;
     [SerializeField] private GameObject loseSprite;
     [SerializeField] private GameObject winSprite;
-    [SerializeField] private Vector2 knokbackForce;
+    [SerializeField] private Vector2 knockbackForce;
     [SerializeField] private float iFrames;
     [SerializeField] private float health;
 
 
-    [SerializeField] bool Imortal;
+    [SerializeField] bool imortal;
 
     private SpriteRenderer _spriteRenderer;
     private Rigidbody2D _rigidbody;
 
-    private float iFramesTimer;
+    private float _iFramesTimer;
     private Vector2 _velocity;
 
     private void Update()
     {
-        iFramesTimer -= Time.deltaTime;
+        _iFramesTimer -= Time.deltaTime;
 
         healthBar.fillAmount = health / 5;
         healthBar.color = new Color(1 - (health / 5), 0 + (health / 5), 0);
@@ -39,19 +39,19 @@ public class newPlayerHealth : MonoBehaviour
 
     public void Damage(int Damage, Vector3 otherPos)
     {
-        if(iFramesTimer <= 0)
+        if(_iFramesTimer <= 0)
         {
             health -= Damage;
-            iFramesTimer = iFrames;
+            _iFramesTimer = iFrames;
             _velocity = _rigidbody.velocity;
-            if (otherPos.x < transform.position.x) _velocity = new Vector2(knokbackForce.x, knokbackForce.y);
-            else _velocity = new Vector2(-knokbackForce.x, knokbackForce.y);
+            if (otherPos.x < transform.position.x) _velocity = new Vector2(knockbackForce.x, knockbackForce.y);
+            else _velocity = new Vector2(-knockbackForce.x, knockbackForce.y);
             _rigidbody.velocity = _velocity;
             if (health > 0)
             {
                 StartCoroutine(DamageDisplay());
             }
-            else if(!Imortal)
+            else if(!imortal)
             {
                 lose();
             }
@@ -60,7 +60,7 @@ public class newPlayerHealth : MonoBehaviour
 
     private IEnumerator DamageDisplay()
     {
-        while(iFramesTimer >= 0)
+        while(_iFramesTimer >= 0)
         {
             _spriteRenderer.color = Color.gray;
             yield return new WaitForSeconds(0.175f);
@@ -77,6 +77,7 @@ public class newPlayerHealth : MonoBehaviour
 
     public void win()
     {
+        Debug.Log("WORKING");
         winSprite.SetActive(true);
         Destroy(gameObject);
     }
