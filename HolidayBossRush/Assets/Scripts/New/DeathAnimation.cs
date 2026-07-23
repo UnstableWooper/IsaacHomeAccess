@@ -31,7 +31,6 @@ public class DeathAnimation : MonoBehaviour
         {
             if (component is Behaviour componentBehaviour)
             {
-                Debug.Log(componentBehaviour);
                 componentBehaviour.enabled = false;
             }
         }

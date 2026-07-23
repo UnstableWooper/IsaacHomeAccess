@@ -177,7 +177,7 @@ CapsuleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -267,10 +267,10 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   loseSprite: {fileID: 0}
   winSprite: {fileID: 0}
-  knokbackForce: {x: 10, y: 4}
+  knockbackForce: {x: 0, y: 0}
   iFrames: 1.5
   health: 5
-  Imortal: 0
+  imortal: 0
 --- !u!114 &7220933832970910679
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -85,7 +85,7 @@ GameObject:
   - component: {fileID: 6553880338239735372}
   - component: {fileID: 8623653438608513853}
   - component: {fileID: 441272383659440107}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Easter Bunny
   m_TagString: Boss
   m_Icon: {fileID: 0}

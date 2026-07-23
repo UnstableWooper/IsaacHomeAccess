@@ -116,6 +116,14 @@ PrefabInstance:
       propertyPath: lazers
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6039413959020384239, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
+      propertyPath: attackLength
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6039413959020384239, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
+      propertyPath: _attackDamage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6062183090467887795, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
       propertyPath: m_Name
       value: St.PatrickMiniBoss Real
@@ -151,6 +159,10 @@ PrefabInstance:
     - target: {fileID: 7001180856553086688, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
       propertyPath: m_Color.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7248032985336001184, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
+      propertyPath: components.Array.data[0]
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8575099972529847016, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
       propertyPath: m_IsActive

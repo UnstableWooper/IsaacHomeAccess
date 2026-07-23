@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2692123919533059584}
   - component: {fileID: 6386650092346125212}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ShockWave 2.0 left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,9 +98,9 @@ GameObject:
   - component: {fileID: 4067499304134469150}
   - component: {fileID: 8037246380056515356}
   - component: {fileID: 289779050276594761}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ShockWave 2.0
-  m_TagString: Untagged
+  m_TagString: Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -276,7 +276,7 @@ GameObject:
   m_Component:
   - component: {fileID: 241549969940959695}
   - component: {fileID: 5098096352342758607}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ShockWave 2.0 right
   m_TagString: Untagged
   m_Icon: {fileID: 0}

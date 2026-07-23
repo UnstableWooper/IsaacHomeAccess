@@ -595,10 +595,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5842356001997070447, guid: 312004f980541a149a49ecb7749fbf2d, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
-      value: 3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1424,6 +1420,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Easter Bunny
       objectReference: {fileID: 0}
+    - target: {fileID: 6446001551011754798, guid: 6767bde897342ba4084437b80c66d405, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8943850837050227469, guid: 6767bde897342ba4084437b80c66d405, type: 3}
       propertyPath: _player
       value: 
@@ -1513,7 +1513,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
@@ -1561,6 +1561,7 @@ RectTransform:
   - {fileID: 448877053}
   - {fileID: 1125602189}
   - {fileID: 1582763961}
+  - {fileID: 1272530429}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1657,7 +1658,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1272530428
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1698,7 +1699,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: ebf9e47b2a26f544aa2fa9cb3a11190b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1718,13 +1719,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1272530427}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.5, z: 0}
-  m_LocalScale: {x: 0.9, y: 0.9, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 25.423727, z: -9}
+  m_LocalScale: {x: 45.762707, y: 45.762707, z: 50.847454}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1058390814}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1094779440}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1309713906
 GameObject:
@@ -2183,6 +2184,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1703505460}
   - component: {fileID: 1703505462}
+  - component: {fileID: 1703505463}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2218,6 +2220,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedrunTimer: {fileID: 447951302}
+--- !u!114 &1703505463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1703505459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51ad48db11b5fab42b93a81be7c486e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fallingEggBoarder:
+  - {fileID: 3046928697000974345, guid: 624540c9bc3b9ad4eb159777a91da1b2, type: 3}
+  - {fileID: 7829292421157068662, guid: 9a1e0ac4fceea534c9812f7008d79ee9, type: 3}
+  attackWarnBoarder: {fileID: 6975080460707052790, guid: c789318ec7d214849bb026ac690c024b, type: 3}
 --- !u!1 &1755490200
 GameObject:
   m_ObjectHideFlags: 0
@@ -2352,6 +2370,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2484205165030643210, guid: e860aa28ef48709438d25c1b1b0c0ed2, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 1024
+      objectReference: {fileID: 0}
     - target: {fileID: 3845956349073026155, guid: e860aa28ef48709438d25c1b1b0c0ed2, type: 3}
       propertyPath: healthBar
       value: 
@@ -3053,17 +3075,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1094779440}
     m_Modifications:
-    - target: {fileID: 668417873342065678, guid: e0c9c40db8a3ddf47b35fc74c5fc6e40, type: 3}
-      propertyPath: m_text
-      value: you lost sad
-      objectReference: {fileID: 0}
     - target: {fileID: 3405970471412915262, guid: e0c9c40db8a3ddf47b35fc74c5fc6e40, type: 3}
       propertyPath: m_Name
       value: lose
-      objectReference: {fileID: 0}
-    - target: {fileID: 3405970471412915262, guid: e0c9c40db8a3ddf47b35fc74c5fc6e40, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4793374277900021531, guid: e0c9c40db8a3ddf47b35fc74c5fc6e40, type: 3}
       propertyPath: m_Pivot.x
@@ -3144,10 +3158,6 @@ PrefabInstance:
     - target: {fileID: 4793374277900021531, guid: e0c9c40db8a3ddf47b35fc74c5fc6e40, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5847397076197281716, guid: e0c9c40db8a3ddf47b35fc74c5fc6e40, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3374,4 +3384,3 @@ SceneRoots:
   - {fileID: 2086151439}
   - {fileID: 2071582816}
   - {fileID: 1755490202}
-  - {fileID: 1272530429}

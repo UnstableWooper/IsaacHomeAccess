@@ -77,7 +77,6 @@ public class newPlayerHealth : MonoBehaviour
 
     public void win()
     {
-        Debug.Log("WORKING");
         winSprite.SetActive(true);
         Destroy(gameObject);
     }

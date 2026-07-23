@@ -19,12 +19,13 @@ public class BulletFollow : MonoBehaviour
 
     void FixedUpdate()
     {
-        transform.position = Vector2.MoveTowards(_rigidbody.transform.position, _player.transform.position, speed * Time.deltaTime);
+        if(_player != null)
+            transform.position = Vector2.MoveTowards(_rigidbody.transform.position, _player.transform.position, speed * Time.deltaTime);
     }
 
     private void Update()
     {
-        if(transform.position.x > _player.transform.position.x)
+        if(transform.position.x > _player.transform.position.x && _player != null)
         {
             spriteRenderer.flipX = true;
         }

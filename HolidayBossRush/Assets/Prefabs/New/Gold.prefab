@@ -15,9 +15,9 @@ GameObject:
   - component: {fileID: -1455301870989810081}
   - component: {fileID: 3708570889324156904}
   - component: {fileID: 5311584255127889037}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Gold
-  m_TagString: Untagged
+  m_TagString: Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -213,3 +213,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thrust: 500
+  _rigidbody2D: {fileID: 0}

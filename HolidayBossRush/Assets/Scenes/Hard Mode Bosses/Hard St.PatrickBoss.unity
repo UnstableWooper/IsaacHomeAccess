@@ -1251,6 +1251,14 @@ PrefabInstance:
       propertyPath: DialogueImage
       value: 
       objectReference: {fileID: 1399011928}
+    - target: {fileID: 6039413959020384239, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
+      propertyPath: attackLength
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6039413959020384239, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
+      propertyPath: _attackDamage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6062183090467887795, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
       propertyPath: m_Name
       value: St.PatrickBoss
@@ -1290,6 +1298,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 932501790704976641, guid: 312004f980541a149a49ecb7749fbf2d, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2165419429742156142, guid: 312004f980541a149a49ecb7749fbf2d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5237074349048248446, guid: 312004f980541a149a49ecb7749fbf2d, type: 3}
@@ -1982,7 +1994,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0

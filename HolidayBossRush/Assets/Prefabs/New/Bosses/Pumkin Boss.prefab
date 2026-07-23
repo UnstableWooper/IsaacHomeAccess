@@ -157,7 +157,7 @@ GameObject:
   - component: {fileID: 4880498908657979838}
   - component: {fileID: 4278729056747220878}
   - component: {fileID: 7283889284500750149}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Pumkin Boss
   m_TagString: Boss
   m_Icon: {fileID: 0}

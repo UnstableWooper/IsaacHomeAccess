@@ -21,9 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Hard Mode Bosses/Hard PumkinBoss.unity
     guid: cd847f6e7f4fc794fa2f516f2c05a086
   - enabled: 1
-    path: Assets/Scenes/Hard Mode Bosses/Hard St.PatrickBoss.unity
-    guid: 411152b0424ad0347b2a95f45f367426
-  - enabled: 1
     path: Assets/Scenes/Hard Mode Bosses/Hard EasterBunnyBoss.unity
     guid: df2f5370cbd7b92498e54de78520b0f9
+  - enabled: 1
+    path: Assets/Scenes/Hard Mode Bosses/Hard St.PatrickBoss.unity
+    guid: 411152b0424ad0347b2a95f45f367426
   m_configObjects: {}
