@@ -6,6 +6,9 @@ public class MiniBossHP : MonoBehaviour
 {
 
     [SerializeField, Range(1, 100)] public int maxHP;
+    [SerializeField] public bool immortal;
+
+    
     private BulletProjectile _projectile;
     private int TrueHP;
     private void Start()
@@ -20,7 +23,7 @@ public class MiniBossHP : MonoBehaviour
             _projectile = other.GetComponent<BulletProjectile>();
             TrueHP -= _projectile.projectileDamage;
             _projectile.DestroyBullet();
-            if (TrueHP <= 0)
+            if (TrueHP <= 0 &! immortal)
             {
                 gameObject.SetActive(false);
             }

@@ -44,6 +44,10 @@ namespace SlimUI.ModernMenu{
         public GameObject PanelCombat;
         [Tooltip("The UI Sub-Panel under KEY BINDINGS for GENERAL")]
         public GameObject PanelGeneral;
+        [Tooltip("The UI where you can change difficulty")]
+        public GameObject CanvSettings;
+		[Tooltip("The UI where you learn how to play")]
+		public GameObject CanvHowToPlay;
         
 
         // highlights in settings screen
@@ -285,6 +289,17 @@ namespace SlimUI.ModernMenu{
 
 				yield return null;
 			}
+		}
+
+		public void CanvasSettings(bool on)
+		{
+			CanvSettings.SetActive(false);
+			CanvHowToPlay.SetActive(false);
+			
+			if(on)
+				CanvSettings.SetActive(true);
+			else
+				CanvHowToPlay.SetActive(true);
 		}
 	}
 }

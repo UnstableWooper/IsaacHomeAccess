@@ -7,10 +7,11 @@ namespace SlimUI.ModernMenu
 {
     public class SceneController : MonoBehaviour
     {
+        
         public void LoadScene(int scene)
         {
             GameObject settingsManagerGameObject = GameObject.FindGameObjectWithTag("UIManager");
-
+            
             if (settingsManagerGameObject != null)
             {
                 bool isHardcore = settingsManagerGameObject.GetComponent<UISettingsManager>().isHardcore;
@@ -22,6 +23,12 @@ namespace SlimUI.ModernMenu
             }
             else
                 SceneManager.LoadScene(scene);
+        }
+
+        public void LoadTrainingScene()
+        {
+            //Debug.Log();
+            SceneManager.LoadScene(7);
         }
     }
 }

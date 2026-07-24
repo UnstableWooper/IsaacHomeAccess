@@ -25,7 +25,7 @@ public class BulletFollow : MonoBehaviour
 
     private void Update()
     {
-        if(transform.position.x > _player.transform.position.x && _player != null)
+        if(_player != null && transform.position.x > _player.transform.position.x )
         {
             spriteRenderer.flipX = true;
         }
