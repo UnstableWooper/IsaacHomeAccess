@@ -13,7 +13,7 @@ public class GroundCheck : MonoBehaviour
 
     private void Start()
     {
-        _layerMask = LayerMask.GetMask("Ground");
+        _layerMask = LayerMask.GetMask("Ground", "Cloud");
     }
 
     private void OnCollisionEnter2D(Collision2D other)

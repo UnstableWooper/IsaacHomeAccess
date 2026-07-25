@@ -9,7 +9,7 @@ public class Damage : MonoBehaviour
 
     private newPlayerHealth _playerHealth;
     
-    private bool _cantDamage;
+    public bool _cantDamage;
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player") && !_cantDamage)

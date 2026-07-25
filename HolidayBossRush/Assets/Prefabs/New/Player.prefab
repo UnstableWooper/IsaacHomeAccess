@@ -235,7 +235,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 7
-  acceleration: 35
+  acceleration: 10000
   playerAnimatior: {fileID: 5637355382930311819}
 --- !u!114 &4354407064992016420
 MonoBehaviour:

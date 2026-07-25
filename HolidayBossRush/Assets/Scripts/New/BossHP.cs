@@ -9,6 +9,7 @@ public class BossHP : MonoBehaviour
     [SerializeField, Range(1, 1000)]public int maxHP;
 
     [SerializeField] private bool DontDestroy;
+    [SerializeField] private bool immortal;
 
     private BulletProjectile _projectile;
     private BossController _brain;
@@ -29,7 +30,7 @@ public class BossHP : MonoBehaviour
             TrueBossHp -= _projectile.projectileDamage;
             _projectile.DestroyBullet();
             _brain.StartCoroutine("DamageIndicatorCaller");
-            if (TrueBossHp <= 0)
+            if (TrueBossHp <= 0 && !immortal)
             {
                 if (!DontDestroy && !gameObject.CompareTag("Boss"))
                     Destroy(gameObject);

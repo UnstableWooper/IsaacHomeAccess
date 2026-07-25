@@ -58,7 +58,10 @@ namespace SlimUI.ModernMenu{
 		private float sliderValueSmoothing = 0.0f;
 		
 
-		public void  Start (){
+		public void  Start ()
+		{
+			isHardcore = false;
+
 			// check difficulty
 			NormalDifficulty();
 
