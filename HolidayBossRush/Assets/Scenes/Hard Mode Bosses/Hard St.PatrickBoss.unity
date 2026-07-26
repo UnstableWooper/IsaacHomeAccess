@@ -1239,6 +1239,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2867648504411925385, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
+      propertyPath: offset
+      value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2867648504411925385, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
+      propertyPath: potOfGold
+      value: 
+      objectReference: {fileID: 2569619094854150887, guid: 23e9ca7e51a21d34c840e508be38ab3c, type: 3}
+    - target: {fileID: 2867648504411925385, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
+      propertyPath: goldOffset
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5407164532943900388, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
       propertyPath: _player
       value: 
@@ -1251,6 +1263,14 @@ PrefabInstance:
       propertyPath: DialogueImage
       value: 
       objectReference: {fileID: 1399011928}
+    - target: {fileID: 5407164532943900388, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
+      propertyPath: attacks.Array.data[0].randomChance
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5407164532943900388, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
+      propertyPath: attacks.Array.data[2].randomChance
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6039413959020384239, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
       propertyPath: attackLength
       value: 3
@@ -3137,6 +3157,14 @@ PrefabInstance:
       propertyPath: loseSprite
       value: 
       objectReference: {fileID: 332338965}
+    - target: {fileID: 3845956349073026155, guid: e860aa28ef48709438d25c1b1b0c0ed2, type: 3}
+      propertyPath: knockbackForce.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3845956349073026155, guid: e860aa28ef48709438d25c1b1b0c0ed2, type: 3}
+      propertyPath: knockbackForce.y
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6469999124453021646, guid: e860aa28ef48709438d25c1b1b0c0ed2, type: 3}
       propertyPath: m_LocalPosition.x
       value: -9.11

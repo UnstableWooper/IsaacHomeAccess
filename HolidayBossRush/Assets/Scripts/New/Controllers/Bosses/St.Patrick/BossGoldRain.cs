@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -11,10 +10,12 @@ public class BossGoldRain : BossAttack
 
     [SerializeField] Transform[] goldPositions;
 
+    [SerializeField] GameObject potOfGold;
+
     [Header("Other")]
 
     [SerializeField] private GameObject gold;
-    [SerializeField] private int offset;
+    [SerializeField] private float offset;
     
     [Header("Animation")]
     
@@ -30,6 +31,8 @@ public class BossGoldRain : BossAttack
 
     private GameObject player;
 
+    private Vector3 currentPosition;
+
     public void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
@@ -37,17 +40,12 @@ public class BossGoldRain : BossAttack
         _controller = GetComponent<BossController>();
         _spriteRenderer = _controller.spriteRenderer;
         _damage.CantDamage(true);
-
-        
     }
 
     public override void StartAttack()
     {
-
-        Transform playerPos = player.transform;
         Transform bestTarget = null;
         float closestDistanceSqr = Mathf.Infinity;
-        Vector3 currentPosition = playerPos.position;
 
         foreach (Transform potentialTarget in goldPositions)
         {
@@ -64,9 +62,9 @@ public class BossGoldRain : BossAttack
         
         for (int i = 1; i <= UnityEngine.Random.Range(Mathf.RoundToInt(rangeOfGold.x), Mathf.RoundToInt(rangeOfGold.y)); i++)
         {
-            Instantiate(gold,new Vector2(bestTarget.position.x,
+            Instantiate(gold,new Vector2(Random.Range(bestTarget.position.x -offset, bestTarget.position.x +offset),
                 bestTarget.position.y + offset), Quaternion.Euler(Quaternion.identity.x ,
-                Quaternion.identity.y, UnityEngine.Random.Range(rangeOfAngle, -rangeOfAngle)));
+                Quaternion.identity.y, Random.Range(rangeOfAngle, -rangeOfAngle)));
         }
 
         StartCoroutine(IdleAnimation());
@@ -77,10 +75,29 @@ public class BossGoldRain : BossAttack
         _controller = GetComponent<BossController>();
         _spriteRenderer = _controller.spriteRenderer;
         _spriteRenderer.sprite = attackingAnimation;
+        player = _controller._player.gameObject;
+        currentPosition = player.transform.position;
+
+        Transform bestTarget = null;
+        float closestDistanceSqr = Mathf.Infinity;
+
+        foreach (Transform potentialTarget in goldPositions)
+        {
+            Vector3 directionToTarget = potentialTarget.position - currentPosition;
+            float dSqrToTarget = directionToTarget.sqrMagnitude;
+
+            if (dSqrToTarget < closestDistanceSqr)
+            {
+                closestDistanceSqr = dSqrToTarget;
+                bestTarget = potentialTarget;
+            }
+
+        }
+
+        Instantiate(potOfGold, new Vector2(bestTarget.transform.position.x, 2.5f), new Quaternion(0,0,90,90));
         //_controller.AttackWarn(Color.red);
         yield return new WaitForSeconds(attackWarnLength);
         //_controller.AttackWarn(Color.white);
-        player = _controller._player.gameObject;
         StartAttack();
     }
 

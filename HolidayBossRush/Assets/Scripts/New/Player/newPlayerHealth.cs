@@ -37,16 +37,27 @@ public class newPlayerHealth : MonoBehaviour
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
+    public void Reciver()
+    {
+
+    }
+
     public void Damage(int Damage, Vector3 otherPos)
     {
-        if(_iFramesTimer <= 0)
+        if(_iFramesTimer < 0)
         {
             health -= Damage;
+
             _iFramesTimer = iFrames;
+
             _velocity = _rigidbody.velocity;
-            if (otherPos.x < transform.position.x) _velocity = new Vector2(knockbackForce.x, knockbackForce.y);
-            else _velocity = new Vector2(-knockbackForce.x, knockbackForce.y);
+
+            if (otherPos.x < transform.position.x)
+                _velocity = new Vector2(knockbackForce.x, knockbackForce.y);
+            else
+                _velocity = new Vector2(-knockbackForce.x, knockbackForce.y);
             _rigidbody.velocity = _velocity;
+
             if (health > 0)
             {
                 StartCoroutine(DamageDisplay());
@@ -56,6 +67,8 @@ public class newPlayerHealth : MonoBehaviour
                 lose();
             }
         }
+
+
     }
 
     private IEnumerator DamageDisplay()

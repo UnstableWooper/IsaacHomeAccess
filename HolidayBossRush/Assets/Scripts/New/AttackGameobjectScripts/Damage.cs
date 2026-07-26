@@ -8,26 +8,34 @@ public class Damage : MonoBehaviour
     [SerializeField] private bool OnCollionDestroy;
 
     private newPlayerHealth _playerHealth;
-    
-    public bool _cantDamage;
+
+    public bool canDamage;
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && !_cantDamage)
+        if (other.CompareTag("Player") && canDamage)
         {
             _playerHealth = other.GetComponent<newPlayerHealth>();
             _playerHealth.Damage(damage, transform.position);
-            if(OnCollionDestroy == true)
+
+            if (OnCollionDestroy == true)
             {
-                Destroy(gameObject);
+                DestroyThis();
             }
         }
+
         if (other.CompareTag("Ground") && OnCollionDestroy)
         {
-            Destroy(gameObject);
+            DestroyThis();
         }
+
+    }
+    private void DestroyThis()
+    {
+        Destroy(gameObject);
     }
 
-    public void CantDamage(bool canDamage) {
-        _cantDamage = canDamage;
-    } 
+    public void CantDamage(bool cantDamage)
+    {
+        canDamage = !cantDamage;
+    }
 }

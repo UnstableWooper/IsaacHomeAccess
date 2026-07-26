@@ -144,6 +144,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7178169583477812613, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 512
+      objectReference: {fileID: 0}
     - target: {fileID: 7248032985336001184, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
       propertyPath: components.Array.data[0]
       value: 
