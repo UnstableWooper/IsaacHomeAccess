@@ -13,6 +13,7 @@ public class BossController : MonoBehaviour
 
     [SerializeField] private float attackCooldown; //8
     [SerializeField] public SpriteRenderer spriteRenderer;
+    [SerializeField] public Material material;
 
     [SerializeField] private bool miniBoss;
 
@@ -131,11 +132,11 @@ public class BossController : MonoBehaviour
 
         if (faceTowardPlayer)
         {
-            if (transform.position.x < _player.transform.position.x & grounded)
+            if (_player != null && transform.position.x < _player.transform.position.x & grounded)
             {
                 spriteRenderer.flipX = true;
             }
-            else if (grounded)
+            else if (_player != null && grounded)
             {
                 spriteRenderer.flipX = false;
             }
@@ -181,7 +182,7 @@ public class BossController : MonoBehaviour
                 inDialogue = false;
                 _how_many_times_fought++;
                 yield return new WaitForSeconds(5f);
-                StartCoroutine(Attack());
+                StartCoroutine(Attack(attackCooldown));
                 _end_fighting_again_dialogue = false;
             }
             else
@@ -207,7 +208,7 @@ public class BossController : MonoBehaviour
                 DialogueImage.gameObject.SetActive(false);
                 inDialogue = false;
                 _how_many_times_fought++;
-                StartCoroutine(Attack());
+                StartCoroutine(Attack(attackCooldown));
             }
             else
             {
@@ -225,11 +226,11 @@ public class BossController : MonoBehaviour
     private void OnEnable()
     {
         if(!inDialogue)
-            StartCoroutine(Attack());
+            StartCoroutine(Attack(attackCooldown));
 
         attackCooldownTimer = 5;
     }
-    IEnumerator Attack()
+    IEnumerator Attack(float wait)
     {
         int totalChance = 0;
         #region PickRandomAttack
@@ -254,7 +255,7 @@ public class BossController : MonoBehaviour
 
         yield return new WaitUntil(() => attackCooldownTimer <= 0);
         attackCooldownTimer = attackCooldown;
-        StartCoroutine(Attack());
+        StartCoroutine(Attack(0));
     }
 
     public void ResetAttemptCounter()
@@ -264,11 +265,21 @@ public class BossController : MonoBehaviour
 
     public IEnumerator DamageIndicatorCaller()
     {
-        for (int i = 1; i < 2; i++)
+        if (spriteRenderer != null)
         {
-            spriteRenderer.color = Color.gray;
+            for (int i = 1; i < 2; i++)
+            {
+                spriteRenderer.color = Color.gray;
+                yield return new WaitForSeconds(0.175f);
+                spriteRenderer.color = OgColor;
+                yield return new WaitForSeconds(0.175f);
+            }
+        }
+        else if (material != null)
+        {
+            material.color = Color.gray;
             yield return new WaitForSeconds(0.175f);
-            spriteRenderer.color = OgColor;
+            material.color = OgColor;
             yield return new WaitForSeconds(0.175f);
         }
     }

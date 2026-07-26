@@ -204,7 +204,7 @@ GameObject:
   - component: {fileID: 214490218}
   - component: {fileID: 214490223}
   - component: {fileID: 214490222}
-  m_Layer: 6
+  m_Layer: 11
   m_Name: Ground_p1 (2)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -440,7 +440,7 @@ GameObject:
   - component: {fileID: 801016315}
   - component: {fileID: 801016320}
   - component: {fileID: 801016319}
-  m_Layer: 6
+  m_Layer: 11
   m_Name: Ground_p1
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -629,7 +629,7 @@ GameObject:
   - component: {fileID: 853951274}
   - component: {fileID: 853951279}
   - component: {fileID: 853951278}
-  m_Layer: 6
+  m_Layer: 11
   m_Name: Ground_p2 (2)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -915,7 +915,7 @@ GameObject:
   - component: {fileID: 950177800}
   - component: {fileID: 950177799}
   - component: {fileID: 950177798}
-  m_Layer: 6
+  m_Layer: 11
   m_Name: Ground_p1 (5)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -1239,6 +1239,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3447028789719156572, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
+      propertyPath: _cantDamage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3447028789719156572, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
+      propertyPath: OnCollionDestroy
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5407164532943900388, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
       propertyPath: _player
       value: 
@@ -1262,6 +1270,10 @@ PrefabInstance:
     - target: {fileID: 5407164532943900388, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
       propertyPath: attacks.Array.data[2].randomChance
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5746367936244557937, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
+      propertyPath: m_IncludeLayers.m_Bits
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6039413959020384239, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
       propertyPath: lazers
@@ -1438,7 +1450,7 @@ GameObject:
   - component: {fileID: 1121456624}
   - component: {fileID: 1121456629}
   - component: {fileID: 1121456628}
-  m_Layer: 6
+  m_Layer: 11
   m_Name: Ground_p1 (3)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -2293,7 +2305,7 @@ GameObject:
   - component: {fileID: 1700737704}
   - component: {fileID: 1700737709}
   - component: {fileID: 1700737708}
-  m_Layer: 6
+  m_Layer: 11
   m_Name: Ground_p1 (1)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -2482,7 +2494,7 @@ GameObject:
   - component: {fileID: 1728710858}
   - component: {fileID: 1728710863}
   - component: {fileID: 1728710862}
-  m_Layer: 6
+  m_Layer: 11
   m_Name: Ground_p2
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -2671,7 +2683,7 @@ GameObject:
   - component: {fileID: 1734888059}
   - component: {fileID: 1734888058}
   - component: {fileID: 1734888057}
-  m_Layer: 6
+  m_Layer: 11
   m_Name: Ground_p1 (4)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -2860,7 +2872,7 @@ GameObject:
   - component: {fileID: 1744173087}
   - component: {fileID: 1744173092}
   - component: {fileID: 1744173091}
-  m_Layer: 6
+  m_Layer: 11
   m_Name: Ground_p2 (1)
   m_TagString: Ground
   m_Icon: {fileID: 0}

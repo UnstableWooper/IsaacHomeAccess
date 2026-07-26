@@ -28,7 +28,7 @@ public class RainbowLazerbeam : BossAttack
         _damage = GetComponent<Damage>();
         _controller = GetComponent<BossController>();
         _spriteRenderer = _controller.spriteRenderer;
-        _damage.CantDamage(true);
+        _damage.CantDamage(false);
     }
 
     public override void StartAttack()

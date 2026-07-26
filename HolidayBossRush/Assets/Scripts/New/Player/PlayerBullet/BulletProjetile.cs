@@ -32,6 +32,14 @@ public class BulletProjectile : MonoBehaviour
         Destroy(gameObject, 5f);
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            DestroyBullet();
+        }
+    }
+
     public void DestroyBullet()
     {
         _rigidbody2D.constraints = RigidbodyConstraints2D.FreezePosition;
