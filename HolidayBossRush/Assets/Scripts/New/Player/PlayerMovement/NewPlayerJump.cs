@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class NewPlayerJump : MonoBehaviour
 {
-    [SerializeField] public float jumpHight;
+    [SerializeField] public float jumpHeight;
     [SerializeField] public int jumpPhases;
+    
+    [SerializeField] public float upwardGravityStrength;
+    [SerializeField] public float downwardGravityStrength;
 
     [SerializeField] private Animator playerAnimatior; 
 
@@ -37,8 +40,14 @@ public class NewPlayerJump : MonoBehaviour
         if (_jump & !_onGround & _jumpsDone < jumpPhases)
         {
             _jumpsDone++;
+            _rigidbody.gravityScale = upwardGravityStrength;
             Jump();
         }
+        else
+        {
+            _rigidbody.gravityScale = downwardGravityStrength;
+        }
+        
         if (_onGround)
         {
             _jumpsDone = 0;
@@ -50,9 +59,13 @@ public class NewPlayerJump : MonoBehaviour
 
     private void Jump()
     {
-        _velocity = _rigidbody.velocity;
-        _velocity.y = +jumpHight;
-        _rigidbody.velocity = _velocity;
+        //_velocity = _rigidbody.velocity;
+        //_velocity.y = +jumpHeight;
+        //_rigidbody.velocity = _velocity;
+        
+        float mass = _rigidbody.mass;
+        
+        _rigidbody.velocity = new Vector2( _rigidbody.velocity.x ,(jumpHeight + (0.5f * Time.fixedDeltaTime)) / mass);
     }
 
 }
