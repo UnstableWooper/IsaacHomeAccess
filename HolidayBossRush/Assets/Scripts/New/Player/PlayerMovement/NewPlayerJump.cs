@@ -34,19 +34,24 @@ public class NewPlayerJump : MonoBehaviour
         _onGround = _groundCheck.OnGround;
         _jump = _controller.input.Jump();
         if (_jump && _onGround)
-        {
             Jump();
-        }
+        
         if (_jump & !_onGround & _jumpsDone < jumpPhases)
         {
             _jumpsDone++;
-            _rigidbody.gravityScale = upwardGravityStrength;
             Jump();
         }
-        else
-        {
+
+        if (_rigidbody.velocity.y < 0)
             _rigidbody.gravityScale = downwardGravityStrength;
-        }
+        else if (_rigidbody.velocity.y > 0)
+            _rigidbody.gravityScale = upwardGravityStrength;
+        else
+            _rigidbody.gravityScale = 1;
+        
+        float velocityY = _rigidbody.velocity.y;
+        Mathf.Clamp(velocityY, -7.5f, Mathf.Infinity);
+        _rigidbody.velocity = new Vector2( _rigidbody.velocity.x, velocityY);
         
         if (_onGround)
         {
@@ -67,5 +72,4 @@ public class NewPlayerJump : MonoBehaviour
         
         _rigidbody.velocity = new Vector2( _rigidbody.velocity.x ,(jumpHeight + (0.5f * Time.fixedDeltaTime)) / mass);
     }
-
 }
