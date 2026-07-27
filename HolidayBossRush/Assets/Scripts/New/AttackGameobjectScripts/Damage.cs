@@ -4,34 +4,41 @@ using UnityEngine;
 
 public class Damage : MonoBehaviour
 {
-    [SerializeField, Range(0, 5)] int damage;
-    [SerializeField] private bool OnCollionDestroy;
+    public int damage;
+    public bool onCollionDestroy;
 
     private newPlayerHealth _playerHealth;
 
     public bool canDamage;
+    public bool collidingPlayer;
+
+    public GameObject ThisGameObject { get; private set; }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && canDamage)
+        if (other.CompareTag("Player"))
         {
-            _playerHealth = other.GetComponent<newPlayerHealth>();
-            _playerHealth.Damage(damage, transform.position);
+            _playerHealth = other.gameObject.GetComponent<newPlayerHealth>();
+            _playerHealth.GameObjectDamage = this;
 
-            if (OnCollionDestroy == true)
-            {
-                DestroyThis();
-            }
+            collidingPlayer = true;
         }
 
-        if (other.CompareTag("Ground") && OnCollionDestroy)
+        if (other.CompareTag("Ground") && onCollionDestroy)
         {
-            DestroyThis();
+            Destroy(gameObject);
         }
 
     }
-    private void DestroyThis()
+
+    private void OnTriggerExit2D(Collider2D other)
     {
-        Destroy(gameObject);
+        if (other.CompareTag("Player"))
+        {
+            collidingPlayer = false;
+
+            _playerHealth = null;
+        }
     }
 
     public void CantDamage(bool cantDamage)

@@ -75,7 +75,6 @@ public class BossController : MonoBehaviour
 
     private void Start()
     {
-
         if (!DontDoDialouge)
         {
             DialogueImage.gameObject.SetActive(true);

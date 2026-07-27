@@ -8,7 +8,7 @@ public class killBox : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<newPlayerHealth>().Damage(9999, new Vector3());
+            collision.gameObject.GetComponent<newPlayerHealth>().TakeDamage(9999, gameObject);
         }
     }
 
@@ -16,7 +16,7 @@ public class killBox : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<newPlayerHealth>().Damage(9999, new Vector3());
+            collision.gameObject.GetComponent<newPlayerHealth>().TakeDamage(9999, gameObject);
         }
     }
 
@@ -24,7 +24,7 @@ public class killBox : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<newPlayerHealth>().Damage(9999, new Vector3());
+            collision.gameObject.GetComponent<newPlayerHealth>().TakeDamage(9999, gameObject);
         }
     }
 }

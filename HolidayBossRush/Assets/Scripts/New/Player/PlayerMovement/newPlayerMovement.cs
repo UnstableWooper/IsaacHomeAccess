@@ -22,6 +22,8 @@ public class newPlayerMovement : MonoBehaviour
     private bool _onGround;
     private bool _locked;
 
+    public bool FreezeVelocity { set; get; }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,19 +36,12 @@ public class newPlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButton(buttonName: "lock")) {
-            _locked = true;
-        }
-        else{
-            _locked = false;
-        }
-            
-        if (!_locked){
+
+        if (!_locked)
             _direction = _controller.input.Move();
-        }
-        else{
+        else
             _direction = 0;
-        }
+
         _disiredPos.x = (maxSpeed - _friction) * _direction;
         _friction = _groundCheck.Friction;
         int direction = Mathf.RoundToInt(_direction);
@@ -58,6 +53,7 @@ public class newPlayerMovement : MonoBehaviour
     {
         _velocity = _rigidbody.velocity;
         _velocity.x = Mathf.MoveTowards(_velocity.x, _disiredPos.x, acceleration * Time.deltaTime);
-        _rigidbody.velocity = _velocity;
+        if (!FreezeVelocity)
+            _rigidbody.velocity = _velocity;
     }
 }

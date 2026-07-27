@@ -50,7 +50,7 @@ public class NewPlayerJump : MonoBehaviour
             _rigidbody.gravityScale = 1;
         
         float velocityY = _rigidbody.velocity.y;
-        Mathf.Clamp(velocityY, -7.5f, Mathf.Infinity);
+        velocityY = Mathf.Max(velocityY, -12.5f);
         _rigidbody.velocity = new Vector2( _rigidbody.velocity.x, velocityY);
         
         if (_onGround)
