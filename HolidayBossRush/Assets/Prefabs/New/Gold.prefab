@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 8354747736836294535}
   - component: {fileID: 144323236096636571}
   - component: {fileID: 6651818029505867452}
-  - component: {fileID: -1455301870989810081}
   - component: {fileID: 3708570889324156904}
   - component: {fileID: 5311584255127889037}
   m_Layer: 8
@@ -151,41 +150,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 5, y: 5}
   m_Direction: 0
---- !u!70 &-1455301870989810081
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6348534815899520248}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 512
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 72
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 512
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 512
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 512
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 512
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 5, y: 5}
-  m_Direction: 1
 --- !u!114 &3708570889324156904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,8 +163,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  OnCollionDestroy: 1
-  _cantDamage: 0
+  onCollionDestroy: 1
+  canDamage: 0
+  collidingPlayer: 0
 --- !u!114 &5311584255127889037
 MonoBehaviour:
   m_ObjectHideFlags: 0
