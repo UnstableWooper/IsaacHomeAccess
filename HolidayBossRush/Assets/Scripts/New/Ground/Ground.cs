@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Ground : MonoBehaviour
 {
+    [SerializeField] private Sprite stickySprite;
+    [SerializeField] private Sprite normalSprite;
     [SerializeField] private float stickyLength;
     [SerializeField] private PhysicsMaterial2D stickyPhaseMaterial;
     
@@ -12,6 +14,7 @@ public class Ground : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
     private PhysicsMaterial2D _ogPhysicsMaterial;
     private Color _ogColor;
+    
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
@@ -30,9 +33,9 @@ public class Ground : MonoBehaviour
     IEnumerator StickyPhase()
     {
         _rigidbody.sharedMaterial = stickyPhaseMaterial;
-        _spriteRenderer.color = Color.Lerp(Color.yellow, Color.red, 0.1f);
+        _spriteRenderer.sprite = stickySprite;
         yield return new WaitForSeconds(stickyLength);
         _rigidbody.sharedMaterial = _ogPhysicsMaterial;
-        _spriteRenderer.color = _ogColor;
+        _spriteRenderer.sprite = normalSprite;
     }
 }

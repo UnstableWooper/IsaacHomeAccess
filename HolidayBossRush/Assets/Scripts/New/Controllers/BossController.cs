@@ -229,6 +229,7 @@ public class BossController : MonoBehaviour
 
         attackCooldownTimer = 5;
     }
+    
     IEnumerator Attack(float wait)
     {
         int totalChance = 0;

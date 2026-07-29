@@ -35,7 +35,7 @@ public class newPlayerHealth : MonoBehaviour
 
 
         
-        if (GameObjectDamage != null)
+        if (GameObjectDamage != null )
         {
             if (GameObjectDamage.collidingPlayer)
             {
@@ -114,8 +114,9 @@ public class newPlayerHealth : MonoBehaviour
     private void lose()
     {
         loseSprite.SetActive(true);
-
-        loseText.text = 
+    
+        BossHP bossHp = GameObject.FindGameObjectWithTag("Boss").GetComponent<BossHP>();
+        loseText.text = (bossHp.maxHP -bossHp.TrueBossHp / bossHp.maxHP) * 1 + "%";
         Destroy(gameObject);
     }
 
