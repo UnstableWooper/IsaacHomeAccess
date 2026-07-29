@@ -15,6 +15,7 @@ public class PlayerGun : MonoBehaviour
 
     private float _attackCooldown;
 
+    private bool _holding;
 
     private void Start()
     {
@@ -24,10 +25,19 @@ public class PlayerGun : MonoBehaviour
     {
         _attackCooldown -= Time.deltaTime;
 
-        if(Input.GetButtonDown("Shoot") & _attackCooldown < 0)
+
+
+        if (Input.GetButtonDown("Shoot") & _attackCooldown < 0)
         {
             Shoot();
+            _holding = true;
         }
+        else if (Input.GetButtonUp("Shoot"))
+            _holding = false;
+
+
+        if (_holding && _attackCooldown < 0 - 0.25f)
+            Shoot();
     }
 
     private void Shoot()

@@ -24,10 +24,14 @@ public class newPlayerHealth : MonoBehaviour
     private float _iFramesTimer;
     private Vector2 _velocity;
 
+    private GameObject _boss;
+    private BossHP _bossHp;
+
     public Damage GameObjectDamage { get; set; }
 
     private void Update()
     {
+
         _iFramesTimer -= Time.deltaTime;
 
         healthBar.fillAmount = health / 5;
@@ -48,6 +52,8 @@ public class newPlayerHealth : MonoBehaviour
     }
     private void Start()
     {
+        _boss = GameObject.FindGameObjectWithTag("Boss");
+        _bossHp = _boss.GetComponent<BossHP>();
         winSprite.SetActive(false);
         loseSprite.SetActive(false);
         _rigidbody = GetComponent<Rigidbody2D>();
@@ -56,7 +62,6 @@ public class newPlayerHealth : MonoBehaviour
 
     public void TakeDamage(int DamageDelt, GameObject gameobject)
     {
-        Debug.Log("hit");
 
         if(_iFramesTimer < 0 )//&& gameObjectDamage.canDamage)
         {
@@ -114,9 +119,11 @@ public class newPlayerHealth : MonoBehaviour
     private void lose()
     {
         loseSprite.SetActive(true);
-    
-        BossHP bossHp = GameObject.FindGameObjectWithTag("Boss").GetComponent<BossHP>();
-        loseText.text = (bossHp.maxHP -bossHp.TrueBossHp / bossHp.maxHP) * 1 + "%";
+
+        float trueHP = _bossHp.TrueBossHp;
+        float maxHP = _bossHp.maxHP;
+        float progress = trueHP / maxHP;
+        loseText.text = ("Gud Tri " + "Progress " + Mathf.RoundToInt(progress * 100) + "%");
         Destroy(gameObject);
     }
 

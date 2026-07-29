@@ -10,7 +10,7 @@ public class BossGoldRain : BossAttack
 
     [SerializeField] Transform[] goldPositions;
 
-    [SerializeField] GameObject potOfGold;
+    [SerializeField] GameObject GoldIndicator;
 
     [Header("Other")]
 
@@ -63,7 +63,7 @@ public class BossGoldRain : BossAttack
         for (int i = 1; i <= UnityEngine.Random.Range(Mathf.RoundToInt(rangeOfGold.x), Mathf.RoundToInt(rangeOfGold.y)); i++)
         {
             Instantiate(gold,new Vector2(Random.Range(bestTarget.position.x -offset, bestTarget.position.x +offset),
-                bestTarget.position.y + offset), Quaternion.Euler(Quaternion.identity.x ,
+                bestTarget.position.y + offset + Random.Range(0, 5)), Quaternion.Euler(Quaternion.identity.x ,
                 Quaternion.identity.y, Random.Range(rangeOfAngle, -rangeOfAngle)));
         }
 
@@ -94,7 +94,7 @@ public class BossGoldRain : BossAttack
 
         }
 
-        Instantiate(potOfGold, new Vector2(bestTarget.transform.position.x, 2.5f), new Quaternion(0,0,90,90));
+        Instantiate(GoldIndicator, new Vector2(bestTarget.transform.position.x, 2.5f), new Quaternion(0,0,90,90));
         //_controller.AttackWarn(Color.red);
         yield return new WaitForSeconds(attackWarnLength);
         //_controller.AttackWarn(Color.white);

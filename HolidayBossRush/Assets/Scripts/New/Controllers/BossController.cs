@@ -225,7 +225,7 @@ public class BossController : MonoBehaviour
     private void OnEnable()
     {
         if(!inDialogue)
-            StartCoroutine(Attack(attackCooldown));
+            StartCoroutine(nameof(Attack),attackCooldown);
 
         attackCooldownTimer = 5;
     }

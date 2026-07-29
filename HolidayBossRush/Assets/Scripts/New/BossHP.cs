@@ -50,7 +50,6 @@ public class BossHP : MonoBehaviour
 
     private void BossDefeated()
     {
-        Debug.Log("WORKING");
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         newPlayerHealth playerHPScript = player.GetComponent<newPlayerHealth>();
         playerHPScript.win();

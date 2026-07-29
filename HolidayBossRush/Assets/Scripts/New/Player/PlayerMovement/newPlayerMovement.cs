@@ -36,7 +36,6 @@ public class newPlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         if (!_locked)
             _direction = _controller.input.Move();
         else
@@ -46,6 +45,11 @@ public class newPlayerMovement : MonoBehaviour
         _friction = _groundCheck.Friction;
         int direction = Mathf.RoundToInt(_direction);
         if(direction != 0)transform.localScale = new Vector2( direction == 1 ? 1.33f : -1.33f, 1.33f);
+
+        if (_friction >= 4)
+            _spriteRenderer.color = Color.Lerp(Color.red, Color.yellow, Mathf.Infinity);
+        else
+            _spriteRenderer.color = Color.white;
 
         playerAnimatior.SetFloat("VelocityX", _disiredPos.x);
     }
