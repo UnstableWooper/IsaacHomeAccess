@@ -83,7 +83,7 @@ public class BossController : MonoBehaviour
 
         if (hardMode)
         {
-            _bossHealth.TrueBossHp = Mathf.RoundToInt(_bossHealth.TrueBossHp * 1.5f);
+            _bossHealth.trueBossHp = Mathf.RoundToInt(_bossHealth.trueBossHp * 1.5f);
             attackCooldown = attackCooldown * 0.5f;
             if(_animator != null)
                 _animator.speed = 1.5f;
@@ -119,7 +119,7 @@ public class BossController : MonoBehaviour
 
             if (!miniBoss)
             {
-                if (_bossHealth.TrueBossHp <= _bossHealth.maxHP / 2)
+                if (_bossHealth.trueBossHp <= _bossHealth.maxHP / 2)
                 {
                     if (gameObject.CompareTag("Boss"))
                     {

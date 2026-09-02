@@ -35,7 +35,7 @@ public class ShadowCloneAttack : BossAttack
             Instantiate(randomRealStPatrick == i ? realStPatrick : fakeStPatrick, spawnPositions[i].position, Quaternion.identity);
         }
 
-        _hp.TrueBossHp -= damage_After_Use;
+        _hp.trueBossHp -= damage_After_Use;
 
         Hide();
     }

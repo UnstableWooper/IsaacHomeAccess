@@ -120,10 +120,10 @@ public class newPlayerHealth : MonoBehaviour
     {
         loseSprite.SetActive(true);
 
-        float trueHP = _bossHp.TrueBossHp;
+        float trueHP = _bossHp.trueBossHp;//lower case this
         float maxHP = _bossHp.maxHP;
-        float progress = trueHP / maxHP;
-        loseText.text = ("Gud Tri " + "Progress " + Mathf.RoundToInt(progress * 100) + "%");
+        float progress = (trueHP / maxHP) * 100;
+        loseText.text = ("Nice Job " + "Progress " + Mathf.RoundToInt(progress) + "%");
         Destroy(gameObject);
     }
 

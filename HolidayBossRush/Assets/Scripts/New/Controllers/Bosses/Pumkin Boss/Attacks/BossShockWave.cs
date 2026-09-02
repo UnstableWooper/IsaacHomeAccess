@@ -23,8 +23,13 @@ public class BossShockWave : BossAttack
     public override void StartAttack()
     {
         //Debug.Log("working?");
-        Instantiate(shockwave, new Vector2(0.01f, -2.8f), Quaternion.identity);
-        Instantiate(shockwave, new Vector2(-0.01f, -2.8f), Quaternion.identity);
+        GameObject RightShockWave = Instantiate(shockwave, new Vector2(transform.position.x + 0.01f, -2.8f), Quaternion.identity);
+        ShockWaveMove RightShockWaveMove = RightShockWave.GetComponent<ShockWaveMove>();
+        RightShockWaveMove.MoveRight();
+        GameObject LeftShockWave = Instantiate(shockwave, new Vector2(transform.position.x - 0.01f , -2.8f), Quaternion.identity);
+        ShockWaveMove LeftShockWaveMove = LeftShockWave.GetComponent<ShockWaveMove>();
+        LeftShockWaveMove.MoveLeft();
+
         _damage.CantDamage(true);
         StartCoroutine(DoneAttack());
     }

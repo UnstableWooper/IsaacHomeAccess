@@ -7,7 +7,9 @@ public class BulletProjectile : MonoBehaviour
 {
     [SerializeField] private GameObject effect;
     [SerializeField] private GameObject bullet;
-    
+
+    [SerializeField] private float launchAngle;
+
     public int projectileDamage = 1;
 
     private Rigidbody2D _rigidbody2D;
@@ -22,15 +24,17 @@ public class BulletProjectile : MonoBehaviour
         bullet.SetActive(true);
     }
 
-    public void ShootProjectile(Vector2 direction, float speed)
+    public void ShootProjectile(Vector2 direction, float speed, Vector3 pos)
     {
-        _rigidbody2D.velocity = direction.normalized * speed;
+        //_rigidbody2D.velocity = direction.normalized * speed;
 
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, angle);
+        //float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        //transform.rotation = Quaternion.Euler(0, 0, angle);
 
         Destroy(gameObject, 5f);
     }
+
+
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

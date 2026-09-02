@@ -57,7 +57,36 @@ public class PlayerGun : MonoBehaviour
 
         if (Projectile != null)
         {
-            Projectile.ShootProjectile(shootPosition, bulletSpeed);
+            Projectile.ShootProjectile(shootPosition, bulletSpeed, worldMousePos);
         }
+
+        CalculateArcVelocity(transform.position, worldMousePos, 20);
+    }
+
+    Vector3 CalculateArcVelocity(Vector3 start, Vector3 target, float angle)
+    {
+        Vector3 dir = target - start;
+        float h = dir.y;
+        dir.y = 0;
+        float x = dir.magnitude;
+
+        float alpha = angle * Mathf.Deg2Rad;
+        float g = Mathf.Abs(Physics2D.gravity.y);
+
+
+        float rootTerm = (g * x * x) / (2 * Mathf.Pow(Mathf.Cos(alpha), 2) * (x * Mathf.Tan(alpha) - h));
+
+        if (rootTerm <= 0)
+        {
+            return Vector3.zero;
+        }
+
+        float v = Mathf.Sqrt(rootTerm);
+
+        // Reconstruct the 2D velocity vector combining horizontal and vertical parts
+        Vector3 velocity = dir.normalized * v * Mathf.Cos(alpha);
+        velocity.y = v * Mathf.Sin(alpha);
+
+        return velocity;
     }
 }

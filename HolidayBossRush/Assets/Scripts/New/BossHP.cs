@@ -14,11 +14,11 @@ public class BossHP : MonoBehaviour
     private BulletProjectile _projectile;
     private BossController _brain;
 
-    public int TrueBossHp;
+    public int trueBossHp;
     private void Start()
     {
         _brain = GetComponent<BossController>();
-        TrueBossHp = maxHP;
+        trueBossHp = maxHP;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -27,10 +27,10 @@ public class BossHP : MonoBehaviour
         {
             _brain = GetComponent<BossController>();
             _projectile = other.GetComponent<BulletProjectile>();
-            TrueBossHp -= _projectile.projectileDamage;
+            trueBossHp -= _projectile.projectileDamage;
             _projectile.DestroyBullet();
             _brain.StartCoroutine("DamageIndicatorCaller");
-            if (TrueBossHp <= 0 && !immortal)
+            if (trueBossHp <= 0 && !immortal)
             {
                 if (!DontDestroy && !gameObject.CompareTag("Boss"))
                     Destroy(gameObject);

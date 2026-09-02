@@ -85,6 +85,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2569619094854150887, guid: 23e9ca7e51a21d34c840e508be38ab3c, type: 3}
     - target: {fileID: 2867648504411925385, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
+      propertyPath: GoldIndicator
+      value: 
+      objectReference: {fileID: 2569619094854150887, guid: 23e9ca7e51a21d34c840e508be38ab3c, type: 3}
+    - target: {fileID: 2867648504411925385, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
       propertyPath: idleAnimation
       value: 
       objectReference: {fileID: -1539747405, guid: 3649776ad72f62b4a814b9ee0d1eae8c, type: 3}
