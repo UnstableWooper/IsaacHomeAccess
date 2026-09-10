@@ -2956,6 +2956,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7220933832970910679, guid: e860aa28ef48709438d25c1b1b0c0ed2, type: 3}
+      propertyPath: archHeight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7220933832970910679, guid: e860aa28ef48709438d25c1b1b0c0ed2, type: 3}
+      propertyPath: bulletSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7758096656762717010, guid: e860aa28ef48709438d25c1b1b0c0ed2, type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7852922047877824184, guid: e860aa28ef48709438d25c1b1b0c0ed2, type: 3}
       propertyPath: m_Name
       value: Player
