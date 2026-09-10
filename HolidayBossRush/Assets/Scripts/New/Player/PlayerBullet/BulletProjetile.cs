@@ -12,9 +12,42 @@ public class BulletProjectile : MonoBehaviour
 
     public int projectileDamage = 1;
 
+    private float _speed;
+
     private Rigidbody2D _rigidbody2D;
 
+    private Vector3 _shootPoint;
+    private Vector3 _targetPosition;
 
+    private float _distance;
+    private float _archHeight;
+
+    private float _startTime;
+
+    private bool Stop;
+    public void StartProjectile(Vector3 MousePos, float Speed, float ArchHeight)
+    {
+        Stop = false;
+        _archHeight = ArchHeight;
+        _speed = Speed;
+        _shootPoint = transform.position;
+        _targetPosition = MousePos;
+        _distance = Vector3.Distance(_shootPoint, _targetPosition);
+        _startTime = Time.time;
+    }
+
+    private void Update()
+    {
+        float timeDistance = (Time.time - _startTime) * _speed / _distance;
+
+        Vector3 direction = (_targetPosition - _shootPoint).normalized;
+        Vector3 currentPos = _shootPoint + direction * (_distance * timeDistance);
+
+        float height = _archHeight * 4 * timeDistance * (1 - timeDistance);
+        currentPos.y += height;
+
+        if(!Stop) transform.position = currentPos;
+    }
 
     private void Awake()
     {
@@ -23,18 +56,6 @@ public class BulletProjectile : MonoBehaviour
         effect.SetActive(false);
         bullet.SetActive(true);
     }
-
-    public void ShootProjectile(Vector2 direction, float speed, Vector3 pos)
-    {
-        //_rigidbody2D.velocity = direction.normalized * speed;
-
-        //float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        //transform.rotation = Quaternion.Euler(0, 0, angle);
-
-        Destroy(gameObject, 5f);
-    }
-
-
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -46,6 +67,7 @@ public class BulletProjectile : MonoBehaviour
 
     public void DestroyBullet()
     {
+        Stop = true;
         _rigidbody2D.constraints = RigidbodyConstraints2D.FreezePosition;
         effect.SetActive(true);
         bullet.SetActive(false);
