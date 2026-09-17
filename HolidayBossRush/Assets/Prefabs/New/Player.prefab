@@ -109,7 +109,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -268,9 +268,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 0}
   loseSprite: {fileID: 0}
+  loseText: {fileID: 0}
   winSprite: {fileID: 0}
+  winText: {fileID: 0}
   knockbackForce: {x: 10, y: 4}
-  iFrames: 2.5
+  iFrames: 1.5
   health: 5
   imortal: 0
 --- !u!114 &7220933832970910679
@@ -286,9 +288,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cooldown: 0.1
-  bulletSpeed: 22.93
+  bulletSpeed: 20
+  archHeight: 1
+  bulletAccuracy: 0.5
   bullet: {fileID: 7205840176287084235, guid: b03d2523909889244b8e6f6f468cc58f, type: 3}
-  shootPoint: {fileID: 6469999124453021646}
   playerAnimator: {fileID: 5637355382930311819}
 --- !u!95 &5637355382930311819
 Animator:

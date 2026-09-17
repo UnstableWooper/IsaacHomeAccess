@@ -25,13 +25,14 @@ public class BulletProjectile : MonoBehaviour
     private float _startTime;
 
     private bool Stop;
-    public void StartProjectile(Vector3 MousePos, float Speed, float ArchHeight)
+
+    public void StartProjectile(Vector3 MousePos, float Speed, float ArchHeight, float Accuracy)
     {
         Stop = false;
         _archHeight = ArchHeight;
         _speed = Speed;
         _shootPoint = transform.position;
-        _targetPosition = MousePos;
+        _targetPosition = new Vector3(MousePos.x + UnityEngine.Random.Range(-Accuracy, Accuracy), MousePos.y + UnityEngine.Random.Range(-Accuracy, Accuracy),MousePos.z);
         _distance = Vector3.Distance(_shootPoint, _targetPosition);
         _startTime = Time.time;
     }
@@ -71,6 +72,7 @@ public class BulletProjectile : MonoBehaviour
         _rigidbody2D.constraints = RigidbodyConstraints2D.FreezePosition;
         effect.SetActive(true);
         bullet.SetActive(false);
+        gameObject.tag = "Untagged";
         Destroy(gameObject, 1);
     }
 }

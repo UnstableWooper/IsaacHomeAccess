@@ -1826,6 +1826,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1629193791 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7596178883695685737, guid: 312004f980541a149a49ecb7749fbf2d, type: 3}
+  m_PrefabInstance: {fileID: 5342430251421736698}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1685388598
 GameObject:
   m_ObjectHideFlags: 0
@@ -1939,6 +1950,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1685388602}
     m_Modifications:
+    - target: {fileID: 668417873342065678, guid: e0c9c40db8a3ddf47b35fc74c5fc6e40, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 687b1ff807ee1b446a4995bd8692f9a4, type: 2}
+    - target: {fileID: 668417873342065678, guid: e0c9c40db8a3ddf47b35fc74c5fc6e40, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 878619865763598264, guid: e0c9c40db8a3ddf47b35fc74c5fc6e40, type: 3}
       propertyPath: m_Color.b
       value: 0.34901962
@@ -2889,17 +2908,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3845956349073026155, guid: e860aa28ef48709438d25c1b1b0c0ed2, type: 3}
-      propertyPath: Imortal
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3845956349073026155, guid: e860aa28ef48709438d25c1b1b0c0ed2, type: 3}
-      propertyPath: iFrames
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3845956349073026155, guid: e860aa28ef48709438d25c1b1b0c0ed2, type: 3}
-      propertyPath: imortal
-      value: 0
-      objectReference: {fileID: 0}
+      propertyPath: winText
+      value: 
+      objectReference: {fileID: 1629193791}
     - target: {fileID: 3845956349073026155, guid: e860aa28ef48709438d25c1b1b0c0ed2, type: 3}
       propertyPath: loseText
       value: 
@@ -2954,18 +2965,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6469999124453021646, guid: e860aa28ef48709438d25c1b1b0c0ed2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7220933832970910679, guid: e860aa28ef48709438d25c1b1b0c0ed2, type: 3}
-      propertyPath: archHeight
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7220933832970910679, guid: e860aa28ef48709438d25c1b1b0c0ed2, type: 3}
-      propertyPath: bulletSpeed
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 7758096656762717010, guid: e860aa28ef48709438d25c1b1b0c0ed2, type: 3}
-      propertyPath: m_GravityScale
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7852922047877824184, guid: e860aa28ef48709438d25c1b1b0c0ed2, type: 3}
@@ -3080,6 +3079,14 @@ PrefabInstance:
     - target: {fileID: 5842356001997070447, guid: 312004f980541a149a49ecb7749fbf2d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7596178883695685737, guid: 312004f980541a149a49ecb7749fbf2d, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 687b1ff807ee1b446a4995bd8692f9a4, type: 2}
+    - target: {fileID: 7596178883695685737, guid: 312004f980541a149a49ecb7749fbf2d, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

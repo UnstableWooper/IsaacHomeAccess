@@ -7,6 +7,8 @@ public class PlayerGun : MonoBehaviour
     [SerializeField] private float bulletSpeed;
     [SerializeField] private float archHeight;
 
+    [SerializeField] private float bulletAccuracy;
+
     [Header("OtherSettings")]
 
     [SerializeField] private GameObject bullet;
@@ -19,7 +21,7 @@ public class PlayerGun : MonoBehaviour
     private float _attackCooldown;
 
     private bool _holding;
-
+    public int Shots = 0; //{ get; private set; }
     void Update()
     {
         _attackCooldown -= Time.deltaTime;
@@ -39,6 +41,8 @@ public class PlayerGun : MonoBehaviour
 
     private void Shoot()
     {
+        Shots++;
+
         _attackCooldown = cooldown;
 
         playerAnimator.SetTrigger("Attacked");
@@ -52,6 +56,6 @@ public class PlayerGun : MonoBehaviour
 
         BulletProjectile BulletSpawnProjectile = BulletSpawn.GetComponent<BulletProjectile>();
 
-        BulletSpawnProjectile.StartProjectile(worldMousePos, bulletSpeed, archHeight);
+        BulletSpawnProjectile.StartProjectile(worldMousePos, bulletSpeed, archHeight, bulletAccuracy);
     }
 }

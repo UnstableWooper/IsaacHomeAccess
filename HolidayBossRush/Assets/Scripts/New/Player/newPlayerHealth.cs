@@ -11,6 +11,7 @@ public class newPlayerHealth : MonoBehaviour
     [SerializeField] private GameObject loseSprite;
     [SerializeField] private TMP_Text loseText;
     [SerializeField] private GameObject winSprite;
+    [SerializeField] private TMP_Text winText;
     [SerializeField] private Vector2 knockbackForce;
     [SerializeField] private float iFrames;
     [SerializeField] private float health;
@@ -29,6 +30,7 @@ public class newPlayerHealth : MonoBehaviour
 
     public Damage GameObjectDamage { get; set; }
 
+    public float totalAccuracy;
     private void Update()
     {
 
@@ -118,17 +120,30 @@ public class newPlayerHealth : MonoBehaviour
 
     private void lose()
     {
+        float playerShots = FindObjectOfType<PlayerGun>().GetComponent<PlayerGun>().Shots;
+        float bossHits = FindObjectOfType<BossHP>().GetComponent<BossHP>().totalHits;
+        if (playerShots != 0)
+            totalAccuracy = Mathf.RoundToInt((bossHits / playerShots) * 100);
+        print(bossHits +"BH");
+        print(playerShots+"PS");
+        print(totalAccuracy);
         loseSprite.SetActive(true);
 
         float trueHP = _bossHp.trueBossHp;//lower case this
         float maxHP = _bossHp.maxHP;
         float progress = (trueHP / maxHP) * 100;
-        loseText.text = ("Nice Job " + "Progress " + Mathf.RoundToInt(progress) + "%");
+        loseText.text = ("Nice Job " + "Progress " + Mathf.RoundToInt(progress) + "% " + "Total Accuracy: " + totalAccuracy);
         Destroy(gameObject);
     }
 
     public void win()
     {
+
+        float playerShots = FindObjectOfType<PlayerGun>().GetComponent<PlayerGun>().Shots;
+        float bossHits = FindObjectOfType<BossHP>().GetComponent<BossHP>().totalHits;
+        if (playerShots != 0)
+            totalAccuracy = Mathf.RoundToInt((bossHits / playerShots)*100);
+        winText.text = ("Nice YOu Win, " + "Total Accuracy: " + totalAccuracy + "%") ;
         winSprite.SetActive(true);
         Destroy(gameObject);
     }

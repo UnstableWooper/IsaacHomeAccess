@@ -15,6 +15,8 @@ public class BossHP : MonoBehaviour
     private BossController _brain;
 
     public int trueBossHp;
+
+    public int totalHits = 0; //{ get; private set; }
     private void Start()
     {
         _brain = GetComponent<BossController>();
@@ -23,8 +25,11 @@ public class BossHP : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+
         if (other.CompareTag("Projectile"))
         {
+            totalHits++;
+
             _brain = GetComponent<BossController>();
             _projectile = other.GetComponent<BulletProjectile>();
             trueBossHp -= _projectile.projectileDamage;
@@ -45,6 +50,8 @@ public class BossHP : MonoBehaviour
                 }
             }
         }
+
+
     }
 
 
