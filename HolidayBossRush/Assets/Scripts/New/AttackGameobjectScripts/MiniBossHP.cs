@@ -22,7 +22,7 @@ public class MiniBossHP : MonoBehaviour
         {
             _projectile = other.GetComponent<BulletProjectile>();
             TrueHP -= _projectile.projectileDamage;
-            _projectile.DestroyBullet();
+            _projectile.DestroyBullet(1);
             if (TrueHP <= 0 &! immortal)
             {
                 gameObject.SetActive(false);

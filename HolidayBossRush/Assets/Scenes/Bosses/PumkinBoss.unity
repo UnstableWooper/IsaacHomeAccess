@@ -2894,6 +2894,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pumkin Boss
       objectReference: {fileID: 0}
+    - target: {fileID: 7820425745167808062, guid: af54795c4d4dd354c9d9b24d951dfe8f, type: 3}
+      propertyPath: maxHP
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7820425745167808062, guid: af54795c4d4dd354c9d9b24d951dfe8f, type: 3}
+      propertyPath: trueBossHp
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2927,6 +2935,90 @@ PrefabInstance:
       propertyPath: loseSprite
       value: 
       objectReference: {fileID: 538937607}
+    - target: {fileID: 3845956349073026155, guid: e860aa28ef48709438d25c1b1b0c0ed2, type: 3}
+      propertyPath: letterScore.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3845956349073026155, guid: e860aa28ef48709438d25c1b1b0c0ed2, type: 3}
+      propertyPath: letterScore.Array.data[0].letter
+      value: C
+      objectReference: {fileID: 0}
+    - target: {fileID: 3845956349073026155, guid: e860aa28ef48709438d25c1b1b0c0ed2, type: 3}
+      propertyPath: letterScore.Array.data[1].letter
+      value: C+
+      objectReference: {fileID: 0}
+    - target: {fileID: 3845956349073026155, guid: e860aa28ef48709438d25c1b1b0c0ed2, type: 3}
+      propertyPath: letterScore.Array.data[2].letter
+      value: B-
+      objectReference: {fileID: 0}
+    - target: {fileID: 3845956349073026155, guid: e860aa28ef48709438d25c1b1b0c0ed2, type: 3}
+      propertyPath: letterScore.Array.data[3].letter
+      value: B
+      objectReference: {fileID: 0}
+    - target: {fileID: 3845956349073026155, guid: e860aa28ef48709438d25c1b1b0c0ed2, type: 3}
+      propertyPath: letterScore.Array.data[4].letter
+      value: B+
+      objectReference: {fileID: 0}
+    - target: {fileID: 3845956349073026155, guid: e860aa28ef48709438d25c1b1b0c0ed2, type: 3}
+      propertyPath: letterScore.Array.data[5].letter
+      value: A-
+      objectReference: {fileID: 0}
+    - target: {fileID: 3845956349073026155, guid: e860aa28ef48709438d25c1b1b0c0ed2, type: 3}
+      propertyPath: letterScore.Array.data[6].letter
+      value: A
+      objectReference: {fileID: 0}
+    - target: {fileID: 3845956349073026155, guid: e860aa28ef48709438d25c1b1b0c0ed2, type: 3}
+      propertyPath: letterScore.Array.data[7].letter
+      value: A+
+      objectReference: {fileID: 0}
+    - target: {fileID: 3845956349073026155, guid: e860aa28ef48709438d25c1b1b0c0ed2, type: 3}
+      propertyPath: letterScore.Array.data[8].letter
+      value: S
+      objectReference: {fileID: 0}
+    - target: {fileID: 3845956349073026155, guid: e860aa28ef48709438d25c1b1b0c0ed2, type: 3}
+      propertyPath: letterScore.Array.data[0].accuracy
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 3845956349073026155, guid: e860aa28ef48709438d25c1b1b0c0ed2, type: 3}
+      propertyPath: letterScore.Array.data[0].healthScore
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3845956349073026155, guid: e860aa28ef48709438d25c1b1b0c0ed2, type: 3}
+      propertyPath: letterScore.Array.data[0].scorePrecent
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 3845956349073026155, guid: e860aa28ef48709438d25c1b1b0c0ed2, type: 3}
+      propertyPath: letterScore.Array.data[1].scorePrecent
+      value: 79
+      objectReference: {fileID: 0}
+    - target: {fileID: 3845956349073026155, guid: e860aa28ef48709438d25c1b1b0c0ed2, type: 3}
+      propertyPath: letterScore.Array.data[2].scorePrecent
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 3845956349073026155, guid: e860aa28ef48709438d25c1b1b0c0ed2, type: 3}
+      propertyPath: letterScore.Array.data[3].scorePrecent
+      value: 85
+      objectReference: {fileID: 0}
+    - target: {fileID: 3845956349073026155, guid: e860aa28ef48709438d25c1b1b0c0ed2, type: 3}
+      propertyPath: letterScore.Array.data[4].scorePrecent
+      value: 89
+      objectReference: {fileID: 0}
+    - target: {fileID: 3845956349073026155, guid: e860aa28ef48709438d25c1b1b0c0ed2, type: 3}
+      propertyPath: letterScore.Array.data[5].scorePrecent
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 3845956349073026155, guid: e860aa28ef48709438d25c1b1b0c0ed2, type: 3}
+      propertyPath: letterScore.Array.data[6].scorePrecent
+      value: 95
+      objectReference: {fileID: 0}
+    - target: {fileID: 3845956349073026155, guid: e860aa28ef48709438d25c1b1b0c0ed2, type: 3}
+      propertyPath: letterScore.Array.data[7].scorePrecent
+      value: 99
+      objectReference: {fileID: 0}
+    - target: {fileID: 3845956349073026155, guid: e860aa28ef48709438d25c1b1b0c0ed2, type: 3}
+      propertyPath: letterScore.Array.data[8].scorePrecent
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 6469999124453021646, guid: e860aa28ef48709438d25c1b1b0c0ed2, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10.87

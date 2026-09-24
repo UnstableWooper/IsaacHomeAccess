@@ -21,7 +21,9 @@ public class PlayerGun : MonoBehaviour
     private float _attackCooldown;
 
     private bool _holding;
-    public int Shots = 0; //{ get; private set; }
+    public int Shots { get; private set; }
+    public int TotalHits { get; private set; }
+
     void Update()
     {
         _attackCooldown -= Time.deltaTime;
@@ -57,5 +59,12 @@ public class PlayerGun : MonoBehaviour
         BulletProjectile BulletSpawnProjectile = BulletSpawn.GetComponent<BulletProjectile>();
 
         BulletSpawnProjectile.StartProjectile(worldMousePos, bulletSpeed, archHeight, bulletAccuracy);
+    }
+
+    public void Hits(int AddHits)
+    {
+        TotalHits += AddHits;
+        print("TotalHits: " + TotalHits);
+        print("Shots: " + Shots);
     }
 }

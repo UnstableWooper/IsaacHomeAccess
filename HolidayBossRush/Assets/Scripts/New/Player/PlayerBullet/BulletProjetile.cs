@@ -62,12 +62,15 @@ public class BulletProjectile : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            DestroyBullet();
+            DestroyBullet(0);
         }
     }
 
-    public void DestroyBullet()
+    public void DestroyBullet(int AddHits)
     {
+        PlayerGun playerGun = FindAnyObjectByType<PlayerGun>();
+        playerGun.Hits(AddHits);
+
         Stop = true;
         _rigidbody2D.constraints = RigidbodyConstraints2D.FreezePosition;
         effect.SetActive(true);

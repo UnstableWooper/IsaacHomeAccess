@@ -13,7 +13,7 @@ public class BulletHP : MonoBehaviour
         {
             _projectile = other.GetComponent<BulletProjectile>();
             hp -= _projectile.projectileDamage;
-            _projectile.DestroyBullet();
+            _projectile.DestroyBullet(1);
             if (hp <= 0)
             {
                 Destroy(this.gameObject);

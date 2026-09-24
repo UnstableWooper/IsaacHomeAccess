@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class newPlayerHealth : MonoBehaviour
 {
+    [SerializeField] private LetterScore[] letterScore;
 
     [SerializeField] private Image healthBar;
     [SerializeField] private GameObject loseSprite;
@@ -15,7 +16,6 @@ public class newPlayerHealth : MonoBehaviour
     [SerializeField] private Vector2 knockbackForce;
     [SerializeField] private float iFrames;
     [SerializeField] private float health;
-
 
     [SerializeField] bool imortal;
 
@@ -27,12 +27,14 @@ public class newPlayerHealth : MonoBehaviour
 
     private GameObject _boss;
     private BossHP _bossHp;
+    private float timer;
 
     public Damage GameObjectDamage { get; set; }
 
     public float totalAccuracy;
     private void Update()
     {
+        timer += Time.deltaTime;
 
         _iFramesTimer -= Time.deltaTime;
 
@@ -40,8 +42,8 @@ public class newPlayerHealth : MonoBehaviour
         healthBar.color = new Color(1 - (health / 5), 0 + (health / 5), 0);
 
 
-        
-        if (GameObjectDamage != null )
+
+        if (GameObjectDamage != null)
         {
             if (GameObjectDamage.collidingPlayer)
             {
@@ -65,7 +67,7 @@ public class newPlayerHealth : MonoBehaviour
     public void TakeDamage(int DamageDelt, GameObject gameobject)
     {
 
-        if(_iFramesTimer < 0 )//&& gameObjectDamage.canDamage)
+        if (_iFramesTimer < 0)//&& gameObjectDamage.canDamage)
         {
             health -= DamageDelt;
 
@@ -92,7 +94,7 @@ public class newPlayerHealth : MonoBehaviour
             {
                 StartCoroutine(DamageDisplay());
             }
-            else if(!imortal)
+            else if (!imortal)
             {
                 lose();
             }
@@ -109,7 +111,7 @@ public class newPlayerHealth : MonoBehaviour
 
     private IEnumerator DamageDisplay()
     {
-        while(_iFramesTimer >= 0)
+        while (_iFramesTimer >= 0)
         {
             _spriteRenderer.color = Color.gray;
             yield return new WaitForSeconds(0.175f);
@@ -120,31 +122,45 @@ public class newPlayerHealth : MonoBehaviour
 
     private void lose()
     {
-        float playerShots = FindObjectOfType<PlayerGun>().GetComponent<PlayerGun>().Shots;
-        float bossHits = FindObjectOfType<BossHP>().GetComponent<BossHP>().totalHits;
+        PlayerGun playerGun = FindObjectOfType<PlayerGun>().GetComponent<PlayerGun>();
+        int bossHits = playerGun.TotalHits;
+        int playerShots = playerGun.Shots;
         if (playerShots != 0)
             totalAccuracy = Mathf.RoundToInt((bossHits / playerShots) * 100);
-        print(bossHits +"BH");
-        print(playerShots+"PS");
+        print(bossHits + "BH");
+        print(playerShots + "PS");
         print(totalAccuracy);
         loseSprite.SetActive(true);
 
         float trueHP = _bossHp.trueBossHp;//lower case this
         float maxHP = _bossHp.maxHP;
         float progress = (trueHP / maxHP) * 100;
-        loseText.text = ("Nice Job " + "Progress " + Mathf.RoundToInt(progress) + "% " + "Total Accuracy: " + totalAccuracy);
         Destroy(gameObject);
     }
 
     public void win()
     {
 
-        float playerShots = FindObjectOfType<PlayerGun>().GetComponent<PlayerGun>().Shots;
-        float bossHits = FindObjectOfType<BossHP>().GetComponent<BossHP>().totalHits;
+        PlayerGun playerGun = FindObjectOfType<PlayerGun>().GetComponent<PlayerGun>();
+        int bossHits = playerGun.TotalHits;
+        int playerShots = playerGun.Shots;
         if (playerShots != 0)
-            totalAccuracy = Mathf.RoundToInt((bossHits / playerShots)*100);
-        winText.text = ("Nice YOu Win, " + "Total Accuracy: " + totalAccuracy + "%") ;
+            totalAccuracy = Mathf.RoundToInt((bossHits / playerShots) * 100);
+        int ScorePrecentage = ((Mathf.RoundToInt(totalAccuracy) + (Mathf.RoundToInt(timer) < 100 ? 100 : (Mathf.RoundToInt(timer) < 200 ? 80 : 60) + Mathf.RoundToInt(health * 20))) / 3);
+        print("Accuracy: "+totalAccuracy);
+        print("TimerScore: " + (Mathf.RoundToInt(timer) < 100 ? 100 : (Mathf.RoundToInt(timer) < 200 ? 80 : 60)));
+        print("ScorePer: "+health * 20);
+        print(ScorePrecentage);
+        winText.text = ("Nice YOu Win, " + "Total Accuracy: " + totalAccuracy + "%" + " Time: " + Mathf.RoundToInt(timer));
         winSprite.SetActive(true);
         Destroy(gameObject);
     }
+}
+
+[System.Serializable]
+public struct LetterScore
+{
+    public int scorePrecent;
+    public int timeScore;
+    public string letter;
 }
