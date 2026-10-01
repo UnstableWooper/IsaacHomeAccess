@@ -6,6 +6,12 @@ using UnityEngine.UI;
 
 public class newPlayerHealth : MonoBehaviour
 {
+    [System.Serializable]
+    public struct LetterScore
+    {
+        public int scorePrecent;
+        public string letter;
+    }
     [SerializeField] private LetterScore[] letterScore;
 
     [SerializeField] private Image healthBar;
@@ -32,6 +38,8 @@ public class newPlayerHealth : MonoBehaviour
     public Damage GameObjectDamage { get; set; }
 
     public float totalAccuracy;
+
+    public List<LetterScore> GradeTier;
     private void Update()
     {
         timer += Time.deltaTime;
@@ -62,6 +70,7 @@ public class newPlayerHealth : MonoBehaviour
         loseSprite.SetActive(false);
         _rigidbody = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
+
     }
 
     public void TakeDamage(int DamageDelt, GameObject gameobject)
@@ -142,25 +151,34 @@ public class newPlayerHealth : MonoBehaviour
     {
 
         PlayerGun playerGun = FindObjectOfType<PlayerGun>().GetComponent<PlayerGun>();
-        int bossHits = playerGun.TotalHits;
-        int playerShots = playerGun.Shots;
+        float bossHits = playerGun.TotalHits;
+        float playerShots = playerGun.Shots;
         if (playerShots != 0)
             totalAccuracy = Mathf.RoundToInt((bossHits / playerShots) * 100);
-        int ScorePrecentage = ((Mathf.RoundToInt(totalAccuracy) + (Mathf.RoundToInt(timer) < 100 ? 100 : (Mathf.RoundToInt(timer) < 200 ? 80 : 60) + Mathf.RoundToInt(health * 20))) / 3);
-        print("Accuracy: "+totalAccuracy);
-        print("TimerScore: " + (Mathf.RoundToInt(timer) < 100 ? 100 : (Mathf.RoundToInt(timer) < 200 ? 80 : 60)));
-        print("ScorePer: "+health * 20);
-        print(ScorePrecentage);
-        winText.text = ("Nice YOu Win, " + "Total Accuracy: " + totalAccuracy + "%" + " Time: " + Mathf.RoundToInt(timer));
+        int ScorePrecentage = Mathf.RoundToInt((totalAccuracy + (timer < 90 ? 100 : timer < 150 ? 75 : 50) + health * 20) / 3);
+
+        print("Accuracy: " + totalAccuracy);
+        print("TimerScore: " + (timer < 100 ? 100 : timer < 200 ? 75 : 50));
+        print("Health Score: " + health * 20);
+
+        string finalGrade = GetLetterScoreFromPercent(ScorePrecentage);
+        Debug.Log(finalGrade);
+
+        winText.text = ($"Nice You Win\n{finalGrade}" );
         winSprite.SetActive(true);
         Destroy(gameObject);
     }
-}
 
-[System.Serializable]
-public struct LetterScore
-{
-    public int scorePrecent;
-    public int timeScore;
-    public string letter;
+    public string GetLetterScoreFromPercent(int currentPercent)
+    {
+        print("Score Precentage: " + currentPercent);
+        foreach (LetterScore letter in GradeTier)
+        {
+            if (currentPercent >= letter.scorePrecent)
+            {
+                return letter.letter;
+            }
+        }
+        return "C";
+    }
 }

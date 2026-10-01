@@ -40,6 +40,7 @@ public class BossHP : MonoBehaviour
                     gameObject.SetActive(false);
                 else
                 {                
+                    print("dying!");
                     DeathAnimation deathAnimation = GetComponent<DeathAnimation>();
                     deathAnimation.Death();
                     Invoke(nameof(BossDefeated), 3);

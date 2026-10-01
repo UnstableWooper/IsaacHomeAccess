@@ -266,6 +266,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7afb93ea3c7f02f4eba5733776793d87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  letterScore:
+  - scorePrecent: 100
+    letter: S
+  - scorePrecent: 99
+    letter: A+
+  - scorePrecent: 95
+    letter: A
+  - scorePrecent: 90
+    letter: A-
+  - scorePrecent: 89
+    letter: B+
+  - scorePrecent: 85
+    letter: B
+  - scorePrecent: 80
+    letter: B-
+  - scorePrecent: 79
+    letter: C+
+  - scorePrecent: 75
+    letter: C
   healthBar: {fileID: 0}
   loseSprite: {fileID: 0}
   loseText: {fileID: 0}
@@ -275,6 +294,16 @@ MonoBehaviour:
   iFrames: 1.5
   health: 5
   imortal: 0
+  totalAccuracy: 0
+  GradeTier:
+  - scorePrecent: 95
+    letter: S
+  - scorePrecent: 90
+    letter: A
+  - scorePrecent: 80
+    letter: B
+  - scorePrecent: 70
+    letter: C
 --- !u!114 &7220933832970910679
 MonoBehaviour:
   m_ObjectHideFlags: 0
