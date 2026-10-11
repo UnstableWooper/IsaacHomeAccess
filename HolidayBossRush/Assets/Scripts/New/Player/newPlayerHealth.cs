@@ -157,12 +157,9 @@ public class newPlayerHealth : MonoBehaviour
             totalAccuracy = Mathf.RoundToInt((bossHits / playerShots) * 100);
         int ScorePrecentage = Mathf.RoundToInt((totalAccuracy + (timer < 90 ? 100 : timer < 150 ? 75 : 50) + health * 20) / 3);
 
-        print("Accuracy: " + totalAccuracy);
-        print("TimerScore: " + (timer < 100 ? 100 : timer < 200 ? 75 : 50));
-        print("Health Score: " + health * 20);
-
         string finalGrade = GetLetterScoreFromPercent(ScorePrecentage);
-        Debug.Log(finalGrade);
+        PlayerPrefs.SetString("ScoreTracker", finalGrade);
+        Debug.Log(PlayerPrefs.GetString("ScoreTracker"));
 
         winText.text = ($"Nice You Win\n{finalGrade}" );
         winSprite.SetActive(true);

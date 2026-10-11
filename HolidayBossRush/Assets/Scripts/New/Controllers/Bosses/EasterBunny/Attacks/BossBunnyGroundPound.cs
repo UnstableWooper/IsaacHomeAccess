@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BossBunnyGroundPound : BossAttack
 {
+    [SerializeField] private AudioClip soundEffect;
+
     [SerializeField] private GameObject fallingEgg;
     [SerializeField] private GameObject attackWarn;
 
@@ -15,12 +17,14 @@ public class BossBunnyGroundPound : BossAttack
     private Rigidbody2D _rigidbody;
     private Damage _damage;
 
+    private PlaySound playSound;
     public void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _damage = GetComponent<Damage>();
         _controller = GetComponent<BossController>();
         _damage.CantDamage(false);
+        playSound = GetComponent<PlaySound>();
     }
 
     public override void StartAttack()
@@ -38,6 +42,7 @@ public class BossBunnyGroundPound : BossAttack
     {
         yield return new WaitForSeconds(0.05f);
         yield return new WaitUntil(() => _controller.grounded);
+        playSound.PlayAnimationSound(soundEffect);
         float Xpos = -9;
         for (int i = 0; i <= 9; i++)
         {

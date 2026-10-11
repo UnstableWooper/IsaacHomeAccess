@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class JumpAttack : BossAttack
 {
+    [SerializeField] private AudioClip soundEffect;
+
     [SerializeField]private Vector2 jumpStrength;
     [SerializeField]private Animator animator;
     
@@ -17,6 +19,7 @@ public class JumpAttack : BossAttack
 
     private GameObject _player;
 
+    private PlaySound playSound;
     private void Awake()
     {
         _player = FindAnyObjectByType<newPlayerMovement>().gameObject;
@@ -25,10 +28,12 @@ public class JumpAttack : BossAttack
         _controller = GetComponent<BossController>();
         _spriteRenderer = _controller.spriteRenderer;
         _damage.CantDamage(false);
+        playSound = GetComponent<PlaySound>();
     }
 
     public override void StartAttack()
     {
+        playSound.PlayAnimationSound(soundEffect);
         _rigidbody.AddForce(new Vector2(
             _player.transform.position.x > transform.position.x ? jumpStrength.x * 1 * Random.Range(1.2f, 0.8f) : jumpStrength.x * -1 * Random.Range(1.2f, 0.8f)
             , jumpStrength.y), ForceMode2D.Impulse);

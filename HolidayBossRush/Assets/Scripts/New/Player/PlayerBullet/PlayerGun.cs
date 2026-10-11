@@ -8,6 +8,7 @@ public class PlayerGun : MonoBehaviour
     [SerializeField] private float archHeight;
 
     [SerializeField] private float bulletAccuracy;
+    [SerializeField] private AudioClip SnowballThrow;
 
     [Header("OtherSettings")]
 
@@ -48,7 +49,10 @@ public class PlayerGun : MonoBehaviour
         _attackCooldown = cooldown;
 
         playerAnimator.SetTrigger("Attacked");
+    }
 
+    public void ShootSnowball()
+    {
         Vector3 MousePos = Input.mousePosition;
         Vector3 worldMousePos = Camera.main.ScreenToWorldPoint(MousePos);
 

@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class BulletProjectile : MonoBehaviour
 {
+    [SerializeField] private AudioClip soundEffect;
+
     [SerializeField] private GameObject effect;
     [SerializeField] private GameObject bullet;
 
@@ -26,6 +28,7 @@ public class BulletProjectile : MonoBehaviour
 
     private bool Stop;
 
+    private PlaySound playSound;
     public void StartProjectile(Vector3 MousePos, float Speed, float ArchHeight, float Accuracy)
     {
         Stop = false;
@@ -52,6 +55,7 @@ public class BulletProjectile : MonoBehaviour
 
     private void Awake()
     {
+        playSound = GetComponent<PlaySound>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
         
         effect.SetActive(false);
@@ -68,6 +72,7 @@ public class BulletProjectile : MonoBehaviour
 
     public void DestroyBullet(int AddHits)
     {
+        playSound.PlayAnimationSound(soundEffect);
         PlayerGun playerGun = FindAnyObjectByType<PlayerGun>();
         playerGun.Hits(AddHits);
 
