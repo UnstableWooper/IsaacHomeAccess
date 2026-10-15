@@ -322,7 +322,7 @@ MonoBehaviour:
   bulletSpeed: 20
   archHeight: 1
   bulletAccuracy: 0.5
-  SnowballThrow: {fileID: 0}
+  SnowballThrow: {fileID: 8300000, guid: 910c929dd3d78144fae40830e82639f8, type: 3}
   bullet: {fileID: 7205840176287084235, guid: b03d2523909889244b8e6f6f468cc58f, type: 3}
   playerAnimator: {fileID: 5637355382930311819}
 --- !u!95 &5637355382930311819
@@ -454,4 +454,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b153b1db0027bf44a5a42f9a058f356, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundEffect: {fileID: 8300000, guid: 910c929dd3d78144fae40830e82639f8, type: 3}

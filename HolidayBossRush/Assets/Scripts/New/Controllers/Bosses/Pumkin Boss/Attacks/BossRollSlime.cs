@@ -93,10 +93,10 @@ public class BossRollSlime : BossAttack
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Projectile") && _rigidbody.velocity.x != 0)
-        {
+        Debug.Log(collision.gameObject.tag + " of " + collision.gameObject.name);
+        if (collision.CompareTag("Projectile") && gameObject.CompareTag("SlimeMode"))
             _hits++;
-        }
+        Debug.Log(_hits);
     }
 
 

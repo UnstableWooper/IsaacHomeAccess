@@ -68,7 +68,5 @@ public class PlayerGun : MonoBehaviour
     public void Hits(int AddHits)
     {
         TotalHits += AddHits;
-        print("TotalHits: " + TotalHits);
-        print("Shots: " + Shots);
     }
 }

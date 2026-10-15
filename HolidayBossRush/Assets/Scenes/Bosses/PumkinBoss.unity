@@ -3048,6 +3048,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1456114652092405297, guid: af54795c4d4dd354c9d9b24d951dfe8f, type: 3}
+      propertyPath: soundEffect
+      value: 
+      objectReference: {fileID: 8300000, guid: 756ee08c8765abe4c830c0da83d73c07, type: 3}
     - target: {fileID: 2902752536302000490, guid: af54795c4d4dd354c9d9b24d951dfe8f, type: 3}
       propertyPath: _player
       value: 
@@ -3060,6 +3064,10 @@ PrefabInstance:
       propertyPath: DialogueImage
       value: 
       objectReference: {fileID: 1758074101}
+    - target: {fileID: 2902752536302000490, guid: af54795c4d4dd354c9d9b24d951dfe8f, type: 3}
+      propertyPath: attacks.Array.data[2].randomChance
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3778198572817592295, guid: af54795c4d4dd354c9d9b24d951dfe8f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3195,6 +3203,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7220933832970910679, guid: e860aa28ef48709438d25c1b1b0c0ed2, type: 3}
+      propertyPath: SnowballThrow
+      value: 
+      objectReference: {fileID: 8300000, guid: 910c929dd3d78144fae40830e82639f8, type: 3}
     - target: {fileID: 7852922047877824184, guid: e860aa28ef48709438d25c1b1b0c0ed2, type: 3}
       propertyPath: m_Name
       value: Player

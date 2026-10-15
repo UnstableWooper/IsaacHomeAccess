@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BossShoot : BossAttack
 {
+    [SerializeField] private AudioClip soundEffect;
+
     [SerializeField] private int attackAmount;
     [SerializeField] private int attackAmountSecondPhase;
 
@@ -13,8 +15,11 @@ public class BossShoot : BossAttack
     [SerializeField] private float setAttackTime = 1;
 
     private BossController _pumkinController;
+
+    private PlaySound playSound;
     public override void StartAttack()
     {
+        playSound.PlayAnimationSound(soundEffect);
         int randomPick = Random.Range(0, _spawnPos.Length);
         if (!_pumkinController.SecondPhase)
         {
@@ -38,6 +43,7 @@ public class BossShoot : BossAttack
     }
     public override IEnumerator AttackWarn()
     {
+        playSound = GetComponent<PlaySound>();
         _pumkinController = GetComponent<BossController>();
         _pumkinController.AttackWarn(Color.red);
         yield return new WaitForSeconds(attackWarnLength);

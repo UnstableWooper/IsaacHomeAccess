@@ -13,7 +13,6 @@ public class PlaySound : MonoBehaviour
 
     public void PlayAnimationSound(AudioClip soundEffect)
     {
-        Debug.Log("working");
         audioSource.PlayOneShot(soundEffect);
     }
 }
