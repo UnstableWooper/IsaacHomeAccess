@@ -199,7 +199,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  OnCollionDestroy: 0
+  onCollionDestroy: 0
+  canDamage: 0
+  collidingPlayer: 0
 --- !u!114 &8107346475974412337
 MonoBehaviour:
   m_ObjectHideFlags: 0

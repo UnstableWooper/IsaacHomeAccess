@@ -81,6 +81,7 @@ public class BossRollSlime : BossAttack
 
     public override IEnumerator AttackWarn()
     {
+
         _pumkinController.AttackWarn(Color.red);
 
         _pumkinController.attackCooldownTimer += 3;
@@ -93,10 +94,8 @@ public class BossRollSlime : BossAttack
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.gameObject.tag + " of " + collision.gameObject.name);
-        if (collision.CompareTag("Projectile") && gameObject.CompareTag("SlimeMode"))
+        if (collision.CompareTag("Untagged") && gameObject.CompareTag("SlimeMode"))
             _hits++;
-        Debug.Log(_hits);
     }
 
 

@@ -80,7 +80,7 @@ public class BulletProjectile : MonoBehaviour
         _rigidbody2D.constraints = RigidbodyConstraints2D.FreezePosition;
         effect.SetActive(true);
         bullet.SetActive(false);
-        //gameObject.tag = "Untagged";
+        gameObject.tag = "Untagged";
         Destroy(gameObject, 1);
     }
 }

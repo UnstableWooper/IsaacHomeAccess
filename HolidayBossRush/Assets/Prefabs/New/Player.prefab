@@ -298,6 +298,8 @@ MonoBehaviour:
   imortal: 0
   totalAccuracy: 0
   GradeTier:
+  - scorePrecent: 100
+    letter: SS
   - scorePrecent: 95
     letter: S
   - scorePrecent: 90

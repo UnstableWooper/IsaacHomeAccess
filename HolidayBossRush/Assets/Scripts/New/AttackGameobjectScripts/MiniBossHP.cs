@@ -18,6 +18,7 @@ public class MiniBossHP : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+
         if (other.CompareTag("Projectile"))
         {
             _projectile = other.GetComponent<BulletProjectile>();

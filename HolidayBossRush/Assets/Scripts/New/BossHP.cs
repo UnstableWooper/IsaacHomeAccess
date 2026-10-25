@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class BossHP : MonoBehaviour
 {
 
-    [SerializeField, Range(1, 1000)]public int maxHP;
+    [SerializeField, Range(1, 500)]public int maxHP;
 
     [SerializeField] private bool DontDestroy;
     [SerializeField] private bool immortal;
@@ -30,6 +30,7 @@ public class BossHP : MonoBehaviour
             _brain = GetComponent<BossController>();
             _projectile = other.GetComponent<BulletProjectile>();
             trueBossHp -= _projectile.projectileDamage;
+            Debug.Log("BossHit");
             _projectile.DestroyBullet(1);
             _brain.StartCoroutine("DamageIndicatorCaller");
             if (trueBossHp <= 0 && !immortal)
