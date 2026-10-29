@@ -44,7 +44,7 @@ public class BossHP : MonoBehaviour
                     print("dying!");
                     DeathAnimation deathAnimation = GetComponent<DeathAnimation>();
                     deathAnimation.Death();
-                    Invoke(nameof(BossDefeated), 3);
+                    Invoke(nameof(BossDefeated), 0);
                     _brain.ResetAttemptCounter();
                 }
             }
@@ -58,6 +58,6 @@ public class BossHP : MonoBehaviour
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         newPlayerHealth playerHPScript = player.GetComponent<newPlayerHealth>();
-        playerHPScript.win();
+        StartCoroutine(playerHPScript.win());
     }
 }

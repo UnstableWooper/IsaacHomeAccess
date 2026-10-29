@@ -10,7 +10,7 @@ public class newPlayerHealth : MonoBehaviour
     [System.Serializable]
     public struct LetterScore
     {
-        public int scorePrecent;
+        public float scorePrecent;
         public string letter;
     }
     [SerializeField] private LetterScore[] letterScore;
@@ -151,7 +151,7 @@ public class newPlayerHealth : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void win()
+    public IEnumerator win()
     {
 
         PlayerGun playerGun = FindObjectOfType<PlayerGun>().GetComponent<PlayerGun>();
@@ -172,6 +172,8 @@ public class newPlayerHealth : MonoBehaviour
             $"HP Bonus.......{health}/{5}\n"+
             $"Accuracy.......{totalAccuracy}\n"+
             $"GRADE...{finalGrade}";
+
+        yield return new WaitForSeconds(2f);
 
         winSprite.SetActive(true);
         Destroy(gameObject);

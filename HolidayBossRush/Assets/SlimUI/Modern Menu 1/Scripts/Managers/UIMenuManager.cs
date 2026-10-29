@@ -161,6 +161,18 @@ namespace SlimUI.ModernMenu{
 			CameraObject.SetFloat("Animate",0);
 		}
 
+		public void Position4()
+		{
+			DisablePlayCampaign();
+			CameraObject.SetFloat("Animate", 2);
+		}
+
+		public void Position3()
+		{
+			DisablePlayCampaign();
+			CameraObject.SetFloat("Animate", 3);
+		}
+
 		void DisablePanels(){
 			PanelControls.SetActive(false);
 			PanelVideo.SetActive(false);
@@ -296,7 +308,6 @@ namespace SlimUI.ModernMenu{
 		{
 			CanvSettings.SetActive(false);
 			CanvHowToPlay.SetActive(false);
-			
 			if(on)
 				CanvSettings.SetActive(true);
 			else

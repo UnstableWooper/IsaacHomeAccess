@@ -271,7 +271,7 @@ MonoBehaviour:
   letterScore:
   - scorePrecent: 100
     letter: S
-  - scorePrecent: 99
+  - scorePrecent: 99.9
     letter: A+
   - scorePrecent: 95
     letter: A

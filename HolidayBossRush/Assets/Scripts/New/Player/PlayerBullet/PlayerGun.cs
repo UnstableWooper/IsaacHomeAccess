@@ -44,8 +44,6 @@ public class PlayerGun : MonoBehaviour
 
     private void Shoot()
     {
-        Shots++;
-
         _attackCooldown = cooldown;
 
         playerAnimator.SetTrigger("Attacked");
@@ -68,5 +66,6 @@ public class PlayerGun : MonoBehaviour
     public void Hits(int AddHits)
     {
         TotalHits += AddHits;
+        Shots++;
     }
 }

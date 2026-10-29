@@ -62,19 +62,21 @@ public class BulletProjectile : MonoBehaviour
         bullet.SetActive(true);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Ground"))
+        if (collision.CompareTag("Ground") && gameObject.CompareTag("Projectile"))
         {
             DestroyBullet(0);
         }
     }
-
     public void DestroyBullet(int AddHits)
     {
+        Debug.Log("Hits:" + AddHits);
+
         playSound.PlayAnimationSound(soundEffect);
         PlayerGun playerGun = FindAnyObjectByType<PlayerGun>();
         playerGun.Hits(AddHits);
+
 
         Stop = true;
         _rigidbody2D.constraints = RigidbodyConstraints2D.FreezePosition;

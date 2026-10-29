@@ -54,8 +54,8 @@ public class JumpAttack : BossAttack
         {
             _spriteRenderer.sprite = chargeJumpAnimation;
             yield return new WaitForSeconds(attackWarnLength);
-            
-            StartAttack();
+
+            Invoke("StartAttack", Random.Range(100f, 200f)/100);
         }
     }
 }
