@@ -44,7 +44,6 @@ public class newPlayerHealth : MonoBehaviour
     private void Update()
     {
         PlayerGun playerGun = FindObjectOfType<PlayerGun>().GetComponent<PlayerGun>();
-        Debug.Log($"Hits:{playerGun.TotalHits} ,Shots:{playerGun.Shots}");
 
         timer += Time.deltaTime;
 

@@ -30,7 +30,6 @@ public class BossHP : MonoBehaviour
             _brain = GetComponent<BossController>();
             _projectile = other.GetComponent<BulletProjectile>();
             trueBossHp -= _projectile.projectileDamage;
-            Debug.Log("BossHit");
             _projectile.DestroyBullet(1);
             _brain.StartCoroutine("DamageIndicatorCaller");
             if (trueBossHp <= 0 && !immortal)
@@ -41,7 +40,6 @@ public class BossHP : MonoBehaviour
                     gameObject.SetActive(false);
                 else
                 {                
-                    print("dying!");
                     DeathAnimation deathAnimation = GetComponent<DeathAnimation>();
                     deathAnimation.Death();
                     Invoke(nameof(BossDefeated), 0);

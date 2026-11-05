@@ -22,7 +22,6 @@ public class BossShockWave : BossAttack
 
     public override void StartAttack()
     {
-        //Debug.Log("working?");
         GameObject RightShockWave = Instantiate(shockwave, new Vector2(transform.position.x + 0.01f, -2.8f), Quaternion.identity);
         ShockWaveMove RightShockWaveMove = RightShockWave.GetComponent<ShockWaveMove>();
         RightShockWaveMove.MoveRight();

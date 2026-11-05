@@ -71,11 +71,11 @@ public class BulletProjectile : MonoBehaviour
     }
     public void DestroyBullet(int AddHits)
     {
-        Debug.Log("Hits:" + AddHits);
 
         playSound.PlayAnimationSound(soundEffect);
         PlayerGun playerGun = FindAnyObjectByType<PlayerGun>();
-        playerGun.Hits(AddHits);
+        if (playerGun != null)
+            playerGun.Hits(AddHits);
 
 
         Stop = true;

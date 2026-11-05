@@ -117,7 +117,6 @@ namespace SlimUI.ModernMenu{
 					themeIndex = 2;
 					break;
 				default:
-					Debug.Log("Invalid theme selected.");
 					break;
 			}
 		}
@@ -142,15 +141,22 @@ namespace SlimUI.ModernMenu{
 			mainMenu.SetActive(true);
 		}
 
-		public void LoadScene(string scene){
-			if(scene != ""){
+		public void LoadScene(int scene){
+			SceneManager.LoadScene(scene);
+			if (scene != 0)
 				StartCoroutine(LoadAsynchronously(scene));
-			}
 		}
 
 		public void  DisablePlayCampaign(){
 			playMenu.SetActive(false);
 		}
+
+		public void Grow(Animator Ani){
+			Ani.SetBool("Grow", !Ani.GetBool("Grow") ? true : false);
+            if (Ani.GetBool("Grow")) {
+				
+			}
+        }
 
 		public void Position2(){
 			DisablePlayCampaign();
@@ -279,7 +285,7 @@ namespace SlimUI.ModernMenu{
 		}
 
 		// Load Bar synching animation
-		IEnumerator LoadAsynchronously(string sceneName){ // scene name is just the name of the current scene being loaded
+		IEnumerator LoadAsynchronously(int sceneName){ // scene name is just the name of the current scene being loaded
 			AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
 			operation.allowSceneActivation = false;
 			mainCanvas.SetActive(false);

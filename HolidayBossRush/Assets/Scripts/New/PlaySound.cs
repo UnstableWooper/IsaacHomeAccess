@@ -13,6 +13,8 @@ public class PlaySound : MonoBehaviour
 
     public void PlayAnimationSound(AudioClip soundEffect)
     {
+        audioSource.volume = audioSource.volume * PlayerPrefs.GetFloat("MusicVolume");
         audioSource.PlayOneShot(soundEffect);
+        
     }
 }
