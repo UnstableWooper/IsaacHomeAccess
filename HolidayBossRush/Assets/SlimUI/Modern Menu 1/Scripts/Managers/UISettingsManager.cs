@@ -40,9 +40,10 @@ namespace SlimUI.ModernMenu{
 		[Header("CONTROLS SETTINGS")]
 		public GameObject invertmousetext;
 
-		// sliders
-		public GameObject musicSlider;
-		public GameObject sensitivityXSlider;
+        // sliders
+        public GameObject musicSlider;
+        public GameObject sfxSlider;
+        public GameObject sensitivityXSlider;
 		public GameObject sensitivityYSlider;
 		public GameObject mouseSmoothSlider;
 
@@ -71,7 +72,8 @@ namespace SlimUI.ModernMenu{
 
 			// check slider values
 			musicSlider.GetComponent<Slider>().value = PlayerPrefs.GetFloat("MusicVolume");
-			sensitivityXSlider.GetComponent<Slider>().value = PlayerPrefs.GetFloat("XSensitivity");
+            sfxSlider.GetComponent<Slider>().value = PlayerPrefs.GetFloat("SFXVolume");
+            sensitivityXSlider.GetComponent<Slider>().value = PlayerPrefs.GetFloat("XSensitivity");
 			sensitivityYSlider.GetComponent<Slider>().value = PlayerPrefs.GetFloat("YSensitivity");
 			mouseSmoothSlider.GetComponent<Slider>().value = PlayerPrefs.GetFloat("MouseSmoothing");
 
@@ -179,9 +181,8 @@ namespace SlimUI.ModernMenu{
 		}
 
 		public void Update (){
-			if(musicSlider != null)
-				sliderValue = musicSlider.GetComponent<Slider>().value;
-			sliderValueXSensitivity = sensitivityXSlider.GetComponent<Slider>().value;
+			sliderValue = musicSlider.GetComponent<Slider>().value;
+            sliderValueXSensitivity = sensitivityXSlider.GetComponent<Slider>().value;
 			sliderValueYSensitivity = sensitivityYSlider.GetComponent<Slider>().value;
 			sliderValueSmoothing = mouseSmoothSlider.GetComponent<Slider>().value;
 		}
@@ -198,11 +199,15 @@ namespace SlimUI.ModernMenu{
 		}
 
 		public void MusicSlider (){
-			//PlayerPrefs.SetFloat("MusicVolume", sliderValue);
 			PlayerPrefs.SetFloat("MusicVolume", musicSlider.GetComponent<Slider>().value);
 		}
 
-		public void SensitivityXSlider (){
+        public void SFXSlider()
+        {
+            PlayerPrefs.SetFloat("SFXVolume", sfxSlider.GetComponent<Slider>().value);
+        }
+
+        public void SensitivityXSlider (){
 			PlayerPrefs.SetFloat("XSensitivity", sliderValueXSensitivity);
 		}
 

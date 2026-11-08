@@ -9,8 +9,4 @@ public abstract class BossAttack : MonoBehaviour
 
     public abstract void StartAttack();
     public abstract IEnumerator AttackWarn();
-    //Roll attack
-    //Stomp
-    //Shoot
-    
 }

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class newPlayerHealth : MonoBehaviour
@@ -139,9 +140,6 @@ public class newPlayerHealth : MonoBehaviour
         int playerShots = playerGun.Shots;
         if (playerShots != 0)
             totalAccuracy = Mathf.RoundToInt((bossHits / playerShots) * 100);
-        print(bossHits + "BH");
-        print(playerShots + "PS");
-        print(totalAccuracy);
         loseSprite.SetActive(true);
 
         float trueHP = _bossHp.trueBossHp;//lower case this
@@ -161,10 +159,18 @@ public class newPlayerHealth : MonoBehaviour
         int ScorePrecentage = Mathf.RoundToInt((totalAccuracy + (timer < 90 ? 100 : timer < 150 ? 75 : 50) + health * 20) / 3);
 
         string finalGrade = GetLetterScoreFromPercent(ScorePrecentage);
-        PlayerPrefs.SetString("ScoreTracker", finalGrade);
-        Debug.Log(PlayerPrefs.GetString("ScoreTracker"));
 
         TimeSpan timeSpan = TimeSpan.FromSeconds(Mathf.RoundToInt(timer));
+
+        PlayerPrefs.SetString("Scene" + SceneManager.sceneCount.ToString()+"GradeTracker", finalGrade);
+        PlayerPrefs.SetString("Scene" + SceneManager.sceneCount.ToString()+"TimeTracker", timeSpan.ToString(@"mm\:ss"));
+        PlayerPrefs.SetString("Scene" + SceneManager.sceneCount.ToString()+"HealthTracker", health.ToString());
+        PlayerPrefs.SetString("Scene" + SceneManager.sceneCount.ToString()+"AccuracyTracker", totalAccuracy.ToString());
+
+        Debug.Log($"Grade: {PlayerPrefs.GetString("Scene" + SceneManager.sceneCount.ToString()+"GradeTracker")}");
+        Debug.Log($"Time: {PlayerPrefs.GetString("Scene" + SceneManager.sceneCount.ToString()+"TimeTracker")}");
+        Debug.Log($"Health: {PlayerPrefs.GetString("Scene" + SceneManager.sceneCount.ToString()+"HealthTracker")}");
+        Debug.Log($"Accuracy: {PlayerPrefs.GetString("Scene" + SceneManager.sceneCount.ToString()+"AccuracyTracker")}");
 
         winText.text = 
             $"Time...........{timeSpan.ToString(@"mm\:ss")}s\n" +

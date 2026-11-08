@@ -722,6 +722,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b153b1db0027bf44a5a42f9a058f356, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMusic: 0
 --- !u!82 &633365989
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2628,6 +2629,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2132343590}
   - component: {fileID: 2132343591}
+  - component: {fileID: 2132343593}
+  - component: {fileID: 2132343592}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2660,7 +2663,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 3ca9009b893c1734ba77f9c3de0f72d9, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 0.125
   m_Pitch: 1
@@ -2746,6 +2749,32 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2132343592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2132343588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6872d23e2e4bea84a8abcb451d7cd37f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEffect: {fileID: 8300000, guid: 3ca9009b893c1734ba77f9c3de0f72d9, type: 3}
+--- !u!114 &2132343593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2132343588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b153b1db0027bf44a5a42f9a058f356, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMusic: 1
 --- !u!1001 &3211532629016076646
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2925,7 +2954,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7820425745167808062, guid: af54795c4d4dd354c9d9b24d951dfe8f, type: 3}
       propertyPath: maxHP
-      value: 150
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7820425745167808062, guid: af54795c4d4dd354c9d9b24d951dfe8f, type: 3}
       propertyPath: trueBossHp

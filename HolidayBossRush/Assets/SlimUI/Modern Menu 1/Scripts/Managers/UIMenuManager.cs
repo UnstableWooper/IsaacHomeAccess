@@ -245,15 +245,18 @@ namespace SlimUI.ModernMenu{
 		}
 
 		public void PlayHover(){
-			hoverSound.Play();
+            sliderSound.volume = PlayerPrefs.GetFloat("SFXVolume");
+            hoverSound.Play();
 		}
 
 		public void PlaySFXHover(){
-			sliderSound.Play();
+			sliderSound.volume = PlayerPrefs.GetFloat("SFXVolume");
+            sliderSound.Play();
 		}
 
 		public void PlaySwoosh(){
-			swooshSound.Play();
+            sliderSound.volume = PlayerPrefs.GetFloat("SFXVolume");
+            swooshSound.Play();
 		}
 
 		// Are You Sure - Quit Panel Pop Up
