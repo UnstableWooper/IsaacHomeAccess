@@ -12,7 +12,7 @@ public class newPlayerHealth : MonoBehaviour
     public struct LetterScore
     {
         public float scorePrecent;
-        public string letter;
+        public char letter;
     }
     [SerializeField] private LetterScore[] letterScore;
 
@@ -156,21 +156,20 @@ public class newPlayerHealth : MonoBehaviour
         float playerShots = playerGun.Shots;
         if (playerShots != 0)
             totalAccuracy = Mathf.RoundToInt((bossHits / playerShots) * 100);
-        int ScorePrecentage = Mathf.RoundToInt((totalAccuracy + (timer < 90 ? 100 : timer < 150 ? 75 : 50) + health * 20) / 3);
+        int ScorePercentage = Mathf.RoundToInt((totalAccuracy + (timer < 90 ? 100 : timer < 150 ? 75 : 50) + health * 20) / 3);
 
-        string finalGrade = GetLetterScoreFromPercent(ScorePrecentage);
+        char finalGrade = GetLetterScoreFromPercent(ScorePercentage);
 
         TimeSpan timeSpan = TimeSpan.FromSeconds(Mathf.RoundToInt(timer));
 
-        PlayerPrefs.SetString("Scene" + SceneManager.sceneCount.ToString()+"GradeTracker", finalGrade);
-        PlayerPrefs.SetString("Scene" + SceneManager.sceneCount.ToString()+"TimeTracker", timeSpan.ToString(@"mm\:ss"));
-        PlayerPrefs.SetString("Scene" + SceneManager.sceneCount.ToString()+"HealthTracker", health.ToString());
-        PlayerPrefs.SetString("Scene" + SceneManager.sceneCount.ToString()+"AccuracyTracker", totalAccuracy.ToString());
-
-        Debug.Log($"Grade: {PlayerPrefs.GetString("Scene" + SceneManager.sceneCount.ToString()+"GradeTracker")}");
-        Debug.Log($"Time: {PlayerPrefs.GetString("Scene" + SceneManager.sceneCount.ToString()+"TimeTracker")}");
-        Debug.Log($"Health: {PlayerPrefs.GetString("Scene" + SceneManager.sceneCount.ToString()+"HealthTracker")}");
-        Debug.Log($"Accuracy: {PlayerPrefs.GetString("Scene" + SceneManager.sceneCount.ToString()+"AccuracyTracker")}");
+        if(ScorePercentage >= PlayerPrefs.GetInt("Scene" + SceneManager.sceneCount.ToString() + "ScorePercentageTracker") || !PlayerPrefs.HasKey("Scene" + SceneManager.sceneCount.ToString() + "ScorePercentageTracker"))
+        {
+            PlayerPrefs.SetInt("Scene" + SceneManager.sceneCount.ToString() + "ScorePercentageTracker", ScorePercentage);
+            PlayerPrefs.SetString("Scene" + SceneManager.sceneCount.ToString() + "GradeTracker", finalGrade.ToString());
+            PlayerPrefs.SetString("Scene" + SceneManager.sceneCount.ToString() + "TimeTracker", timeSpan.ToString(@"mm\:ss"));
+            PlayerPrefs.SetString("Scene" + SceneManager.sceneCount.ToString() + "HealthTracker", health.ToString());
+            PlayerPrefs.SetString("Scene" + SceneManager.sceneCount.ToString() + "AccuracyTracker", totalAccuracy.ToString());
+        }
 
         winText.text = 
             $"Time...........{timeSpan.ToString(@"mm\:ss")}s\n" +
@@ -184,9 +183,8 @@ public class newPlayerHealth : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public string GetLetterScoreFromPercent(int currentPercent)
+    public char GetLetterScoreFromPercent(int currentPercent)
     {
-        print("Score Precentage: " + currentPercent);
         foreach (LetterScore letter in GradeTier)
         {
             if (currentPercent >= letter.scorePrecent)
@@ -194,6 +192,6 @@ public class newPlayerHealth : MonoBehaviour
                 return letter.letter;
             }
         }
-        return "C";
+        return 'C';
     }
 }
