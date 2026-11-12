@@ -48,10 +48,12 @@ namespace SlimUI.ModernMenu{
         public GameObject CanvSettings;
 		[Tooltip("The UI where you learn how to play")]
 		public GameObject CanvHowToPlay;
-        
+		public GameObject BossPannel;
+		public GameObject HardcoreBossPannel;
 
-        // highlights in settings screen
-        [Header("SETTINGS SCREEN")]
+
+		// highlights in settings screen
+		[Header("SETTINGS SCREEN")]
         [Tooltip("Highlight Image for when GAME Tab is selected in Settings")]
         public GameObject lineGame;
         [Tooltip("Highlight Image for when VIDEO Tab is selected in Settings")]
@@ -321,6 +323,19 @@ namespace SlimUI.ModernMenu{
 				CanvSettings.SetActive(true);
 			else
 				CanvHowToPlay.SetActive(true);
+		}
+		public void SwapBossDifficulty(bool Hardcore)
+		{
+            if (!Hardcore)
+            {
+				HardcoreBossPannel.SetActive(false);
+				BossPannel.SetActive(true);
+            }
+            else
+            {
+				HardcoreBossPannel.SetActive(true);
+				BossPannel.SetActive(false);
+			}
 		}
 	}
 }

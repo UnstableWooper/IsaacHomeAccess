@@ -269,24 +269,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   letterScore:
-  - scorePrecent: 100
-    letter: S
-  - scorePrecent: 99.9
-    letter: A+
   - scorePrecent: 95
-    letter: A
+    letter: 83
   - scorePrecent: 90
-    letter: A-
-  - scorePrecent: 89
-    letter: B+
-  - scorePrecent: 85
-    letter: B
+    letter: 65
   - scorePrecent: 80
-    letter: B-
-  - scorePrecent: 79
-    letter: C+
-  - scorePrecent: 75
-    letter: C
+    letter: 66
+  - scorePrecent: 70
+    letter: 67
   healthBar: {fileID: 0}
   loseSprite: {fileID: 0}
   loseText: {fileID: 0}
@@ -298,16 +288,14 @@ MonoBehaviour:
   imortal: 0
   totalAccuracy: 0
   GradeTier:
-  - scorePrecent: 100
-    letter: SS
   - scorePrecent: 95
-    letter: S
+    letter: 83
   - scorePrecent: 90
-    letter: A
+    letter: 65
   - scorePrecent: 80
-    letter: B
+    letter: 66
   - scorePrecent: 70
-    letter: C
+    letter: 67
 --- !u!114 &7220933832970910679
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -456,3 +444,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b153b1db0027bf44a5a42f9a058f356, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMusic: 0

@@ -18,14 +18,14 @@ EditorBuildSettings:
     path: Assets/Scenes/Bosses/St.PatrickBoss.unity
     guid: 66896b72bfd21454b897fb733089a936
   - enabled: 1
-    path: Assets/Scenes/Hard Mode Bosses/Hard PumkinBoss.unity
-    guid: cd847f6e7f4fc794fa2f516f2c05a086
+    path: Assets/Scenes/Hard Mode Bosses/HardCorePumkinBoss.unity
+    guid: 4e0ed324da8a4bd43bdd12804ae5605e
   - enabled: 1
-    path: Assets/Scenes/Hard Mode Bosses/Hard EasterBunnyBoss.unity
-    guid: df2f5370cbd7b92498e54de78520b0f9
+    path: Assets/Scenes/Hard Mode Bosses/HardcoreEasterBunnyBoss.unity
+    guid: 43d34ec84b66c074d9ea5f9ba9d57d8a
   - enabled: 1
-    path: Assets/Scenes/Hard Mode Bosses/Hard St.PatrickBoss.unity
-    guid: 411152b0424ad0347b2a95f45f367426
+    path: Assets/Scenes/Hard Mode Bosses/HardCoreSt.PatrickBoss.unity
+    guid: 05ce3030cfa2a4348a784ebcc875331b
   - enabled: 1
     path: Assets/Scenes/Trainning.unity
     guid: 8b09e9a5bafa4304881127392997139e

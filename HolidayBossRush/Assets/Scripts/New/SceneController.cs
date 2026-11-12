@@ -23,6 +23,8 @@ namespace SlimUI.ModernMenu
             }
             else
                 SceneManager.LoadScene(scene);
+
+            Time.timeScale = 1;
         }
 
         public void LoadTrainingScene()

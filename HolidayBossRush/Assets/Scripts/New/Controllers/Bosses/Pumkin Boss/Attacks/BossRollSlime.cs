@@ -36,7 +36,7 @@ public class BossRollSlime : BossAttack
     {
         _hits = 0;
         _originPos = new Vector2(0, 4);
-        gameObject.tag = "SlimeMode";
+        //gameObject.tag = "SlimeMode";
         _damage.CantDamage(false);
         int randPos = Random.Range(0, 2);
 
@@ -60,7 +60,7 @@ public class BossRollSlime : BossAttack
             transform.position = _originPos;
             _velocity = new Vector2(0 , 0);
             _damage.CantDamage(true);
-            gameObject.tag = "Boss";
+            //gameObject.tag = "Boss";
         }
         if (_hits >= rollHP)
         {
@@ -73,7 +73,7 @@ public class BossRollSlime : BossAttack
 
             StartCoroutine(Stunned());
 
-            gameObject.tag = "Boss";
+            //gameObject.tag = "Boss";
             //stuneded
         }
         _rigidbody.velocity = _velocity;
@@ -94,7 +94,7 @@ public class BossRollSlime : BossAttack
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Untagged") && gameObject.CompareTag("SlimeMode"))
+        if (collision.CompareTag("Untagged"))// && gameObject.CompareTag("SlimeMode"))
             _hits++;
     }
 

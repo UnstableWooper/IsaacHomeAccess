@@ -1232,6 +1232,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2363878834238154399, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
+      propertyPath: maxHP
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 2867648504411925385, guid: 0965aafc852a035428cfdceeb36fdc9c, type: 3}
       propertyPath: offset
       value: 4.5
@@ -1335,10 +1339,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 932501790704976641, guid: 312004f980541a149a49ecb7749fbf2d, type: 3}
       propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2165419429742156142, guid: 312004f980541a149a49ecb7749fbf2d, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5237074349048248446, guid: 312004f980541a149a49ecb7749fbf2d, type: 3}
@@ -3293,6 +3293,17 @@ Transform:
   - {fileID: 853951273}
   m_Father: {fileID: 487451747}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1879024414 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7596178883695685737, guid: 312004f980541a149a49ecb7749fbf2d, type: 3}
+  m_PrefabInstance: {fileID: 1033743035}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1979471942
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3305,6 +3316,10 @@ PrefabInstance:
       propertyPath: imortal
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3845956349073026155, guid: e860aa28ef48709438d25c1b1b0c0ed2, type: 3}
+      propertyPath: winText
+      value: 
+      objectReference: {fileID: 1879024414}
     - target: {fileID: 3845956349073026155, guid: e860aa28ef48709438d25c1b1b0c0ed2, type: 3}
       propertyPath: loseText
       value: 

@@ -4,8 +4,8 @@ using UnityEngine;
 using TMPro;
 public class BossDescription : MonoBehaviour
 {
-    [SerializeField] private string bossDescription;
-    [SerializeField] private int scene;
+    public string bossDescription;
+    public int scene;
 
     private TMP_Text _descriptionText;
 
@@ -21,30 +21,23 @@ public class BossDescription : MonoBehaviour
 
     private void Update()
     {
-        if(PlayerPrefs.GetString("Scene" + scene + "GradeTracker") != null)
-        {
-            _grade = 
-                PlayerPrefs.GetString("Scene"+scene+"GradeTracker");
-            _time =
-                PlayerPrefs.GetString("Scene"+scene+"TimeTracker");
-            _health =
-                PlayerPrefs.GetString("Scene" + scene + "HealthTracker");
-            _accuracy =
-                PlayerPrefs.GetString("Scene" + scene + "AccuracyTracker");
-        }
-        else
-        {
-            _grade = "Unknown";
-            _time = "Unknown";
-            _health = "Unknown";
-            _accuracy = "Unknown";
-        }
+        _grade = 
+            PlayerPrefs.GetString("Scene"+scene+"GradeTracker");
+        _time =
+            PlayerPrefs.GetString("Scene"+scene+"TimeTracker");
+        _health =
+            PlayerPrefs.GetString("Scene" + scene + "HealthTracker");
+        _accuracy =
+            PlayerPrefs.GetString("Scene" + scene + "AccuracyTracker");
+
+        if(PlayerPrefs.GetString("Scene" + scene + "GradeTracker") == "")
+            PlayerPrefs.SetString("Scene" + scene + "GradeTracker", "Unknown");
 
         _descriptionText.text =
             bossDescription + "\n" +
-            "Grade: " + _grade + "\n" +
-            "Time: " + _time + "\n" +
-            "Health: " + _health + "\n" +
-            "Accuracy: " + _accuracy;
+            _grade + "\n";
+            //"Time: " + _time + "\n" +
+            //"Health: " + _health + "\n" +
+            //"Accuracy: " + _accuracy;
     }
 }

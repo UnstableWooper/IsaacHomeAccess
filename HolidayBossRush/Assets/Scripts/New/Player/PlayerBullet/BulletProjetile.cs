@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class BulletProjectile : MonoBehaviour
 {
     [SerializeField] private AudioClip soundEffect;
@@ -50,6 +50,7 @@ public class BulletProjectile : MonoBehaviour
         float height = _archHeight * 4 * timeDistance * (1 - timeDistance);
         currentPos.y += height;
 
+        if (SceneManager.GetActiveScene().buildIndex == 0) return;
         if(!Stop) transform.position = currentPos;
     }
 

@@ -21,6 +21,7 @@ public class newPlayerHealth : MonoBehaviour
     [SerializeField] private TMP_Text loseText;
     [SerializeField] private GameObject winSprite;
     [SerializeField] private TMP_Text winText;
+    [SerializeField] private GameObject pauseMenu;
     [SerializeField] private Vector2 knockbackForce;
     [SerializeField] private float iFrames;
     [SerializeField] private float health;
@@ -36,6 +37,8 @@ public class newPlayerHealth : MonoBehaviour
     private GameObject _boss;
     private BossHP _bossHp;
     private float timer;
+
+    private bool _pauseMenu;
 
     public Damage GameObjectDamage { get; set; }
 
@@ -53,7 +56,21 @@ public class newPlayerHealth : MonoBehaviour
         healthBar.fillAmount = health / 5;
         healthBar.color = new Color(1 - (health / 5), 0 + (health / 5), 0);
 
-
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (!_pauseMenu)
+            {
+                _pauseMenu = true;
+                Time.timeScale = 0;
+                Pause();
+            }
+            else
+            {
+                _pauseMenu = false;
+                Time.timeScale = 1;
+                Pause();
+            }
+        }
 
         if (GameObjectDamage != null)
         {
@@ -162,12 +179,14 @@ public class newPlayerHealth : MonoBehaviour
 
         TimeSpan timeSpan = TimeSpan.FromSeconds(Mathf.RoundToInt(timer));
 
-        if(ScorePercentage >= PlayerPrefs.GetInt("Scene" + SceneManager.sceneCount.ToString() + "ScorePercentageTracker") || !PlayerPrefs.HasKey("Scene" + SceneManager.sceneCount.ToString() + "ScorePercentageTracker"))
+        if(ScorePercentage >= PlayerPrefs.GetInt("Scene" + SceneManager.GetActiveScene().buildIndex.ToString() + "ScorePercentageTracker") || SceneManager.GetActiveScene().buildIndex.ToString() == "")
         {
-            PlayerPrefs.SetInt("Scene" + SceneManager.sceneCount.ToString() + "ScorePercentageTracker", ScorePercentage);
-            PlayerPrefs.SetString("Scene" + SceneManager.sceneCount.ToString() + "GradeTracker", finalGrade.ToString());
-            PlayerPrefs.SetString("Scene" + SceneManager.sceneCount.ToString() + "TimeTracker", timeSpan.ToString(@"mm\:ss"));
-            PlayerPrefs.SetString("Scene" + SceneManager.sceneCount.ToString() + "HealthTracker", health.ToString());
+            Debug.Log("Score Percentage: " + ScorePercentage + "PlayPref Scor Per: " + PlayerPrefs.GetInt("Scene" + SceneManager.GetActiveScene().buildIndex.ToString() + "ScorePercentageTracker"));
+
+            PlayerPrefs.SetInt("Scene" + SceneManager.GetActiveScene().buildIndex.ToString() + "ScorePercentageTracker", ScorePercentage);
+            PlayerPrefs.SetString("Scene" + SceneManager.GetActiveScene().buildIndex.ToString() + "GradeTracker", finalGrade.ToString());
+            PlayerPrefs.SetString("Scene" + SceneManager.GetActiveScene().buildIndex.ToString() + "TimeTracker", timeSpan.ToString(@"mm\:ss"));
+            PlayerPrefs.SetString("Scene" + SceneManager.GetActiveScene().buildIndex.ToString() + "HealthTracker", health.ToString());
             PlayerPrefs.SetString("Scene" + SceneManager.sceneCount.ToString() + "AccuracyTracker", totalAccuracy.ToString());
         }
 
@@ -193,5 +212,10 @@ public class newPlayerHealth : MonoBehaviour
             }
         }
         return 'C';
+    }
+
+    public void Pause()
+    {
+        pauseMenu.SetActive(_pauseMenu);
     }
 }

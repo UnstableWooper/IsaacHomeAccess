@@ -81,7 +81,6 @@ GameObject:
   - component: {fileID: 2943250936750891850}
   - component: {fileID: 2356007468357865712}
   - component: {fileID: 5279885802054186098}
-  - component: {fileID: 7674041989374045793}
   - component: {fileID: 6553880338239735372}
   - component: {fileID: 8623653438608513853}
   - component: {fileID: 441272383659440107}
@@ -272,7 +271,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 200
   DontDestroy: 0
-  TrueBossHp: 0
+  immortal: 0
+  trueBossHp: 0
 --- !u!114 &4865722688110974308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -286,7 +286,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  OnCollionDestroy: 0
+  onCollionDestroy: 0
+  canDamage: 0
+  collidingPlayer: 0
 --- !u!114 &8943850837050227469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -308,6 +310,7 @@ MonoBehaviour:
     randomChance: 2
   attackCooldown: 3
   spriteRenderer: {fileID: 1226900822997898304}
+  material: {fileID: 0}
   miniBoss: 0
   SecondPhase: 0
   _player: {fileID: 0}
@@ -356,6 +359,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackWarnLength: 0.5
   _attackDamage: 1
+  soundEffect: {fileID: 0}
   jumpStrength: {x: 2, y: 8}
   animator: {fileID: 8623653438608513853}
   chargeJumpAnimation: {fileID: 1840566136, guid: e6e23c7c741e18a409b033f19878ddb5, type: 3}
@@ -373,6 +377,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackWarnLength: 2
   _attackDamage: 0
+  soundEffect: {fileID: 0}
   Egg: {fileID: 3046928697000974345, guid: 624540c9bc3b9ad4eb159777a91da1b2, type: 3}
 --- !u!114 &5279885802054186098
 MonoBehaviour:
@@ -388,25 +393,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackWarnLength: 3
   _attackDamage: 1
+  soundEffect: {fileID: 0}
   fallingEgg: {fileID: 7829292421157068662, guid: 9a1e0ac4fceea534c9812f7008d79ee9, type: 3}
   attackWarn: {fileID: 6975080460707052790, guid: c789318ec7d214849bb026ac690c024b, type: 3}
   jumpHight: {x: 0, y: 7.5}
   chargeSuperJumpAnimation: {fileID: 1840566136, guid: e6e23c7c741e18a409b033f19878ddb5, type: 3}
---- !u!114 &7674041989374045793
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6446001551011754798}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8071beef5151d8448587b6a494f6bd0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHP: 200
-  DontDestroy: 0
-  TrueBossHp: 0
 --- !u!114 &6553880338239735372
 MonoBehaviour:
   m_ObjectHideFlags: 0
