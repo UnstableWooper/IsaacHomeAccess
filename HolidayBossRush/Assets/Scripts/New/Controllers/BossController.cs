@@ -81,14 +81,6 @@ public class BossController : MonoBehaviour
             StartDialogue();
         }
 
-        if (hardMode)
-        {
-            _bossHealth.trueBossHp = Mathf.RoundToInt(_bossHealth.trueBossHp * 1.5f);
-            attackCooldown = attackCooldown * 0.5f;
-            if(_animator != null)
-                _animator.speed = 1.5f;
-        }
-
         attackCooldownTimer =  hardMode ? 4 : 8;
     }
     private void Update()

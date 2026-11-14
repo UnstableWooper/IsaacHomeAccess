@@ -16,10 +16,7 @@ namespace SlimUI.ModernMenu{
         public GameObject firstMenu;
         [Tooltip("The Menu for when the PLAY button is clicked")]
         public GameObject playMenu;
-        [Tooltip("The Menu for when the EXIT button is clicked")]
-        public GameObject exitMenu;
-        [Tooltip("Optional 4th Menu")]
-        public GameObject extrasMenu;
+        public GameObject creditsMenu;
 
         public enum Theme {custom1, custom2, custom3};
         [Header("THEME SETTINGS")]
@@ -48,12 +45,12 @@ namespace SlimUI.ModernMenu{
         public GameObject CanvSettings;
 		[Tooltip("The UI where you learn how to play")]
 		public GameObject CanvHowToPlay;
-		public GameObject BossPannel;
-		public GameObject HardcoreBossPannel;
+		public GameObject BossPanel;
+		public GameObject HardcoreBossPanel;
 
 
-		// highlights in settings screen
-		[Header("SETTINGS SCREEN")]
+        // highlights in settings screen
+        [Header("SETTINGS SCREEN")]
         [Tooltip("Highlight Image for when GAME Tab is selected in Settings")]
         public GameObject lineGame;
         [Tooltip("Highlight Image for when VIDEO Tab is selected in Settings")]
@@ -89,10 +86,6 @@ namespace SlimUI.ModernMenu{
 		void Start()
 		{
 			CameraObject = transform.GetComponent<Animator>();
-
-			playMenu.SetActive(false);
-			exitMenu.SetActive(false);
-			if(extrasMenu) extrasMenu.SetActive(false);
 			firstMenu.SetActive(true);
 			mainMenu.SetActive(true);
 
@@ -122,35 +115,10 @@ namespace SlimUI.ModernMenu{
 					break;
 			}
 		}
-
-		public void PlayCampaign(){
-			exitMenu.SetActive(false);
-			if(extrasMenu) extrasMenu.SetActive(false);
-			playMenu.SetActive(true);
-		}
-		
-		public void PlayCampaignMobile(){
-			exitMenu.SetActive(false);
-			if(extrasMenu) extrasMenu.SetActive(false);
-			playMenu.SetActive(true);
-			mainMenu.SetActive(false);
-		}
-
-		public void ReturnMenu(){
-			playMenu.SetActive(false);
-			if(extrasMenu) extrasMenu.SetActive(false);
-			exitMenu.SetActive(false);
-			mainMenu.SetActive(true);
-		}
-
 		public void LoadScene(int scene){
 			SceneManager.LoadScene(scene);
 			if (scene != 0)
 				StartCoroutine(LoadAsynchronously(scene));
-		}
-
-		public void  DisablePlayCampaign(){
-			playMenu.SetActive(false);
 		}
 
 		public void Grow(Animator Ani){
@@ -161,7 +129,6 @@ namespace SlimUI.ModernMenu{
         }
 
 		public void Position2(){
-			DisablePlayCampaign();
 			CameraObject.SetFloat("Animate",1);
 		}
 
@@ -171,13 +138,11 @@ namespace SlimUI.ModernMenu{
 
 		public void Position4()
 		{
-			DisablePlayCampaign();
 			CameraObject.SetFloat("Animate", 2);
 		}
 
 		public void Position3()
 		{
-			DisablePlayCampaign();
 			CameraObject.SetFloat("Animate", 3);
 		}
 
@@ -261,32 +226,8 @@ namespace SlimUI.ModernMenu{
             swooshSound.Play();
 		}
 
-		// Are You Sure - Quit Panel Pop Up
-		public void AreYouSure(){
-			exitMenu.SetActive(true);
-			if(extrasMenu) extrasMenu.SetActive(false);
-			DisablePlayCampaign();
-		}
-
 		public void AreYouSureMobile(){
-			exitMenu.SetActive(true);
-			if(extrasMenu) extrasMenu.SetActive(false);
 			mainMenu.SetActive(false);
-			DisablePlayCampaign();
-		}
-
-		public void ExtrasMenu(){
-			playMenu.SetActive(false);
-			if(extrasMenu) extrasMenu.SetActive(true);
-			exitMenu.SetActive(false);
-		}
-
-		public void QuitGame(){
-			#if UNITY_EDITOR
-				UnityEditor.EditorApplication.isPlaying = false;
-			#else
-				Application.Quit();
-			#endif
 		}
 
 		// Load Bar synching animation
@@ -324,17 +265,24 @@ namespace SlimUI.ModernMenu{
 			else
 				CanvHowToPlay.SetActive(true);
 		}
+
+		public void PlayPanel(bool on)
+		{
+			playMenu.SetActive(on);
+			creditsMenu.SetActive(!on);
+        }
+
 		public void SwapBossDifficulty(bool Hardcore)
 		{
             if (!Hardcore)
             {
-				HardcoreBossPannel.SetActive(false);
-				BossPannel.SetActive(true);
+				HardcoreBossPanel.SetActive(false);
+				BossPanel.SetActive(true);
             }
             else
             {
-				HardcoreBossPannel.SetActive(true);
-				BossPannel.SetActive(false);
+				HardcoreBossPanel.SetActive(true);
+				BossPanel.SetActive(false);
 			}
 		}
 	}
