@@ -2897,6 +2897,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 457376288}
     - target: {fileID: 2902752536302000490, guid: af54795c4d4dd354c9d9b24d951dfe8f, type: 3}
+      propertyPath: hardMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2902752536302000490, guid: af54795c4d4dd354c9d9b24d951dfe8f, type: 3}
       propertyPath: dialogueTxt
       value: 
       objectReference: {fileID: 427950153}
@@ -2910,7 +2914,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2902752536302000490, guid: af54795c4d4dd354c9d9b24d951dfe8f, type: 3}
       propertyPath: attacks.Array.data[2].randomChance
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3778198572817592295, guid: af54795c4d4dd354c9d9b24d951dfe8f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2952,6 +2956,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4278729056747220878, guid: af54795c4d4dd354c9d9b24d951dfe8f, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: fc8740da5ec9fd549ad1a432158a3208, type: 2}
     - target: {fileID: 4880498908657979838, guid: af54795c4d4dd354c9d9b24d951dfe8f, type: 3}
       propertyPath: speed
       value: 5
@@ -2972,6 +2980,10 @@ PrefabInstance:
       propertyPath: attackAmount
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6922465816638021755, guid: af54795c4d4dd354c9d9b24d951dfe8f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1566444157, guid: e84229442212d58449146889b9953e17, type: 3}
     - target: {fileID: 7820425745167808062, guid: af54795c4d4dd354c9d9b24d951dfe8f, type: 3}
       propertyPath: maxHP
       value: 300

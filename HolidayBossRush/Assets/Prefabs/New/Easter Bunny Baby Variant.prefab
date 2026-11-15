@@ -26,7 +26,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1186979850332985980, guid: 6767bde897342ba4084437b80c66d405, type: 3}
       propertyPath: m_ExcludeLayers.m_Bits
-      value: 63
+      value: 1599
       objectReference: {fileID: 0}
     - target: {fileID: 1186979850332985980, guid: 6767bde897342ba4084437b80c66d405, type: 3}
       propertyPath: m_IncludeLayers.m_Bits
@@ -225,6 +225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b153b1db0027bf44a5a42f9a058f356, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMusic: 0
 --- !u!82 &5443446351975307878
 AudioSource:
   m_ObjectHideFlags: 0
