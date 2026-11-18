@@ -35,6 +35,7 @@ public class BossDescription : MonoBehaviour
 
         _descriptionText.text =
             bossDescription + "\n" +
+            "\n" +
             _grade + "\n";
             //"Time: " + _time + "\n" +
             //"Health: " + _health + "\n" +

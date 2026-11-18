@@ -47,10 +47,15 @@ namespace SlimUI.ModernMenu{
 		public GameObject CanvHowToPlay;
 		public GameObject BossPanel;
 		public GameObject HardcoreBossPanel;
+        public GameObject CreditsCreatorPanel;
+        public GameObject CreditsMusicSoundPanel;
+		public GameObject CreditsArtPanel;
 
 
-        // highlights in settings screen
-        [Header("SETTINGS SCREEN")]
+
+		// highlights in settings screen
+		[Header("HIGHLIGHTS")]
+
         [Tooltip("Highlight Image for when GAME Tab is selected in Settings")]
         public GameObject lineGame;
         [Tooltip("Highlight Image for when VIDEO Tab is selected in Settings")]
@@ -285,5 +290,26 @@ namespace SlimUI.ModernMenu{
 				BossPanel.SetActive(false);
 			}
 		}
-	}
+
+		public void SwapCreditsPanel(int panel)
+        {
+            CreditsCreatorPanel.SetActive(false);
+            CreditsMusicSoundPanel.SetActive(false);
+            CreditsArtPanel.SetActive(false);
+            switch (panel)
+            {
+                case 0:
+                    CreditsCreatorPanel.SetActive(true);
+                    break;
+                case 1:
+                    CreditsMusicSoundPanel.SetActive(true);
+                    break;
+                case 2:
+                    CreditsArtPanel.SetActive(true);
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
 }

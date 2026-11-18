@@ -59,6 +59,8 @@ public class BossController : MonoBehaviour
 
     public bool DontDoDialouge;
 
+    public bool stunned;
+
     private void Awake()
     {
         _player = FindAnyObjectByType<newPlayerMovement>().gameObject;
@@ -309,6 +311,7 @@ public class BossController : MonoBehaviour
     
     public void AttackCooldownAddTimer(float cooldown)
     {
-        attackCooldownTimer += cooldown;
+        if(!stunned)
+            attackCooldownTimer += cooldown;
     }   
 }

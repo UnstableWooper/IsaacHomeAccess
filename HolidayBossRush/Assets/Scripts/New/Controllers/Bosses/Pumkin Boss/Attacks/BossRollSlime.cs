@@ -20,9 +20,9 @@ public class BossRollSlime : BossAttack
 
     private Rigidbody2D _rigidbody;
     private Vector2 _velocity;
-    public int _hits;
+    private int _hits;
 
-
+    private bool rolling = false;
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
@@ -34,6 +34,7 @@ public class BossRollSlime : BossAttack
 
     public override void StartAttack()
     {
+        rolling = true;
         _hits = 0;
         _originPos = new Vector2(0, 4);
         //gameObject.tag = "SlimeMode";
@@ -60,16 +61,16 @@ public class BossRollSlime : BossAttack
             transform.position = _originPos;
             _velocity = new Vector2(0 , 0);
             _damage.CantDamage(true);
-            //gameObject.tag = "Boss";
+            rolling = false;
         }
-        if (_hits >= rollHP)
+        if (_hits >= rollHP && rolling)
         {
             _hits = 0;
             transform.position = _originPos;
             _velocity = new Vector2(0, 0);
             _pumkinController.attackCooldownTimer += stunLength;
             _damage.CantDamage(true);
-
+            rolling = false;
 
             StartCoroutine(Stunned());
 
@@ -103,7 +104,10 @@ public class BossRollSlime : BossAttack
     private IEnumerator Stunned()
     {
         StunnedIndicator.SetActive(true);
+        _pumkinController.stunned = true;
         yield return new WaitForSeconds(stunLength);
         StunnedIndicator.SetActive(false);
+        _pumkinController.stunned = false;
+        rolling = false;
     }
 }
