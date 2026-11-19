@@ -60,6 +60,7 @@ public class BossController : MonoBehaviour
     public bool DontDoDialouge;
 
     public bool stunned;
+    public bool rolling;
 
     private void Awake()
     {
@@ -311,7 +312,7 @@ public class BossController : MonoBehaviour
     
     public void AttackCooldownAddTimer(float cooldown)
     {
-        if(!stunned)
+        if(!stunned || !rolling)
             attackCooldownTimer += cooldown;
     }   
 }

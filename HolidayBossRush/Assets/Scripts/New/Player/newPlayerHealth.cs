@@ -36,6 +36,7 @@ public class newPlayerHealth : MonoBehaviour
 
     private GameObject _boss;
     private BossHP _bossHp;
+    public float maxTime;
     private float timer;
 
     private bool _pauseMenu;
@@ -159,7 +160,7 @@ public class newPlayerHealth : MonoBehaviour
             totalAccuracy = Mathf.RoundToInt((bossHits / playerShots) * 100);
         loseSprite.SetActive(true);
 
-        float trueHP = _bossHp.trueBossHp;//lower case this
+        float trueHP = _bossHp.trueBossHp;
         float maxHP = _bossHp.maxHP;
         float progress = (trueHP / maxHP) * 100;
         Destroy(gameObject);
@@ -173,7 +174,7 @@ public class newPlayerHealth : MonoBehaviour
         float playerShots = playerGun.Shots;
         if (playerShots != 0)
             totalAccuracy = Mathf.RoundToInt((bossHits / playerShots) * 100);
-        int ScorePercentage = Mathf.RoundToInt((totalAccuracy + (timer < 90 ? 100 : timer < 150 ? 75 : 50) + health * 20) / 3);
+        int ScorePercentage = Mathf.RoundToInt((totalAccuracy + (timer < maxTime ? 100 : timer < maxTime*2 ? 75 : 50) + health * 20) / 3);
 
         char finalGrade = GetLetterScoreFromPercent(ScorePercentage);
 
@@ -181,7 +182,6 @@ public class newPlayerHealth : MonoBehaviour
 
         if(ScorePercentage >= PlayerPrefs.GetInt("Scene" + SceneManager.GetActiveScene().buildIndex.ToString() + "ScorePercentageTracker") || SceneManager.GetActiveScene().buildIndex.ToString() == "")
         {
-            Debug.Log("Score Percentage: " + ScorePercentage + "PlayPref Scor Per: " + PlayerPrefs.GetInt("Scene" + SceneManager.GetActiveScene().buildIndex.ToString() + "ScorePercentageTracker"));
 
             PlayerPrefs.SetInt("Scene" + SceneManager.GetActiveScene().buildIndex.ToString() + "ScorePercentageTracker", ScorePercentage);
             PlayerPrefs.SetString("Scene" + SceneManager.GetActiveScene().buildIndex.ToString() + "GradeTracker", finalGrade.ToString());
@@ -200,6 +200,8 @@ public class newPlayerHealth : MonoBehaviour
 
         winSprite.SetActive(true);
         Destroy(gameObject);
+
+        Time.timeScale = 0;
     }
 
     public char GetLetterScoreFromPercent(int currentPercent)

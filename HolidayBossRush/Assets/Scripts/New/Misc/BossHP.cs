@@ -42,6 +42,10 @@ public class BossHP : MonoBehaviour
                 {                
                     DeathAnimation deathAnimation = GetComponent<DeathAnimation>();
                     deathAnimation.Death();
+                    foreach (Transform child in gameObject.GetComponentInChildren<Transform>())
+                    {
+                        child.gameObject.SetActive(false);
+                    }
                     Invoke(nameof(BossDefeated), 0);
                     _brain.ResetAttemptCounter();
                 }

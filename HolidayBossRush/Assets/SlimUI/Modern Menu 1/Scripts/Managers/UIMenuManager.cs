@@ -122,8 +122,6 @@ namespace SlimUI.ModernMenu{
 		}
 		public void LoadScene(int scene){
 			SceneManager.LoadScene(scene);
-			if (scene != 0)
-				StartCoroutine(LoadAsynchronously(scene));
 		}
 
 		public void Grow(Animator Ani){
@@ -235,32 +233,6 @@ namespace SlimUI.ModernMenu{
 			mainMenu.SetActive(false);
 		}
 
-		// Load Bar synching animation
-		IEnumerator LoadAsynchronously(int sceneName){ // scene name is just the name of the current scene being loaded
-			AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
-			operation.allowSceneActivation = false;
-			mainCanvas.SetActive(false);
-			loadingMenu.SetActive(true);
-
-			while (!operation.isDone){
-				float progress = Mathf.Clamp01(operation.progress / .95f);
-				loadingBar.value = progress;
-
-				if (operation.progress >= 0.9f && waitForInput){
-					loadPromptText.text = "Press " + userPromptKey.ToString().ToUpper() + " to continue";
-					loadingBar.value = 1;
-
-					if (Input.GetKeyDown(userPromptKey)){
-						operation.allowSceneActivation = true;
-					}
-                }else if(operation.progress >= 0.9f && !waitForInput){
-					operation.allowSceneActivation = true;
-				}
-
-				yield return null;
-			}
-		}
-
 		public void CanvasSettings(bool on)
 		{
 			CanvSettings.SetActive(false);
@@ -311,5 +283,18 @@ namespace SlimUI.ModernMenu{
                     break;
             }
         }
+
+        public void ResetScores()
+        {
+			for (int i = 1; i < 7; i++)
+            {
+				PlayerPrefs.SetString("Scene" + i + "GradeTracker", "" );
+				PlayerPrefs.SetString("Scene" + i + "TimeTracker", "");
+				PlayerPrefs.SetString("Scene" + i + "HealthTracker", "");
+				PlayerPrefs.SetString("Scene" + i + "AccuracyTracker", "");
+			}
+
+
+		}
     }
 }

@@ -282,10 +282,12 @@ MonoBehaviour:
   loseText: {fileID: 0}
   winSprite: {fileID: 0}
   winText: {fileID: 0}
+  pauseMenu: {fileID: 0}
   knockbackForce: {x: 10, y: 4}
   iFrames: 1.5
   health: 5
   imortal: 0
+  maxTime: 90
   totalAccuracy: 0
   GradeTier:
   - scorePrecent: 95

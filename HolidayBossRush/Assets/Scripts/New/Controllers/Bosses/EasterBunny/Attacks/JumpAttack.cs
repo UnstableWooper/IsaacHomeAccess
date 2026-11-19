@@ -34,9 +34,10 @@ public class JumpAttack : BossAttack
     public override void StartAttack()
     {
         playSound.PlayAnimationSound(soundEffect);
-        _rigidbody.AddForce(new Vector2(
-            _player.transform.position.x > transform.position.x ? jumpStrength.x * 1 * Random.Range(1.2f, 0.8f) : jumpStrength.x * -1 * Random.Range(1.2f, 0.8f)
-            , jumpStrength.y), ForceMode2D.Impulse);
+        if(gameObject != null)
+            _rigidbody.AddForce(new Vector2(
+                _player.transform.position.x > transform.position.x ? jumpStrength.x * 1 * Random.Range(1.2f, 0.8f) : jumpStrength.x * -1 * Random.Range(1.2f, 0.8f)
+                , jumpStrength.y), ForceMode2D.Impulse);
     }
 
     private void Update()

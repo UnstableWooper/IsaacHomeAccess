@@ -56,6 +56,8 @@ public class BossRollSlime : BossAttack
 
     private void Update()
     {
+        _pumkinController.rolling = rolling;
+
         if (transform.position.x > 21 || transform.position.x < -21)
         {
             transform.position = _originPos;
